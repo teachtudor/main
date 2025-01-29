@@ -90,10 +90,9 @@ export default function Home() {
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'auto', backgroundColor: '#f4f8fb', padding: '20px' }}>
         <div style={{ textAlign: 'center', maxWidth: '1200px', paddingTop: '120px' }}>
           <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#003366', marginBottom: '20px' }}>
-            TEACHING TOOLS 
+            FULLY FUNCTIONAL TOOLS TAB
           </h1>
           <p style={{ fontSize: '1.2rem', color: '#555', marginBottom: '30px' }}>
-            We're hard at work making things even better for you! In the meantime, explore our fully operational **'TOOLS'** tab, where you can find the best educational tools and resources—perfect for enhancing your teaching experience. 💡📚
           </p>
 
           <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#003366', marginBottom: '20px' }}>

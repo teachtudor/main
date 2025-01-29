@@ -73,9 +73,17 @@
 // app/page.js
 // app/page.js
 'use client';
+// import {useEffect, useState } from 'react';
 import Navbar from '../Navbar';
 
 export default function Home() {
+  // const [isAdsVisible, setIsAdsVisible] = useState(false);
+
+  // useEffect(() => {
+  //   setIsAdsVisible(true); // Show ads after component mounts
+  // }, []);
+
+
   return (
     <div>
       <Navbar />

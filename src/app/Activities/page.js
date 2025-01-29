@@ -7,7 +7,7 @@ export default function Activities() {
     <div>
       <Navbar />
       <h1>Welcome to Activities</h1>
-      <p>This is the homepage of the website.</p>
+      <p>Section is under construction.</p>
     </div>
   );
 }

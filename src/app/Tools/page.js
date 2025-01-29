@@ -39,6 +39,13 @@ const blogPosts = [
     image: "/wordtest.jpg", // Ensure this is the correct path
     description: "THE GREAT WORD TEST NO FILE VERSION",
   },
+  {
+    id: 6,
+    title: "Magic Ball",
+    image: "/magicball.jpg", // Ensure this is the correct path
+    description: "CEFR MAGIC BALL WORD GAME NO FILE VERSION",
+  },
+  
 ];
 
 export function BlogDetails() {

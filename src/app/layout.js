@@ -35,6 +35,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Navbar"; // ✅ Correct import
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,6 +56,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+      <Analytics />
         {/* <Navbar /> ✅ Navbar is now properly imported */}
         <main>{children}</main>
       </body>

@@ -21,18 +21,18 @@ const blogPosts = [
     image: "/2level.jpg", // Ensure this is the correct path
     description: "Build a presentation slide from a folder with text input.",
   },
-  {
-    id: 3,
-    title: "Magic Ball",
-    image: "/magicball.jpg", // Ensure this is the correct path
-    description: "CEFR MAGIC BALL WORD GAME",
-  },
-  {
-    id: 4,
-    title: "Precise Word Test CEFR",
-    image: "/wordtest.jpg", // Ensure this is the correct path
-    description: "THE GREAT WORD TEST",
-  },
+  // {
+  //   id: 3,
+  //   title: "Magic Ball",
+  //   image: "/magicball.jpg", // Ensure this is the correct path
+  //   description: "CEFR MAGIC BALL WORD GAME",
+  // },
+  // {
+  //   id: 4,
+  //   title: "Precise Word Test CEFR",
+  //   image: "/wordtest.jpg", // Ensure this is the correct path
+  //   description: "THE GREAT WORD TEST",
+  // },
   {
     id: 5,
     title: "Precise Word Test CEFR NO FILE VERSION",

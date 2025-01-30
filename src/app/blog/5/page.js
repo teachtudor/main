@@ -129,10 +129,15 @@ export default function Home() {
     const SE = Math.sqrt((proportionKnown * (1 - proportionKnown)) / totalTested);
 
     // 95% Confidence Interval
+    // const CI = [
+    //   (proportionKnown - 1.96 * SE) * 100,
+    //   (proportionKnown + 1.96 * SE) * 100,
+    // ];
     const CI = [
-      (proportionKnown - 1.96 * SE) * 100,
-      (proportionKnown + 1.96 * SE) * 100,
+      Math.min((proportionKnown - 1.96 * SE) * 100, 100), // Lower bound
+      Math.min((proportionKnown + 1.96 * SE) * 100, 100)  // Upper bound
     ];
+    
 
     setStandardError(SE);
     setConfidenceInterval(CI);

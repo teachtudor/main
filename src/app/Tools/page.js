@@ -13,13 +13,13 @@ const blogPosts = [
     id: 1,
     title: "Slide Presentation with Text Board 1-LEVEL Single Folder Only.",
     image: "/1level.jpg", // Ensure this is the correct path
-    description: "Build a presentation slide from a folder with text input.",
+    description: "Build a presentation slide from a folder with text input.  UPLOAD ONLY AS MUCH RAM YOU HAVE!",
   },
   {
     id: 2,
     title: "Slide Presentation with Text Board 2-LEVEL Folders",
     image: "/2level.jpg", // Ensure this is the correct path
-    description: "Build a presentation slide from a folder with text input.",
+    description: "Build a presentation slide from a folder with text input. UPLOAD ONLY AS MUCH RAM YOU HAVE!",
   },
   // {
   //   id: 3,

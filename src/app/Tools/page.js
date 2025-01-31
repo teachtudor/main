@@ -66,7 +66,7 @@ export function BlogDetails() {
         <img
           src={blogPost.image}
           alt={blogPost.title}
-          className="w-full h-64 object-cover rounded-lg mb-4"
+          className="w-full h-64 object-contain rounded-lg mb-4"
         />
         <p className="text-base text-gray-700 text-center">{blogPost.description}</p>
       </div>

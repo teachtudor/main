@@ -36,7 +36,7 @@ const blogPosts = [
   {
     id: 5,
     title: "Precise Word Test CEFR NO FILE VERSION",
-    image: "/wordtest.jpg", // Ensure this is the correct path
+    image: "/wordtestcefr.jpg", // Ensure this is the correct path
     description: "THE GREAT WORD TEST NO FILE VERSION",
   },
   {
@@ -66,7 +66,7 @@ export function BlogDetails() {
         <img
           src={blogPost.image}
           alt={blogPost.title}
-          className="w-full h-64 object-contain rounded-lg mb-4"
+          className="w-full h-64 object-cover rounded-lg mb-4"
         />
         <p className="text-base text-gray-700 text-center">{blogPost.description}</p>
       </div>

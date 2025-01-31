@@ -221,9 +221,11 @@ export default function Home() {
               <p>
                 95% Confidence Interval: [{Math.round(confidenceInterval[0])}%,{" "}
                 {Math.round(confidenceInterval[1])}%]
+                <br/>MORE WORDS MEAN MORE PRECISION!!!! 
               </p>
             )}
             {standardError && <p>Standard Error: {standardError.toFixed(3)}</p>}
+            
           </div>
         )}
 

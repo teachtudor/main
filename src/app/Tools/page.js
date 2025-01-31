@@ -92,11 +92,11 @@ export default function BlogPage() {
               {/* Blog post card */}
               <div className="flex flex-col h-full text-center">
                 {/* Image section - Thumbnail size */}
-                <div className="w-full h-32 bg-gray-200">
+                <div className="w-full h-full bg-gray-200">
                   <img
                     src={post.image}
                     alt={post.title}
-                    className="object-cover w-full h-full"
+                    className="object-contain w-full h-full"
                   />
                 </div>
                 {/* Text content section */}

@@ -292,7 +292,7 @@ export default function Home() {
           }
           .fade-in {
             animation: fadeIn 2s;
-            font-size: 100px;
+            font-size: 70px;
             font-weight: bold;
             color: #333;
           }

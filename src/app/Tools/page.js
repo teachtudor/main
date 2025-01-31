@@ -36,7 +36,7 @@ const blogPosts = [
   {
     id: 5,
     title: "Precise Word Test CEFR NO FILE VERSION",
-    image: "/wordtestcefr.jpg", // Ensure this is the correct path
+    image: "/wordtestcefr1.jpg", // Ensure this is the correct path
     description: "THE GREAT WORD TEST NO FILE VERSION",
   },
   {

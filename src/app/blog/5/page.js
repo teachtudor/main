@@ -18,14 +18,14 @@
 //   const [isReady, setIsReady] = useState(false);
 //   const [isTesting, setIsTesting] = useState(false); // Track if testing is in progress
 
-//   // Auto-start testing when levels are selected
-//   useEffect(() => {
-//     if (selectedLevels.length > 0) {
-//       setIsTesting(true);
-//     }
-//     // Parse the CSV file directly after page loads
-//     parseCSVFile();
-//   }, [selectedLevels]);
+  // // Auto-start testing when levels are selected
+  // useEffect(() => {
+  //   if (selectedLevels.length > 0) {
+  //     setIsTesting(true);
+  //   }
+  //   // Parse the CSV file directly after page loads
+  //   parseCSVFile();
+  // }, [selectedLevels]);
 
 //   // Parse CSV using PapaParse
 //   const parseCSVFile = () => {
@@ -367,7 +367,7 @@
 //   );
 // }
 
-//CODE MINIMUM AMOUNT OF WORDS
+//CODE 2 MINIMUM AMOUNT OF WORDS
 
 "use client";
 
@@ -388,17 +388,27 @@ export default function Home() {
 
   const [isReady, setIsReady] = useState(false);
   const [isTesting, setIsTesting] = useState(false); // Track if testing is in progress
+  const [minDisplayAmount, setMinDisplayAmount] = useState(null);
 
   // Auto-start testing when levels are selected
   useEffect(() => {
     if (selectedLevels.length > 0) {
       setIsTesting(true);
     }
-    // Fetch and parse the CSV file only on the client
-    if (typeof window !== 'undefined') {
-      parseCSVFile();
-    }
+    // Parse the CSV file directly after page loads
+    parseCSVFile();
   }, [selectedLevels]);
+
+  // Auto-start testing when levels are selected
+  // useEffect(() => {
+  //   if (selectedLevels.length > 0) {
+  //     setIsTesting(true);
+  //   }
+  //   // Fetch and parse the CSV file only on the client
+  //   if (typeof window !== 'undefined') {
+  //     parseCSVFile();
+  //   }
+  // }, [selectedLevels]);
 
   // Parse CSV using PapaParse
   const parseCSVFile = () => {
@@ -497,6 +507,7 @@ export default function Home() {
     return n;
   };
 
+
   // Calculate the results and perform statistical analysis
   const calculateResults = () => {
     const totalKnown = Object.values(knownWords).reduce((a, b) => a + b, 0);
@@ -505,6 +516,7 @@ export default function Home() {
 
     //Calculate the minimum sample size based on total words and desired margin of error (e.g., 5%)
     const minSampleSize = calculateSampleSize(0.5, 0.05, totalWords);
+    setMinDisplayAmount(minSampleSize);
 
     if (totalTested < minSampleSize) {
       setConfidenceMessage("You need more words for testing.");
@@ -638,6 +650,7 @@ export default function Home() {
 
           <div className="total-count">
             <p>Total Words: {getTotalWords()}</p>
+            <p>Total Needed: {minDisplayAmount !== null ? minDisplayAmount : "Calculating..."}</p>
           </div>
         </div>
 
@@ -753,3 +766,5 @@ export default function Home() {
     </div>
   );
 }
+
+

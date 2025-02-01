@@ -576,8 +576,8 @@ const FlipCardGame = () => {
                 }
                 .flip-card {
                     background-color: transparent;
-                    width: 500px;
-                    height: 700px;
+                    width: 150px;
+                    height: 350px;
                     perspective: 1000px;
                     margin: 20px auto;
                     cursor: pointer;

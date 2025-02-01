@@ -321,11 +321,13 @@ const FlipCardGame = () => {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                font-size: 8vw; /* Responsive font size */
+                font-size: 5vw; /* Responsive font size based on viewport width */
                 border: 1px solid #ccc;
                 border-radius: 8px;
                 background-color: white;
                 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+                padding: 10px;
+                word-wrap: break-word; /* Ensure long words break */
             }
 
             .flip-card-back {
@@ -334,9 +336,12 @@ const FlipCardGame = () => {
                 font-size: 6vw; /* Adjust font size */
             }
 
-            .flip-card-front p,
-            .flip-card-back p {
-                font-size: 5vw; /* Responsive font size */
+            .flip-card-front p, .flip-card-back p {
+                font-size: 5vw; /* Responsive font size based on viewport width */
+                padding: 10px; /* Optional padding to ensure the text doesn't touch the edges */
+                word-wrap: break-word; /* Allow the text to break into new lines if necessary */
+                line-height: 1.2; /* Control line height to avoid overlap */
+                max-font-size: 30px;
             }
 
             button {
@@ -354,6 +359,7 @@ const FlipCardGame = () => {
                 background-color: #ff4b2b;
             }
 
+            /* Tablet Screens */
             @media (max-width: 1024px) {
                 h1 {
                     font-size: 32px; /* Adjust for tablets and medium screens */
@@ -363,10 +369,11 @@ const FlipCardGame = () => {
                     height: 60vh;
                 }
                 .flip-card-front, .flip-card-back {
-                    font-size: 10vw; /* Larger font for smaller screens */
+                    font-size: 6vw; /* Adjusted size for better fit */
                 }
             }
 
+            /* Small Screens (Tablets, Small Laptops) */
             @media (max-width: 768px) {
                 h1 {
                     font-size: 28px; /* Smaller font for tablets */
@@ -376,10 +383,11 @@ const FlipCardGame = () => {
                     height: 50vh;
                 }
                 .flip-card-front, .flip-card-back {
-                    font-size: 12vw; /* Bigger font for smaller screens */
+                    font-size: 8vw; /* Adjusted for smaller screens */
                 }
             }
 
+            /* Smallest Screens (Phones) */
             @media (max-width: 480px) {
                 h1 {
                     font-size: 24px; /* Smallest font for phones */
@@ -389,7 +397,7 @@ const FlipCardGame = () => {
                     height: 45vh;
                 }
                 .flip-card-front, .flip-card-back {
-                    font-size: 15vw; /* Make text size even bigger for readability */
+                    font-size: 10vw; /* Larger text size for readability */
                 }
                 button {
                     font-size: 20px; /* Smaller button font */

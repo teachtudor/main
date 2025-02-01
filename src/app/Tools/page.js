@@ -45,7 +45,12 @@ const blogPosts = [
     image: "/magicball.jpg", // Ensure this is the correct path
     description: "CEFR MAGIC BALL WORD GAME NO FILE VERSION",
   },
-  
+  {
+    id: 7,
+    title: "JLPT CARD GAME",
+    image: "/jlpt1.jpg", // Ensure this is the correct path
+    description: "Japanese Flipcard Game",
+  },
 ];
 
 export function BlogDetails() {

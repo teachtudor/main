@@ -397,7 +397,7 @@ const FlipCardGame = () => {
                     height: 45vh;
                 }
                 .flip-card-front, .flip-card-back {
-                    font-size: 10vw; /* Larger text size for readability */
+                    font-size: 12vw; /* Larger text size for readability */
                 }
                 button {
                     font-size: 20px; /* Smaller button font */

@@ -55,7 +55,7 @@ const blogPosts = [
     id: 8,
     title: "82171 Nouns in English FlashCard",
     image: "/80000.jpg", // Ensure this is the correct path
-    description: "English Noun Flicard Game",
+    description: "English Noun Flashcard Game",
   },
 ];
 

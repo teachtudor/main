@@ -328,6 +328,7 @@ const FlipCardGame = () => {
                 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
                 padding: 10px;
                 word-wrap: break-word; /* Ensure long words break */
+                font-size: clamp(1.2rem, 5vw, 2.5rem); /* Minimum 1rem, scales with viewport, max 3rem */
             }
 
             .flip-card-back {
@@ -337,11 +338,10 @@ const FlipCardGame = () => {
             }
 
             .flip-card-front p, .flip-card-back p {
-                font-size: 5vw; /* Responsive font size based on viewport width */
+                font-size: inherit; /* Responsive font size based on viewport width */
                 padding: 10px; /* Optional padding to ensure the text doesn't touch the edges */
                 word-wrap: break-word; /* Allow the text to break into new lines if necessary */
                 line-height: 1.2; /* Control line height to avoid overlap */
-                max-font-size: 30px;
             }
 
             button {
@@ -369,7 +369,7 @@ const FlipCardGame = () => {
                     height: 60vh;
                 }
                 .flip-card-front, .flip-card-back {
-                    font-size: 6vw; /* Adjusted size for better fit */
+                    font-size: clamp(1.2rem, 5vw, 2rem); /* Adjusted size for better fit */
                 }
             }
 
@@ -397,11 +397,18 @@ const FlipCardGame = () => {
                     height: 45vh;
                 }
                 .flip-card-front, .flip-card-back {
-                    font-size: 12vw; /* Larger text size for readability */
+                    font-size: clamp(1rem, 8vw, 1.5rem); /* Larger text size for readability */
                 }
                 button {
                     font-size: 20px; /* Smaller button font */
                     padding: 12px 24px;
+                }
+            }
+
+            /* Adjustments for larger screens (laptops, desktops) */
+           @media (min-width: 1025px) {
+                .flip-card-front, .flip-card-back {
+                    font-size: clamp(1.2rem, 2vw, 3rem); /* Font size scales more appropriately for larger screens */
                 }
             }
         `}</style>

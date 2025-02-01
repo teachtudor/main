@@ -20,7 +20,7 @@ const FlipCardGame = () => {
   useEffect(() => {
     const loadCSV = async () => {
       try {
-        const response = await fetch('/wordnetnouns.csv');
+        const response = await fetch('/WordnetNouns.csv');
         if (!response.ok) throw new Error('Failed to fetch CSV file');
         
         const text = await response.text();

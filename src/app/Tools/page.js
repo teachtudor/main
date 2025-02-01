@@ -53,9 +53,9 @@ const blogPosts = [
   },
   {
     id: 8,
-    title: "82171 Nouns in English FlashCard",
+    title: "82171 Nouns in English FlashCard Game",
     image: "/80000.jpg", // Ensure this is the correct path
-    description: "English Noun Flashcard Game",
+    description: "Over 80000 English Nouns Flashcard Game",
   },
 ];
 

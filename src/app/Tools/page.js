@@ -51,6 +51,12 @@ const blogPosts = [
     image: "/jlpt1.jpg", // Ensure this is the correct path
     description: "Japanese Flipcard Game",
   },
+  {
+    id: 8,
+    title: "82171 Nouns in English FlashCard",
+    image: "/80000.jpg", // Ensure this is the correct path
+    description: "English Noun Flicard Game",
+  },
 ];
 
 export function BlogDetails() {

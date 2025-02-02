@@ -595,7 +595,7 @@ export default function ProductGridWithNavbar() {
     <div>
       <Navbar />
       {/* <h1 style={{fontSize: '40px'}}>FULLY FUNCTIONAL TOOLS TAB!</h1> */}
-      <h1 style={{ fontSize: '40px', textAlign: 'center', margin: '0', display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <h1 style={{ fontSize: '40px', textAlign: 'center', margin: '0', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         FULLY FUNCTIONAL TOOLS TAB!
       </h1>
       {/* Product Grid */}

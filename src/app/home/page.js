@@ -593,6 +593,7 @@ const products = [
 export default function ProductGridWithNavbar() {
   return (
     <div>
+      <h1 style={{fontSize: '40px'}}>FULLY FUNCTIONAL TOOLS TAB!</h1>
       <Navbar />
       {/* Product Grid */}
       {/* <div className="relative flex flex-wrap justify-start gap-6 p-4"> */}

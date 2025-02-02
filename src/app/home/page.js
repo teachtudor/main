@@ -629,6 +629,55 @@ export default function ProductGridWithNavbar() {
           </div>
         ))}
       </div>
+      <style jsx>{`
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        .product-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 20px;
+          margin-top: 50px;
+        }
+
+        .product-card {
+          text-align: center;
+          padding: 10px;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .product-card:hover {
+          transform: scale(1.05);
+        }
+
+        .product-card img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 8px;
+        }
+
+        .product-card p {
+          font-size: 16px;
+          margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+          .product-grid {
+            grid-template-columns: repeat(2, 1fr); /* Two columns on mobile */
+          }
+        }
+
+        @media (max-width: 480px) {
+          .product-grid {
+            grid-template-columns: 1fr; /* One column on small screens */
+          }
+        }
+      `}</style>
     </div>
   );
 }

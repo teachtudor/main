@@ -24,11 +24,20 @@ export default function Home() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '20px', marginBottom: '40px' }}>
             
-          <div style={{ backgroundColor: '#fff', padding: '20px', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+            <div style={{ backgroundColor: '#fff', padding: '20px', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
               <img src="https://www.internationalteflacademy.com/hubfs/logo/logo_200x70.png" alt="Product 1" style={{ width: '100%', borderRadius: '8px' }} />
               <h1 style={{ marginTop: '15px', fontSize: '1.2rem', color: '#003366' }}></h1>
               <p style={{ color: '#777' }}></p>
               <a href="https://www.internationalteflacademy.com/" target="_blank" rel="noopener noreferrer" style={{ color: '#ff6600', fontSize: '1rem', textDecoration: 'underline' }}>
+                ENROLL NOW!
+              </a>
+            </div>
+
+            <div style={{ backgroundColor: '#fff', padding: '20px', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+              <img src="https://www.google.com/imgres?q=preply&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fd%2Fd5%2FPreply-logo.png&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPreply&docid=x2jueYEydZzcvM&tbnid=jaIWeYOnNlgvJM&vet=12ahUKEwjg95qu16SLAxXbLrkGHTlGOuoQM3oECGoQAA..i&w=941&h=392&hcb=2&ved=2ahUKEwjg95qu16SLAxXbLrkGHTlGOuoQM3oECGoQAA" alt="Product 1" style={{ width: '100%', borderRadius: '8px' }} />
+              <h1 style={{ marginTop: '15px', fontSize: '1.2rem', color: '#003366' }}></h1>
+              <p style={{ color: '#777' }}></p>
+              <a href="https://www.preply.com" target="_blank" rel="noopener noreferrer" style={{ color: '#ff6600', fontSize: '1rem', textDecoration: 'underline' }}>
                 ENROLL NOW!
               </a>
             </div>

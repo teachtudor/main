@@ -639,7 +639,7 @@ export default function ProductGridWithNavbar() {
           div {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+           
           }
 
           div > div {

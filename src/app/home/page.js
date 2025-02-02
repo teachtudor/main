@@ -636,7 +636,7 @@ export default function ProductGridWithNavbar() {
        
         @media (max-width: 480px) {
           div {
-            flex: 1 1 100%; /* 2 images per row */
+            flex: 1 1 35%; /* 2 images per row */
           }
 
           

@@ -643,7 +643,7 @@ export default function ProductGridWithNavbar() {
           }
 
           div > div {
-            flex: 1 1 25%; /* 2 images per row */
+            flex: 0.25 0.25 25%; /* 2 images per row */
             margin: 8px;
           }
 

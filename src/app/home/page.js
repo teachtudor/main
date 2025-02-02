@@ -599,7 +599,7 @@ export default function ProductGridWithNavbar() {
          textAlign: 'center', 
          margin: '0', 
          display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        FULLY FUNCTIONAL TOOLS TAB!
+        {/* FULLY FUNCTIONAL TOOLS TAB! */}
       </h1>
       {/* Product Grid */}
       {/* <div className="relative flex flex-wrap justify-start gap-6 p-4"> */}

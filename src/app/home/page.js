@@ -640,11 +640,9 @@ export default function ProductGridWithNavbar() {
             display: flex;
             flex-wrap: wrap;
             flex: 1 1 45%; /* 2 images per row */
-            margin: 0px;
-            
+            justify-content: center;
           }
         }
-
       `}</style>
     </div>
   );

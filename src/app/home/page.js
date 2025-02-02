@@ -633,20 +633,10 @@ export default function ProductGridWithNavbar() {
         ))}
       </div>
       <style jsx>{`
-        @media (max-width: 768px) {
-          div {
-            flex: 1 1 100%;
-          }
-          
-          /* Adjusting image size for smaller screens (tablets) */
-          div img {
-            width: 120px;
-          }
-        }
-
+       
         @media (max-width: 480px) {
           div {
-            flex: 1 1 45%; /* 2 images per row */
+            flex: 1 1 100%; /* 2 images per row */
           }
 
           

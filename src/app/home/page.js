@@ -650,10 +650,7 @@ export default function ProductGridWithNavbar() {
             max-width: 45%;
           }
 
-          /* Adjusting image size for smaller screens (phones) */
-          div img {
-            width: 100px;
-          }
+          
         }
       `}</style>
     </div>

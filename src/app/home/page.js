@@ -595,7 +595,10 @@ export default function ProductGridWithNavbar() {
     <div>
       <Navbar />
       {/* <h1 style={{fontSize: '40px'}}>FULLY FUNCTIONAL TOOLS TAB!</h1> */}
-      <h1 style={{ fontSize: '40px', textAlign: 'center', margin: '0', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <h1 style={{ fontSize: '40px',
+         textAlign: 'center', 
+         margin: '0', 
+         display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         FULLY FUNCTIONAL TOOLS TAB!
       </h1>
       {/* Product Grid */}
@@ -637,18 +640,19 @@ export default function ProductGridWithNavbar() {
           
           /* Adjusting image size for smaller screens (tablets) */
           div img {
-            width: 180px;
+            width: 120px;
           }
         }
 
         @media (max-width: 480px) {
           div {
             flex: 1 1 45%; /* 2 images per row */
+            max-width: 45%;
           }
 
           /* Adjusting image size for smaller screens (phones) */
           div img {
-            width: 140px;
+            width: 100px;
           }
         }
       `}</style>

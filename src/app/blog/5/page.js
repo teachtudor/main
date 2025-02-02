@@ -363,6 +363,35 @@ export default function Home() {
               opacity: 1;
             }
           }
+
+          /* Responsive styling */
+          @media (max-width: 768px) {
+            .fade-in {
+              font-size: 5vw;
+            }
+            .container {
+              margin: 10px;
+            }
+            .word-counter {
+              flex-direction: column;
+              align-items: center;
+            }
+            .word-counts {
+              flex-direction: column;
+            }
+            .known-column, .unknown-column {
+              width: 100%;
+            }
+          }
+          
+          @media (max-width: 480px) {
+            .fade-in {
+              font-size: 8vw;
+            }
+            .go-button, .ready-button {
+              font-size: 14px;
+            }
+          }
         `}</style>
       </div>
     </div>

@@ -674,7 +674,7 @@ export default function ProductGridWithNavbar() {
 
         @media (max-width: 480px) {
           .product-grid {
-            grid-template-columns: 1fr; /* One column on small screens */
+            grid-template-columns: (2, 1fr); /* One column on small screens */
           }
         }
       `}</style>

@@ -634,13 +634,19 @@ export default function ProductGridWithNavbar() {
       </div>
       <style jsx>{`
        
+        /* For phone-sized screens (max-width 480px), adjust the layout */
         @media (max-width: 480px) {
           div {
-            flex: 1 1 35%; /* 2 images per row */
+            display: flex;
+            flex-wrap: wrap;
           }
 
-          
+          div > div {
+            flex: 1 1 45%; /* 2 images per row */
+            margin: 8px;
+          }
         }
+
       `}</style>
     </div>
   );

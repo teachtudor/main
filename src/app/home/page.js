@@ -19,7 +19,7 @@ export default function Home() {
           </p>
 
           <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#003366', marginBottom: '20px' }}>
-            Don't Miss Out on These Must-Have Teacher Tools!
+            Don't Miss Out on These Must-Have Tools!
           </h2>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '20px', marginBottom: '40px' }}>

@@ -411,7 +411,7 @@ const products = [
     id: 2,
     name: 'PREPLY.COM',
     imageUrl: 'https://preply.com/wp-content/uploads/2023/09/Preply_new_slogan_en-820x470.png',
-    productUrl: 'https://wwwpreply.com'
+    productUrl: 'https://www.preply.com'
   },
   {
     id: 3,

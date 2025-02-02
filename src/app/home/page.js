@@ -648,7 +648,7 @@ export default function ProductGridWithNavbar() {
           }
 
           div > div img {
-            width: 100%;
+            width: auto;
             height: auto;
           }
         }

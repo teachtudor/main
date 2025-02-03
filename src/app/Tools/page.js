@@ -59,9 +59,9 @@ const blogPosts = [
   // },
   {
     id: 9,
-    title: "GRE 1500 TEST",
+    title: "GRE 1500 FLIPCARD GAME",
     image: "/GRE1.jpg", // Ensure this is the correct path
-    description: "TEST AND PRACTICE FOR THE GRE TEST",
+    description: "GRE FLIP CARD GAME FOR PRACTICE",
   },
 ];
 

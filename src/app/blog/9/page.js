@@ -101,10 +101,13 @@ const FlipCardGame = () => {
       <div className="flip-card" onClick={handleCardClick}>
         <div className={`flip-card-inner ${isFlipped ? 'flipped' : ''}`}>
           <div className="flip-card-front">
-            <p>{filteredCards[currentIndex]?.WORD || 'No Words'}</p>
+            {/* <p>{filteredCards[currentIndex]?.WORD || 'No Words'}</p>
+             */}
+            <p>{selectedLetters.length === 0 ? '' : filteredCards[currentIndex]?.WORD || 'No Words'}</p>
           </div>
           <div className="flip-card-back">
-            <p>{filteredCards[currentIndex]?.WORDDEF || 'No Definition'}</p>
+            {/* <p>{filteredCards[currentIndex]?.WORDDEF || 'No Definition'}</p> */}
+            <p>{selectedLetters.length === 0 ? '' : filteredCards[currentIndex]?.WORDDEF || 'No Definition'}</p>
           </div>
         </div>
       </div>

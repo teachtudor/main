@@ -66,6 +66,17 @@ const FlipCardGame = () => {
     setIsFlipped((prev) => !prev);
   };
 
+  const handleSelectAll = (e) => {
+    if (e.target.checked) {
+      // If "All" is checked, select all letters
+      setSelectedLetters("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(''));
+    } else {
+      // If "All" is unchecked, deselect all letters
+      setSelectedLetters([]);
+    }
+  };
+  
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'Enter' || event.key === ' ') {
@@ -97,7 +108,16 @@ const FlipCardGame = () => {
             /> {letter}
           </label>
         ))}
+
+        <label>
+            <input 
+            type="checkbox"
+            checked={selectedLetters.length === 26} // Check if all letters are selected
+            onChange={handleSelectAll} // Handle "Select All" checkbox click
+            /> All
+        </label>
       </div>
+
       <div className="flip-card" onClick={handleCardClick}>
         <div className={`flip-card-inner ${isFlipped ? 'flipped' : ''}`}>
           <div className="flip-card-front">

@@ -57,12 +57,12 @@ const blogPosts = [
   //   image: "/80000.jpg", // Ensure this is the correct path
   //   description: "Over 80000 English Nouns Flashcard Game",
   // },
-  // {
-  //   id: 9,
-  //   title: "GRE 1500 TEST",
-  //   image: "/GRE1.jpg", // Ensure this is the correct path
-  //   description: "TEST AND PRACTICE FOR THE GRE TEST",
-  // },
+  {
+    id: 9,
+    title: "GRE 1500 TEST",
+    image: "/GRE1.jpg", // Ensure this is the correct path
+    description: "TEST AND PRACTICE FOR THE GRE TEST",
+  },
 ];
 
 export function BlogDetails() {

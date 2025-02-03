@@ -16,7 +16,7 @@ const FlipCardGame = () => {
   useEffect(() => {
     const loadCSV = async () => {
       try {
-        const response = await fetch('/final1500.csv');
+        const response = await fetch('/FINAL1500.csv');
         if (!response.ok) throw new Error('Failed to fetch CSV file');
         
         const text = await response.text();

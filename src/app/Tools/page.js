@@ -57,12 +57,12 @@ const blogPosts = [
   //   image: "/80000.jpg", // Ensure this is the correct path
   //   description: "Over 80000 English Nouns Flashcard Game",
   // },
-  {
-    id: 9,
-    title: "GRE 1500 FLIPCARD GAME",
-    image: "/GRE1.jpg", // Ensure this is the correct path
-    description: "GRE FLIP CARD GAME FOR PRACTICE",
-  },
+  // {
+  //   id: 9,
+  //   title: "GRE 1500 FLIPCARD GAME",
+  //   image: "/GRE1.jpg", // Ensure this is the correct path
+  //   description: "GRE FLIP CARD GAME FOR PRACTICE",
+  // },
   // {
   //   id: 10,
   //   title: "GRE 6021 FLIPCARD GAME",

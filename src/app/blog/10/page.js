@@ -261,12 +261,13 @@ const FlipCardGame = () => {
         .flip-card {
             width: 250px;
             height: 350px;
+            perspective: 1000px;
         }
 
         .flip-card-front,
-        .flip-card-back {
-            font-size: 20px; /* Smaller font for tablets */
-        }
+          .flip-card-back {
+              font-size: 20px; /* Smaller font for tablets */
+          }
         }
 
         /* Phones (portrait mode, up to 480px wide) */
@@ -277,9 +278,10 @@ const FlipCardGame = () => {
         }
 
         .flip-card-front,
-        .flip-card-back {
-            font-size: 16px; /* Smaller font for phones */
-        }
+          .flip-card-back {
+              font-size: 20px; /* Smaller font for phones */
+              padding: 20px;
+          }
         }
 
       `}</style>

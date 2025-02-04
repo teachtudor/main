@@ -257,28 +257,35 @@ const FlipCardGame = () => {
 
         /* Tablets (portrait mode, up to 768px wide) */
         @media (max-width: 768px) {
-        .flip-card {
-            width: 250px;
-            height: 350px;
-        }
+          .flip-card {
+              width: 250px;
+              height: 350px;
+              perspective: 1200px;
+          }
 
-        .flip-card-front,
-        .flip-card-back {
-            font-size: 20px; /* Smaller font for tablets */
-        }
+          .flip-card-front,
+          .flip-card-back {
+              font-size: 20px; /* Smaller font for tablets */
+          }
         }
 
         /* Phones (portrait mode, up to 480px wide) */
         @media (max-width: 480px) {
-        .flip-card {
-            width: 200px;
-            height: 300px;
-        }
+          .flip-card {
+              width: 200px;
+              height: 300px;
+              perspective: 1000px;
+          }
 
-        .flip-card-front,
-        .flip-card-back {
-            font-size: 16px; /* Smaller font for phones */
-        }
+          .flip-card-inner{
+            transition: transform 0.5s ease-in-out;
+          }
+
+          .flip-card-front,
+          .flip-card-back {
+              font-size: 16px; /* Smaller font for phones */
+              padding:15px;
+          }
         }
 
       `}</style>

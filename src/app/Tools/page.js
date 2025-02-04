@@ -63,12 +63,12 @@ const blogPosts = [
     image: "/GRE1.jpg", // Ensure this is the correct path
     description: "GRE FLIP CARD GAME FOR PRACTICE",
   },
-  {
-    id: 10,
-    title: "GRE 6021 FLIPCARD GAME",
-    image: "/GRE1.jpg", // Ensure this is the correct path
-    description: "GRE FLIP CARD GAME FOR PRACTICE 6021 words",
-  },
+  // {
+  //   id: 10,
+  //   title: "GRE 6021 FLIPCARD GAME",
+  //   image: "/GRE1.jpg", // Ensure this is the correct path
+  //   description: "GRE FLIP CARD GAME FOR PRACTICE 6021 words",
+  // },
 ];
 
 export function BlogDetails() {

@@ -283,8 +283,8 @@ const FlipCardGame = () => {
 
           .flip-card-front,
           .flip-card-back {
-              font-size: 16px; /* Smaller font for phones */
-              padding:15px;
+              font-size: 20px; /* Smaller font for phones */
+              padding:20px;
           }
         }
 

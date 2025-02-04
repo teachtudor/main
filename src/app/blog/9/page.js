@@ -143,30 +143,28 @@ const FlipCardGame = () => {
             margin-bottom: 20px;
         }
         .flip-card {
-            width: 300px;
-            height: 400px;
-            perspective: 1000px;
+            width: 400px;
+            height: 500px;
+            perspective: 1500px;
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 0 auto;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            transition: box-shadow 0.3s ease-in-out;
+            
         }
 
-        .flip-card:hover{
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
+        
         .flip-card-inner {
-        width: 100%;
-        height: 100%;
-        transition: transform 0.6s; /* Add transition for flip effect */
-        transform-style: preserve-3d; /* Enable 3D transformations */
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease-in-out; /* Add transition for flip effect */
+            transform-style: preserve-3d; /* Enable 3D transformations */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Apply shadow only to the entire card */
+            border-radius: 10px;
         }
 
         .flip-card-inner.flipped {
-        transform: rotateY(180deg); /* Flip the card */
+            transform: rotateY(180deg); /* Flip the card */
         }
 
         .flip-card-front,
@@ -178,18 +176,18 @@ const FlipCardGame = () => {
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 24px;
+            font-size: 28px;
+            padding: 30px;
+            border-radius: 10px;
         }
 
         .flip-card-front {
-            background-color: white;
-            padding: 20px;
+             transform: translateZ(1px); /* Slight depth effect */
         }
 
         .flip-card-back {
-            background-color: white;
-            transform: rotateY(180deg); /* Keep back face rotated 180 degrees */
-            padding: 20px;
+          background-color: #fafafa;
+          transform: rotateY(180deg) translateZ(1px);
         }
 
         .checkbox-container {

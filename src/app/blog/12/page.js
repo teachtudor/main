@@ -739,6 +739,127 @@ export default function Kitchen() {
                 <button onClick={() => toggleAction('lightsOn')} className="p-2 bg-purple-600 text-white rounded-lg">{actions.lightsOn ? 'Turn Off Lights' : 'Turn On Lights'}</button>
             </div>
         </div>
+        <style jsx>{`
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .top-12 { top: 12px; }
+        .top-28 { top: 28px; }
+        .left-10 { left: 10px; }
+        .left-80 { left: 80px; }
+        .left-[calc(96px+350px)] { left: calc(96px + 350px); }
+        .left-[calc(96px+550px)] { left: calc(96px + 550px); }
+        .right-[calc(880px)] { right: calc(880px); }
+        .bottom-[calc(35px)] { bottom: 35px; }
+        .bottom-0 { bottom: 0; }
+        .w-40 { width: 10rem; }
+        .w-20 { width: 5rem; }
+        .w-24 { width: 6rem; }
+        .w-full { width: 100%; }
+        .h-auto { height: auto; }
+        .cursor-pointer { cursor: pointer; }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .grid {
+            grid-template-columns: repeat(2, 1fr); /* Tablet: 2 columns */
+            }
+
+            .top-12 {
+            top: 10px;
+            }
+
+            .top-28 {
+            top: 20px;
+            }
+
+            .left-80 {
+            left: 40px;
+            }
+
+            .left-[calc(96px+350px)] {
+            left: 40px;
+            }
+
+            .w-40 {
+            width: 8rem;
+            }
+
+            .w-24 {
+            width: 5rem;
+            }
+
+            button {
+            font-size: 1rem; /* Slightly smaller buttons */
+            padding: 0.5rem 1rem; /* Adjust button padding */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+            grid-template-columns: 1fr; /* Mobile: 1 column */
+            }
+
+            .top-12 {
+            top: 8px;
+            }
+
+            .top-28 {
+            top: 15px;
+            }
+
+            .left-80 {
+            left: 20px;
+            }
+
+            .left-[calc(96px+350px)] {
+            left: 20px;
+            }
+
+            .w-40 {
+            width: 6rem;
+            }
+
+            .w-24 {
+            width: 4rem;
+            }
+
+            button {
+            font-size: 0.875rem; /* Smaller buttons */
+            padding: 0.5rem 0.75rem; /* Adjust button padding */
+            }
+        }
+        `}</style>
+        
     </div>
   );
 }

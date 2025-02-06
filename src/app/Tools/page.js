@@ -69,12 +69,12 @@ const blogPosts = [
   //   image: "/GRE1.jpg", // Ensure this is the correct path
   //   description: "GRE FLIP CARD GAME FOR PRACTICE 6021 words",
   // },
-  {
-    id:11,
-    title: "TPR Lesson Plans",
-    image: "/tpr.jpg", // Ensure this is the correct path
-    description: "Interactive TPR LESSON PLANS!",
-  },
+  // {
+  //   id:11,
+  //   title: "TPR Lesson Plans",
+  //   image: "/tpr.jpg", // Ensure this is the correct path
+  //   description: "Interactive TPR LESSON PLANS!",
+  // },
 ];
 
 export function BlogDetails() {

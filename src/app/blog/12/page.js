@@ -860,17 +860,8 @@ export default function Kitchen() {
         }
          /* Phone (480px and below) */
         @media (max-width: 480px) {
-            .grid {
-            grid-template-columns: 1fr; /* Phone: 1 column */
-            }
-
-            button {
-            font-size: 0.75rem; /* Even smaller buttons */
-            padding: 0.5rem 0.5rem; /* Smaller button padding */
-            }
-
-            .kitchen-item {
-            width: 20%; /* Smaller images for phone */
+            .hide-on-phone {
+                display: none;
             }
         }
     `}</style>

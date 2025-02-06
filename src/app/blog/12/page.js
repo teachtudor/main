@@ -677,7 +677,7 @@ export default function Kitchen() {
                 <motion.img 
                 src={actions.ovenDoorOpen ? '/oven-door-open.png' : '/oven-door-closed.png'} 
                 alt="Oven Door"
-                className="absolute top-28 left-[calc(96px+550px)] w-40 h-auto kitchen-item"
+                className="absolute top-24 left-[calc(96px+570px)] w-40 h-auto kitchen-item"
                 animate={{ rotate: actions.ovenDoorOpen ? 20 : 0 }}
                 onClick={() => toggleAction('ovenDoorOpen')}
                 />
@@ -686,7 +686,7 @@ export default function Kitchen() {
                 <motion.img 
                 src={actions.microwaveOn ? '/microwave-on.png' : '/microwave-off.png'} 
                 alt="Microwave"
-                className="absolute top-[calc(310px)] right-[calc(780px)] w-40 h-auto kitchen-item"
+                className="absolute top-[calc(310px)] right-600 w-40 h-auto ml-40 kitchen-item"
                 animate={{ scale: actions.microwaveOn ? 1.1 : 1 }}
                 onClick={() => toggleAction('microwaveOn')}
                 />
@@ -695,7 +695,7 @@ export default function Kitchen() {
                 <motion.img 
                 src={actions.microwaveDoorOpen ? '/microwave-door-open.png' : '/microwave-door-closed.png'} 
                 alt="Microwave Door"
-                className="absolute top-[calc(350px)] right-[calc(190px)] w-40 h-auto kitchen-item"
+                className="absolute top-[calc(350px)] right-14 w-40 h-auto kitchen-item"
                 animate={{ rotate: actions.microwaveDoorOpen ? 20 : 0 }}
                 onClick={() => toggleAction('microwaveDoorOpen')}
                 />
@@ -722,7 +722,7 @@ export default function Kitchen() {
                 <motion.img
                     src={actions.stoveOn ? '/turnonstove.png' : '/turnoffstove.png'}
                     alt="Stove"
-                    className="absolute bottom-[calc(300px)] right-16 w-24 h-auto cursor-pointer kitchen-item"
+                    className="absolute bottom-[calc(380px)] right-10 w-24 h-auto cursor-pointer kitchen-item"
                     onClick={() => toggleAction('stoveOn')}
                 />
             </div>

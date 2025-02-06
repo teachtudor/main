@@ -650,7 +650,7 @@ export default function Kitchen() {
                 <motion.img 
                 src={actions.fridgeOpen ? '/fridge-open.png' : '/fridge-closed.png'} 
                 alt="Fridge"
-                className="absolute top-12 left-10 w-40 h-auto"
+                className="absolute top-12 left-10 w-40 h-auto kitchen-item"
                 animate={{ x: actions.fridgeOpen ? 20 : 0 }}
                 onClick={() => toggleAction('fridgeOpen')}
                 />
@@ -659,7 +659,7 @@ export default function Kitchen() {
                 <motion.img 
                     src={actions.faucetOn ? '/faucet-on.png' : '/faucet-off.png'} 
                     alt="Faucet" 
-                    className="absolute top-28 left-80 w-20 h-auto"
+                    className="absolute top-28 left-80 w-20 h-auto kitchen-item"
                     animate={{ rotate: actions.faucetOn ? 45 : 0 }}
                     onClick={() => toggleAction('faucetOn')}
                 />
@@ -668,7 +668,7 @@ export default function Kitchen() {
                 <motion.img 
                 src={actions.lightsOn ? '/lights-on.png' : '/lights-off.png'} 
                 alt="Kitchen Lights"
-                className="absolute top-28 left-[calc(96px+350px)] w-40 h-auto"
+                className="absolute top-28 left-[calc(96px+350px)] w-40 h-auto kitchen-item"
                 animate={{ scale: actions.lightsOn ? 1.1 : 1 }}
                 onClick={() => toggleAction('lightsOn')}
                 />
@@ -677,7 +677,7 @@ export default function Kitchen() {
                 <motion.img 
                 src={actions.ovenDoorOpen ? '/oven-door-open.png' : '/oven-door-closed.png'} 
                 alt="Oven Door"
-                className="absolute top-28 left-[calc(96px+550px)] w-40 h-auto"
+                className="absolute top-28 left-[calc(96px+550px)] w-40 h-auto kitchen-item"
                 animate={{ rotate: actions.ovenDoorOpen ? 20 : 0 }}
                 onClick={() => toggleAction('ovenDoorOpen')}
                 />
@@ -686,7 +686,7 @@ export default function Kitchen() {
                 <motion.img 
                 src={actions.microwaveOn ? '/microwave-on.png' : '/microwave-off.png'} 
                 alt="Microwave"
-                className="absolute top-[calc(360px)] right-[calc(880px)] w-40 h-auto"
+                className="absolute top-[calc(310px)] right-[calc(780px)] w-40 h-auto kitchen-item"
                 animate={{ scale: actions.microwaveOn ? 1.1 : 1 }}
                 onClick={() => toggleAction('microwaveOn')}
                 />
@@ -695,7 +695,7 @@ export default function Kitchen() {
                 <motion.img 
                 src={actions.microwaveDoorOpen ? '/microwave-door-open.png' : '/microwave-door-closed.png'} 
                 alt="Microwave Door"
-                className="absolute top-[calc(350px)] right-[calc(190px)] w-40 h-auto"
+                className="absolute top-[calc(350px)] right-[calc(190px)] w-40 h-auto kitchen-item"
                 animate={{ rotate: actions.microwaveDoorOpen ? 20 : 0 }}
                 onClick={() => toggleAction('microwaveDoorOpen')}
                 />
@@ -704,7 +704,7 @@ export default function Kitchen() {
                 <motion.img 
                 src={actions.blenderLidOn ? '/blender-lid-on.png' : '/blender-lid-off.png'} 
                 alt="Blender Lid"
-                className="absolute bottom-[calc(35px)] left-80 w-40 h-auto"
+                className="absolute bottom-[calc(35px)] left-80 w-40 h-auto kitchen-item"
                 animate={{ rotate: actions.blenderLidOn ? 10 : 0 }}
                 onClick={() => toggleAction('blenderLidOn')}
                 />
@@ -713,7 +713,7 @@ export default function Kitchen() {
                 <motion.img
                 src="/character.png"
                 alt="Character"
-                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-auto"
+                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-auto kitchen-item"
                 animate={{ y: actions.sitting ? 30 : 0 }}
                 /> 
 
@@ -722,7 +722,7 @@ export default function Kitchen() {
                 <motion.img
                     src={actions.stoveOn ? '/turnonstove.png' : '/turnoffstove.png'}
                     alt="Stove"
-                    className="absolute bottom-[calc(300px)] right-16 w-24 h-auto cursor-pointer"
+                    className="absolute bottom-[calc(300px)] right-16 w-24 h-auto cursor-pointer kitchen-item"
                     onClick={() => toggleAction('stoveOn')}
                 />
             </div>
@@ -862,10 +862,6 @@ export default function Kitchen() {
         @media (max-width: 480px) {
             .grid {
             grid-template-columns: 1fr; /* Phone: 1 column */
-            }
-
-            .container {
-            padding: 1rem; /* Padding for mobile */
             }
 
             button {

@@ -700,14 +700,14 @@ export default function Kitchen() {
                 onClick={() => toggleAction('microwaveDoorOpen')}
                 />
 
-                {/* Blender Lid ON/OFF */}
+                {/* Blender Lid ON/OFF
                 <motion.img 
                 src={actions.blenderLidOn ? '/blender-lid-on.png' : '/blender-lid-off.png'} 
                 alt="Blender Lid"
                 className="absolute bottom-[calc(35px)] left-80 w-40 h-auto kitchen-item"
                 animate={{ rotate: actions.blenderLidOn ? 10 : 0 }}
                 onClick={() => toggleAction('blenderLidOn')}
-                />
+                /> */}
             
                 {/* Character */}
                 <motion.img

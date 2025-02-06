@@ -105,6 +105,7 @@ export function BlogDetails() {
 
 export default function BlogPage() {
   return (
+  <div>
     <div>
       <Navbar />
       <div className="p-4">
@@ -116,7 +117,9 @@ export default function BlogPage() {
             <Link
               key={post.id}
               href={`/blog/${post.id}`}
-              className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 border-2 border-black rounded-lg overflow-hidden hover:shadow-lg transition-all text-center"
+              // className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 border-2 border-black rounded-lg overflow-hidden hover:shadow-lg transition-all text-center "
+              className={`w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 border-2 border-black rounded-lg overflow-hidden hover:shadow-lg transition-all text-center 
+                ${post.id === 11 ? 'hide-on-phone' : ''}`}  // Add 'hide-on-phone' class to TPR Lesson Plans
             >
               {/* Blog post card */}
               <div className="flex flex-col h-full text-center">
@@ -143,6 +146,17 @@ export default function BlogPage() {
         </div>
       </div>
     </div>
+
+    <style jsx>{`
+        /* Phone (480px and below) */
+        @media (max-width: 480px) {
+          .hide-on-phone {
+              display: none;
+          }
+        }
+    `}
+   </style>
+  </div>
   );
 }
 

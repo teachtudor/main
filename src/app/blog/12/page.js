@@ -858,39 +858,23 @@ export default function Kitchen() {
             padding: 0.5rem 0.75rem; /* Adjust button padding */
             }
         }
-            /* Phone (480px and below) */
+         /* Phone (480px and below) */
         @media (max-width: 480px) {
             .grid {
             grid-template-columns: 1fr; /* Phone: 1 column */
             }
 
-            .top-12 {
-            top: 5px; /* Adjust positioning */
-            }
-
-            .top-28 {
-            top: 10px;
-            }
-
-            .left-80 {
-            left: 10px; /* Adjust for smaller screen */
-            }
-
-            .left-[calc(96px+350px)] {
-            left: 10px;
-            }
-
-            .w-40 {
-            width: 5rem; /* Smaller images for phone */
-            }
-
-            .w-24 {
-            width: 3.5rem; /* Smaller images for phone */
+            .container {
+            padding: 1rem; /* Padding for mobile */
             }
 
             button {
             font-size: 0.75rem; /* Even smaller buttons */
             padding: 0.5rem 0.5rem; /* Smaller button padding */
+            }
+
+            .kitchen-item {
+            width: 20%; /* Smaller images for phone */
             }
         }
     `}</style>

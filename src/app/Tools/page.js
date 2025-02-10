@@ -69,12 +69,18 @@ const blogPosts = [
   //   image: "/GRE1.jpg", // Ensure this is the correct path
   //   description: "GRE FLIP CARD GAME FOR PRACTICE 6021 words",
   // },
-  // {
-  //   id:11,
-  //   title: "TPR Lesson Plans",
-  //   image: "/tpr.jpg", // Ensure this is the correct path
-  //   description: "Interactive TPR LESSON PLANS!",
-  // },
+  {
+    id:11,
+    title: "TPR Lesson Plans",
+    image: "/tpr.jpg", // Ensure this is the correct path
+    description: "Interactive TPR LESSON PLANS!",
+  },
+  {
+    id:12,
+    title: "Pictionary",
+    image: "/pictionary.jpg", // Ensure this is the correct path
+    description: "THE GREAT PICTURE DICTIONARY!",
+  },
 ];
 
 export function BlogDetails() {
@@ -117,10 +123,9 @@ export default function BlogPage() {
             <Link
               key={post.id}
               href={`/blog/${post.id}`}
-              // className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 border-2 border-black rounded-lg overflow-hidden hover:shadow-lg transition-all text-center "
               className={`w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2 border-2 border-black rounded-lg overflow-hidden hover:shadow-lg transition-all text-center 
-                ${post.id === 11 ? 'hide-on-phone' : ''}`}  // Add 'hide-on-phone' class to TPR Lesson Plans
-            >
+                ${post.id === 11 || post.id === 12 ? 'hide-on-phone' : ''}`}  // Add 'hide-on-phone' class to TPR Lesson Plans and Pictionary
+                >
               {/* Blog post card */}
               <div className="flex flex-col h-full text-center">
                 {/* Image section - Thumbnail size */}

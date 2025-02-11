@@ -2021,7 +2021,7 @@ export default function Pictionary() {
                   alt={image.name}
                   // className="w-[100px] sm:w-[120px] md:w-[140px] lg:w-[150px] h-auto object-contain"
                   // className="w-full h-auto object-contain max-w-[150px] max-h-[150px]" // Ensures image is contained within max size and scales well
-                  className="w-full h-full object-contain max-w-[150px] max-h-[150px] sm:max-w-[120px] sm:max-h-[120px] md:max-w-[120px] md:max-h-[160px]"
+                  className="w-full h-full object-contain max-w-[150px] max-h-[150px] sm:max-w-[70px] sm:max-h-[70px] md:max-w-[120px] md:max-h-[160px]"
                   
                   
                   whileHover={{ scale: 4 }}

@@ -668,12 +668,48 @@ const products = [
     imageUrl: 'https://preply.com/wp-content/uploads/2023/09/Preply_new_slogan_en-820x470.png',
     productUrl: 'https://www.preply.com'
   },
-    {
+  {
     id: 3,
     name: 'AMAZON BEST SELLER',
     imageUrl: 'https://logos-world.net/wp-content/uploads/2020/06/Amazon-Logo.png',
     productUrl: 'https://www.amazon.com/Best-Sellers-Books-English-as-a-Second-Language-Instruction/zgbs/books/11823?utm_source=chatgpt.com&linkCode=ll2&tag=teachtudor-20&linkId=d052a145087524e53a33126694f9bea1&language=en_US&ref_=as_li_ss_tl'
   },
+  {
+    id: 32,
+    name: 'Tube Resistance Bands',
+    imageUrl: 'https://m.media-amazon.com/images/I/71jQgHH1cwL.__AC_SY300_SX300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0C26DJYPJ?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.27BOK049G26P6&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.27BOK049G26P6_1739311827695'
+  },
+  {
+    id: 33,
+    name: 'Tube Resistance Bands',
+    imageUrl: 'https://m.media-amazon.com/images/I/71I2e74gIPL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0C267MYRX?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.12TFATJKL1UJB&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.12TFATJKL1UJB_1739312338924'
+  },
+  {
+    id: 34,
+    name: 'PopDarts',
+    imageUrl: 'https://m.media-amazon.com/images/I/7126HJ83ZsL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B09LJVS68N?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1I8K2OU3PLZEU&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1I8K2OU3PLZEU_1739312586130'
+  },
+  {
+    id: 34,
+    name: 'Ks First Case',
+    imageUrl: 'https://m.media-amazon.com/images/I/51qrHRbtlsL.jpg',
+    productUrl: 'https://www.amazon.com/First-Longman-American-Structural-Readers/dp/0582798159?crid=E5O3AJPVE5GR&dib=eyJ2IjoiMSJ9.1wfU7WGwaqVsu7QzhCZ8LQ.IXCTVTDnZbMxtRS7G6JABX3dQnrXmU9u6Li99BAPW3s&dib_tag=se&keywords=longman+series+k%27s+first+case&qid=1739306503&sprefix=longman+series+k%27s+first+case%2Caps%2C239&sr=8-1&linkCode=ll1&tag=teachtudor-20&linkId=1450333de7f2dcfd0f58a0d9da40cfed&language=en_US&ref_=as_li_ss_tl'
+  },
+
+
+
+  
+
+
+
+
+
+
+
+
   {
     id: 4,
     name: 'INSULATED STAINLESS STEEL PUSH BUTTON',

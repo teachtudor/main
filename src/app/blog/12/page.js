@@ -2009,8 +2009,8 @@ export default function Pictionary() {
         </div>
 
         {/* Whiteboard */}
-        {/* <div className="w-full max-w-[1800px] h-[600px] bg-white p-6 border rounded-lg shadow-md flex items-center justify-center"> */}
-        <div className="w-full max-w-[1800px] h-[600px] bg-white p-6 border rounded-lg shadow-md relative flex items-center justify-center">
+        <div className="w-full max-w-[1800px] h-[600px] bg-white p-6 border rounded-lg shadow-md flex items-center justify-center">
+        {/* <div className="w-full max-w-[1800px] h-[600px] bg-white p-6 border rounded-lg shadow-md relative flex items-center justify-center"> */}
           {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 w-full h-full justify-items-center content-center"> */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 w-full h-full justify-items-center content-center min-h-full">
             {currentImages.length > 0 ? (
@@ -2020,8 +2020,8 @@ export default function Pictionary() {
                   src={image.url}
                   alt={image.name}
                   // className="w-[100px] sm:w-[120px] md:w-[140px] lg:w-[150px] h-auto object-contain"
-                  // className="w-full h-auto object-contain max-w-[150px] max-h-[150px]" // Ensures image is contained within max size and scales well
-                  className="w-full h-full object-contain max-w-[150px] max-h-[150px] sm:max-w-[70px] sm:max-h-[70px] md:max-w-[120px] md:max-h-[160px]"
+                  className="w-full h-auto object-contain max-w-[150px] max-h-[150px]" // Ensures image is contained within max size and scales well
+                  // className="w-full h-full object-contain max-w-[150px] max-h-[150px] sm:max-w-[120px] sm:max-h-[120px] md:max-w-[120px] md:max-h-[160px]"
                   
                   
                   whileHover={{ scale: 4 }}

@@ -693,23 +693,203 @@ const products = [
     productUrl: 'https://www.amazon.com/dp/B09LJVS68N?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1I8K2OU3PLZEU&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1I8K2OU3PLZEU_1739312586130'
   },
   {
-    id: 34,
+    id: 35,
     name: 'Ks First Case',
     imageUrl: 'https://m.media-amazon.com/images/I/51qrHRbtlsL.jpg',
     productUrl: 'https://www.amazon.com/First-Longman-American-Structural-Readers/dp/0582798159?crid=E5O3AJPVE5GR&dib=eyJ2IjoiMSJ9.1wfU7WGwaqVsu7QzhCZ8LQ.IXCTVTDnZbMxtRS7G6JABX3dQnrXmU9u6Li99BAPW3s&dib_tag=se&keywords=longman+series+k%27s+first+case&qid=1739306503&sprefix=longman+series+k%27s+first+case%2Caps%2C239&sr=8-1&linkCode=ll1&tag=teachtudor-20&linkId=1450333de7f2dcfd0f58a0d9da40cfed&language=en_US&ref_=as_li_ss_tl'
   },
-
-
-
-  
-
-
-
-
-
-
-
-
+  {
+    id: 36,
+    name: 'Thermal Coffee',
+    imageUrl: 'https://m.media-amazon.com/images/I/81U76KoptOL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B01F8P78IS?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1LIFAZ2LGG7B8&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1LIFAZ2LGG7B8_1739313331670'
+  },
+  {
+    id: 37,
+    name: 'Summer Top',
+    imageUrl: 'https://m.media-amazon.com/images/I/61QqcJy5OIL._AC_SY679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DKNMHR26?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.3DEG4OG4B8OA6&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.3DEG4OG4B8OA6_1739313753537'
+  },
+  {
+    id: 38,
+    name: 'Thermal Coffee Carafe',
+    imageUrl: 'https://m.media-amazon.com/images/I/613enkB6anL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0CY39JGRS?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.PNN34P88OG6R&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.PNN34P88OG6R_1739313909212'
+  },
+  {
+    id: 39,
+    name: 'Flashlight',
+    imageUrl: 'https://m.media-amazon.com/images/I/71hLcNeMTkL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B095BQ24ZN?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.19PVV6AM8R8ZB&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.19PVV6AM8R8ZB_1739314063355'
+  },
+  {
+    id: 40,
+    name: 'Flashlight',
+    imageUrl: 'https://m.media-amazon.com/images/I/71EwtRxT0aL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0B2WF4R93?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.3VUNUKR2M6HF8&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.3VUNUKR2M6HF8_1739314235999'
+  },
+  {
+    id: 41,
+    name: 'Thermal Coffee Carafe',
+    imageUrl: 'https://m.media-amazon.com/images/I/61cKxvBubJL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B09YRZ9FSC?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2V1540O2WSLVS&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.2V1540O2WSLVS_1739314317856'
+  },
+  {
+    id: 42,
+    name: 'Thermal Coffee Carafe',
+    imageUrl: 'https://m.media-amazon.com/images/I/71OV9vGufPL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B07H5QS6F3?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.3KWJL39PQVAXR&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.3KWJL39PQVAXR_1739314453047'
+  },
+  {
+    id: 43,
+    name: 'Thermal Coffee Carafe',
+    imageUrl: 'https://m.media-amazon.com/images/I/81U76KoptOL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B01F8P78IS?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1LIFAZ2LGG7B8&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1LIFAZ2LGG7B8_1739314590172'
+  },
+  {
+    id: 44,
+    name: 'Coffee with Pump',
+    imageUrl: 'https://m.media-amazon.com/images/I/71DPozAAxiL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B01M7QKEEE?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.3L6A8R836U5KS&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.3L6A8R836U5KS_1739314681414'
+  },
+  {
+    id: 45,
+    name: 'Y2K Off',
+    imageUrl: 'https://m.media-amazon.com/images/I/718aeD1c43L._AC_SX569_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0D2HKDN11?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.3BDT5U39AWJ8P&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.3BDT5U39AWJ8P_1739314777480'
+  },
+  {
+    id: 46,
+    name: 'Bird Feeder',
+    imageUrl: 'https://m.media-amazon.com/images/I/91xbIJa0zQL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B078Z7VTCF?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2TECI5PTWQ16G&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.2TECI5PTWQ16G_1739314932596'
+  },
+  {
+    id: 47,
+    name: 'Bird Feeder',
+    imageUrl: 'https://m.media-amazon.com/images/I/91+rrX5Y7+L._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0C46TKZNK?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.E7AYBVC1PJ5B&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.E7AYBVC1PJ5B_1739314998561'
+  },
+  {
+    id: 48,
+    name: 'Water Bottle',
+    imageUrl: 'https://m.media-amazon.com/images/I/61Ch6nZvtXL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0CH5ZFWDV?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.E1W6LDK5QVNB&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.E1W6LDK5QVNB_1739315156594'
+  },
+  {
+    id: 49,
+    name: 'Heated Cat House',
+    imageUrl: 'https://m.media-amazon.com/images/I/71bkJxrtcEL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DJWL9VG5?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.18JI3VQU4U89I&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.18JI3VQU4U89I_1739315247766'
+  },
+  {
+    id: 67,
+    name: 'Amazon Best Seller Self Care',
+    imageUrl: 'https://logos-world.net/wp-content/uploads/2020/06/Amazon-Logo.png',
+    productUrl: 'https://www.amazon.com/gp/bestsellers/books?&linkCode=ll2&tag=teachtudor-20&linkId=c5c597f0c82a101c9974a3d9f5592bd0&language=en_US&ref_=as_li_ss_tl'
+  },
+  {
+    id: 50,
+    name: 'Heated Cat House',
+    imageUrl: 'https://m.media-amazon.com/images/I/71fqDCfg7YL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DJ68FFGC?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.18JI3VQU4U89I&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.18JI3VQU4U89I_1739315247768'
+  },
+  {
+    id: 51,
+    name: 'Shower Head',
+    imageUrl: 'https://m.media-amazon.com/images/I/81ArkpQlXNL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0D14HLMYS?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.3SIEUPH29YJE4&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.3SIEUPH29YJE4_1739315452720'
+  },
+  {
+    id: 52,
+    name: 'Rug',
+    imageUrl: 'https://m.media-amazon.com/images/I/91WR5FR0H+L._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0D8L26YF5?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1ZHCXVU25STQL&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1ZHCXVU25STQL_1739315604142'
+  },
+  {
+    id: 53,
+    name: 'Bird Feeder',
+    imageUrl: 'https://m.media-amazon.com/images/I/91aai3g4SXL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B00YSU3WG2?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.218UDK530K0AW&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.218UDK530K0AW_1739315680370'
+  },
+  {
+    id: 54,
+    name: 'Bird Feeder',
+    imageUrl: 'https://m.media-amazon.com/images/I/81Y6gC4h2-L._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0C59GSWS1?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2SOQA8G9SGVKZ&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.2SOQA8G9SGVKZ_1739315760428'
+  },
+  {
+    id: 55,
+    name: 'Dog Harness',
+    imageUrl: 'https://m.media-amazon.com/images/I/51zfoPVKenL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DL42H8R8?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.3J9HKV9GGRSEQ&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.3J9HKV9GGRSEQ_1739315870918'
+  },
+  {
+    id: 56,
+    name: 'Flashlight',
+    imageUrl: 'https://m.media-amazon.com/images/I/61Lv52CA1XL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DBGJPN4M?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.3FXHVGL8GFCAD&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.3FXHVGL8GFCAD_1739315945848'
+  },
+  {
+    id: 57,
+    name: 'Rug',
+    imageUrl: 'https://m.media-amazon.com/images/I/81qI16rIDXL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0D8B2KWLC?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1ONGIMBMF3ORX&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1ONGIMBMF3ORX_1739316015191'
+  },
+  {
+    id: 58,
+    name: 'Tortilla Warmer',
+    imageUrl: 'https://m.media-amazon.com/images/I/71Sj9LsFkkL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0D8RRS82L?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.3ICNH5NZBROFF&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.3ICNH5NZBROFF_1739316096598'
+  },
+  {
+    id: 59,
+    name: 'Lifting Belt',
+    imageUrl: 'https://m.media-amazon.com/images/I/81PpVdd09qL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0CY3P16W3?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1S9NVW6N6YSEL&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1S9NVW6N6YSEL_1739316168422'
+  },
+  {
+    id: 60,
+    name: 'Desk Calendar',
+    imageUrl: 'https://m.media-amazon.com/images/I/61HOfsVIL7L._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DJZLLG9K?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.13BKGBEBL4V2I&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.13BKGBEBL4V2I_1739316247991'
+  },
+  {
+    id: 61,
+    name: 'Waist Trimmer Belt',
+    imageUrl: 'https://m.media-amazon.com/images/I/71RZ45+3TzL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0CZ7CRMJZ?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2JQ50DQYYHBER&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.2JQ50DQYYHBER_1739316329250'
+  },
+  {
+    id: 62,
+    name: 'Bird Toys',
+    imageUrl: 'https://m.media-amazon.com/images/I/71SFwN3zQWL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DHSV6LG4?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.36FOT59GKCYGT&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.36FOT59GKCYGT_1739316596704'
+  },
+  {
+    id: 63,
+    name: 'Flirt Pole',
+    imageUrl: 'https://m.media-amazon.com/images/I/71OLPtNGafL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DC1PJPD5?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.36FOT59GKCYGT&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.36FOT59GKCYGT_1739316662912'
+  },
+  {
+    id: 64,
+    name: 'Bird Toys',
+    imageUrl: 'https://m.media-amazon.com/images/I/71kmqAxki1L._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DS2WRMRY?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.36FOT59GKCYGT&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.36FOT59GKCYGT_1739316715338'
+  },
+  {
+    id: 65,
+    name: 'Pride and Prejudice',
+    imageUrl: 'https://m.media-amazon.com/images/I/81yMHkZAI9L._SY466_.jpg',
+    productUrl: '  https://www.amazon.com/Pride-Prejudice-Longman-Classics-Stage/dp/0582030455?crid=1KDB6BR90ZALE&dib=eyJ2IjoiMSJ9.G29WMRwRUuVHvaqJ8QWgP0twmlLQhCX1LTiGYl3JKgN1UgK1_pcbIeIXcT0Qr3eEhPlxQqNLlhP-XtCAxX3CDRDAcYlQ1u3pTBXnH4yonosQOppntO1vcqU85HprcUBb4yha-PepOhmGYWnXg_yTOamVzYtYcdEBEjRWosNr7-E.1ybcvLZlIq2cEYnBSd36pBCl4OBt-LnoXmO4eHROKHA&dib_tag=se&keywords=longman+classics+pride+and+prejudice&qid=1739316863&sprefix=longman+classics+pride+and+prejudic%2Caps%2C263&sr=8-1&linkCode=ll1&tag=teachtudor-20&linkId=10436b149fb383b296fc10a4dfcd2169&language=en_US&ref_=as_li_ss_tl'
+  },
+  {
+    id: 66,
+    name: 'Amazon Best Seller Self Care',
+    imageUrl: 'https://logos-world.net/wp-content/uploads/2020/06/Amazon-Logo.png',
+    productUrl: 'https://www.amazon.com/gp/bestsellers/beauty?&linkCode=ll2&tag=teachtudor-20&linkId=72ff6375808f2938bdb551440faab0c0&language=en_US&ref_=as_li_ss_tl'
+  },
   {
     id: 4,
     name: 'INSULATED STAINLESS STEEL PUSH BUTTON',

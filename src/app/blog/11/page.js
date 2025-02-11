@@ -2797,7 +2797,7 @@ export default function Kitchen() {
     'Kitchen & Food': [
       { name: 'Fridge', type: 'openClose' },
       { name: 'Faucet', type: 'toggle' },
-      { name: 'Oven', type: 'toggle' }
+      { name: 'Oven', type: 'openClose' }
     ],
     'Personal Actions & Movements': [
       { name: 'Eyes', type: 'openClose' },
@@ -2973,7 +2973,8 @@ export default function Kitchen() {
               return (
                 <button
                   key={index}
-                  className="py-2 px-4 bg-blue-500 text-white rounded-md shadow-md"
+                  // className="py-2 px-4 bg-blue-500 text-white rounded-md shadow-md"
+                  className="px-4 py-2 bg-blue-500 text-white rounded-lg text-xs sm:text-sm md:text-base"
                   onClick={() => toggleAction(item.name, item.type)}
                 >
                   {actionLabel}

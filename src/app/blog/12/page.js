@@ -2009,7 +2009,8 @@ export default function Pictionary() {
         </div>
 
         {/* Whiteboard */}
-        <div className="w-full max-w-[1800px] h-[600px] bg-white p-6 border rounded-lg shadow-md flex items-center justify-center">
+        {/* <div className="w-full max-w-[1800px] h-[600px] bg-white p-6 border rounded-lg shadow-md flex items-center justify-center"> */}
+        <div className="w-full max-w-[1800px] h-[600px] bg-white p-6 border rounded-lg shadow-md relative flex items-center justify-center">
           {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 w-full h-full justify-items-center content-center"> */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 w-full h-full justify-items-center content-center min-h-full">
             {currentImages.length > 0 ? (
@@ -2033,7 +2034,10 @@ export default function Pictionary() {
           </div>
 
           {/* Pagination Dots */}
-          <div className="flex justify-center mt-4 space-x-2">
+          <div 
+          // className="flex justify-center mt-4 space-x-2">
+          // className="flex space-x-2 sm:static sm:mt-4 absolute bottom-4 left-1/2 transform -translate-x-1/2 sm:transform-none sm:left-auto">
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
             {Array.from({ length: totalPages }, (_, i) => (
               <button
                 key={i}

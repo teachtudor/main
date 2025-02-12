@@ -46,6 +46,7 @@ nav ul {
     margin: 0;
     padding: 0;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 nav li {
@@ -60,5 +61,51 @@ nav a {
 
 nav a:hover {
     text-decoration: none;
+}
+
+/* Responsive Styling */
+
+/* For tablets and phones (<= 1024px) */
+@media (max-width: 1024px) {
+    nav ul {
+        gap: 15px; /* Smaller gap on tablets */
+    }
+
+    nav a {
+        font-size: 35px; /* Smaller font size on tablets */
+    }
+}
+
+/* For phones (<= 768px) */
+@media (max-width: 768px) {
+    nav {
+        padding: 8px 15px; /* Reduce padding */
+    }
+
+    nav ul {
+        gap: 10px; /* Reduced gap between items */
+    }
+
+    nav a {
+        font-size: 28px; /* Smaller font on mobile */
+    }
+}
+
+/* For very small screens (<= 480px) */
+@media (max-width: 480px) {
+    nav {
+        padding: 8px 10px; /* Even smaller padding for very small screens */
+    }
+
+    nav ul {
+        gap: 8px; /* Very small gap between items */
+        width: 100%; /* Ensure full width */
+        text-align: center; /* Center align the text */
+    }
+
+    nav a {
+        font-size: 22px; /* Font size further reduced for 480px screens */
+        padding: 8px 0; /* Add padding for better clickability */
+    }
 }
 

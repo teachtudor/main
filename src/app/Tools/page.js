@@ -75,12 +75,12 @@ const blogPosts = [
     image: "/tpr.jpg", // Ensure this is the correct path
     description: "Interactive TPR LESSON PLANS!",
   },
-  {
-    id:12,
-    title: "Pictionary",
-    image: "/pictionary.jpg", // Ensure this is the correct path
-    description: "THE GREAT PICTURE DICTIONARY!",
-  },
+  // {
+  //   id:12,
+  //   title: "Pictionary",
+  //   image: "/pictionary.jpg", // Ensure this is the correct path
+  //   description: "THE GREAT PICTURE DICTIONARY!",
+  // },
 ];
 
 export function BlogDetails() {

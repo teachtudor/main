@@ -1,24 +1,133 @@
-// src/Navbar.js
+// // src/Navbar.js
+// import Link from 'next/link';
+
+// const Navbar = () => {
+//   return (
+//     <nav>
+//       <ul>
+//         <li><Link href="/home">Home</Link></li>
+//         <li><Link href="/Activities">Activities</Link></li>
+//         <li><Link href="/Tools">Tools</Link></li>
+//         <li><Link href="/about">About</Link></li>
+//         <li><Link href="/contact">Contact</Link></li>
+//         <li><Link href="/"></Link></li>
+//       </ul>
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
+
+//CODE 2
+// import Link from 'next/link';
+// import Image from 'next/image';
+
+// const Navbar = () => {
+//   return (
+//     <nav style={styles.nav}>
+//       <div style={styles.logoContainer}>
+//         <Image src="/logo2.jpg" alt="Logo2" width={40} height={40} />
+//       </div>
+//       <ul style={styles.navList}>
+//         <li><Link href="/home">Home</Link></li>
+//         <li><Link href="/Activities">Activities</Link></li>
+//         <li><Link href="/Tools">Tools</Link></li>
+//         <li><Link href="/about">About</Link></li>
+//         <li><Link href="/contact">Contact</Link></li>
+//       </ul>
+//     </nav>
+//   );
+// };
+
+// const styles = {
+//   nav: {
+//     display: 'flex',
+//     alignItems: 'center',
+//     padding: '10px 20px',
+//     backgroundColor: '#000', // Light gray background
+//     borderBottom: '1px solid #ddd',
+//   },
+//   logoContainer: {
+//     marginRight: '20px',
+//   },
+//   navList: {
+//     display: 'flex',
+//     listStyle: 'none',
+//     padding: 0,
+//     margin: 0,
+//     gap: '15px',
+//   },
+//   link: {
+//     color: '#fff',
+//     textDecoration: 'none', // Removes underline by default
+//   }
+// };
+
+// export default Navbar;
+
+//CODE 3
+'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => {
   return (
-    <nav>
-      <ul>
+    <nav className="navbar">
+      <div className="logo-container">
+        <Image src="/logo2.jpg" alt="Logo2" width={40} height={40} />
+      </div>
+      <ul className="nav-list">
         <li><Link href="/home">Home</Link></li>
         <li><Link href="/Activities">Activities</Link></li>
         <li><Link href="/Tools">Tools</Link></li>
         <li><Link href="/about">About</Link></li>
         <li><Link href="/contact">Contact</Link></li>
-        <li><Link href="/"></Link></li>
       </ul>
+
+      <style jsx>{`
+        .navbar {
+          display: flex;
+          align-items: center;
+          padding: 10px 20px;
+          background-color: #000;
+          border-bottom: 1px solid #333;
+          // font-family: 'Cedarville Cursive', cursive; /* Manuscript font */
+          font-family: 'Kunstler Script', 'Lucida Handwriting', cursive; /* Kunstler with fallback */
+        }
+
+        .logo-container {
+          margin-right: 20px;
+        }
+
+        .nav-list {
+          display: flex;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          gap: 15px;
+        }
+
+        .nav-list li a {
+          color: #fff;
+          text-decoration: none; /* Removes underline */
+          transition: color 0.3s ease;
+          font-size: 30px;
+        }
+
+        .nav-list li a:hover {
+          color: #1e90ff; /* Light blue on hover */
+          text-decoration: none; /* Ensure no underline on hover */
+        }
+      `}</style>
     </nav>
   );
 };
 
 export default Navbar;
 
-//CODE 2
+
+
+//CODE 4
 // src/Navbar.js
 // import Link from 'next/link';
 

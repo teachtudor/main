@@ -26,6 +26,7 @@ a {
     text-decoration: none;
     color: #0070f3;
     transition: color 0.3s ease;
+    font-size: 18px;
 }
 
 a:hover {
@@ -53,11 +54,11 @@ nav li {
 
 nav a {
     color: white;
-    font-size: 18px;
+    font-size: 45px;
     font-weight: 500;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 

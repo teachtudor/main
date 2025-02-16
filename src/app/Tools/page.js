@@ -9,12 +9,12 @@ import { useRouter } from "next/router";
 
 // Array of blog data for rendering multiple blog posts
 const blogPosts = [
-  {
-    id:17,
-    title: "BE A PART OF A STATISTICS STUDY",
-    image: "/staword.jpeg", // Ensure this is the correct path
-    description: "WORD TEST",
-  },
+  // {
+  //   id:17,
+  //   title: "BE A PART OF A STATISTICS STUDY",
+  //   image: "/staword.jpeg", // Ensure this is the correct path
+  //   description: "WORD TEST",
+  // },
   {
     id: 1,
     title: "Slide Presentation with Text Board 1-LEVEL Single Folder Only.",

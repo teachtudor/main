@@ -12,7 +12,7 @@ const blogPosts = [
   {
     id:17,
     title: "BE A PART OF A STATISTICS STUDY",
-    image: "/wordteststa.jpeg", // Ensure this is the correct path
+    image: "/staword.jpeg", // Ensure this is the correct path
     description: "WORD TEST",
   },
   {

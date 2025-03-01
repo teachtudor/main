@@ -33,12 +33,12 @@ const blogPosts = [
     image: "/area51.jpg", // Ensure this is the correct path
     description: "IN DEVELOPMENT",
   },
-  // {
-  //   id:19,
-  //   title: "BE A PART OF A STATISTICS STUDY",
-  //   image: "/staword.jpeg", // Ensure this is the correct path
-  //   description: "WORD TEST",
-  // },
+  {
+    id:19,
+    title: "BE A PART OF A STATISTICS STUDY",
+    image: "/staword.jpeg", // Ensure this is the correct path
+    description: "WORD TEST",
+  },
   {
     id: 5,
     title: "Precise Word Test CEFR NO FILE VERSION",

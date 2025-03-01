@@ -2,15 +2,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&family=Exo:wght@400;700&family=Antonio:wght@200;400;700&family=Rajdhani:wght@300;400;700&family=Share+Tech+Mono&family=Audiowide&family=Big+Shoulders+Stencil+Text:wght@300;400;700&family=Russo+One&display=swap');
+
+
+:root {
+    --orbitron: 'Orbitron', sans-serif;
+    --press-start: 'Press Start 2P', cursive;
+    --exo: 'Exo', sans-serif;
+    --antonio: 'Antonio', sans-serif;
+    --rajdhani: 'Rajdhani', sans-serif;
+    --share-tech: 'Share Tech Mono', monospace;
+    --audiowide: 'Audiowide', sans-serif;
+    --big-shoulders: 'Big Shoulders Stencil Text', sans-serif;
+    --russo-one: 'Russo One', sans-serif;
+  }
 
 /* Base reset styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--orbitron);
     margin: 0;
     padding: 0;
     background-color: #f9f9f9; /* Optional: light background for better contrast */
     color: #333; /* Global text color */
 }
+
+* {
+    font-family: 'Orbitron', sans-serif;
+  }
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
@@ -61,6 +81,10 @@ nav a {
 
 nav a:hover {
     text-decoration: none;
+}
+
+.navbar {
+    font-family: 'Russo One', sans-serif !important;
 }
 
 /* Responsive Styling */

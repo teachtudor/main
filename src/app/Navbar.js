@@ -66,37 +66,146 @@
 // export default Navbar;
 
 //CODE 3
-'use client';
-import Link from 'next/link';
-import Image from 'next/image';
+// 'use client';
+// import Link from 'next/link';
+// import Image from 'next/image';
+
+// const Navbar = () => {
+
+//   return (
+//     <nav className="navbar">
+//       <div className="logo-container">
+//         <Image src="/logo2.jpg" alt="Logo2" width={40} height={40} />
+//       </div>
+//       <ul className="nav-list">
+//         <li><Link href="/home">Home</Link></li>
+//         <li><Link href="/Activities">Activities</Link></li>
+//         <li><Link href="/Tools">Tools</Link></li>
+//         <li><Link href="/about">About</Link></li>
+//         <li><Link href="/contact">Contact</Link></li>
+//       </ul>
+
+//       <style jsx>{`
+//         .navbar {
+//           display: flex;
+//           align-items: center;
+//           padding: 10px 20px;
+//           background-color: #000;
+//           border-bottom: 1px solid #333;
+//           // font-family: 'Cedarville Cursive', cursive; /* Manuscript font */
+//           font-family: 'Kunstler Script', 'Lucida Handwriting', cursive; /* Kunstler with fallback */
+//         }
+
+//         .logo-container {
+//           margin-right: 20px;
+//         }
+
+//         .nav-list {
+//           display: flex;
+//           list-style: none;
+//           padding: 0;
+//           margin: 0;
+//           gap: 15px;
+//         }
+
+//         .nav-list li a {
+//           color: #fff;
+//           text-decoration: none; /* Removes underline */
+//           transition: color 0.3s ease;
+//           font-size: 30px;
+//         }
+
+//         .nav-list li a:hover {
+//           color: #1e90ff; /* Light blue on hover */
+//           text-decoration: none; /* Ensure no underline on hover */
+//         }
+//       `}</style>
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
+
+
+//temp code
+"use client";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import "./globals.css";
 
 const Navbar = () => {
+  const pathname = usePathname(); // Get the current route
+
+  const handleNavClick = (event, url) => {
+    if (pathname === url) {
+      event.preventDefault(); // Prevent Next.js handling
+      window.location.reload(); // Force a full page reload
+    } else {
+      // sessionStorage.clear(); // Reset session data when navigating
+      // Only reset session storage when clicking a navbar tab
+      // sessionStorage.removeItem("testProgress"); // Reset only test-related data
+      // ✅ Ensure we're in the client before accessing sessionStorage
+      if (typeof window !== "undefined") {
+        // Reset session data when navigating
+        sessionStorage.removeItem("lastClickTime"); 
+        sessionStorage.removeItem("knownWords");   
+        sessionStorage.removeItem("unknownWords"); 
+        sessionStorage.removeItem("seenWords");    
+        sessionStorage.removeItem("timeBetweenClicks"); 
+        sessionStorage.removeItem("levels"); 
+      }
+    }
+  };
+
   return (
     <nav className="navbar">
-      <div className="logo-container">
+      {/* <div className="logo-container">
         <Image src="/logo2.jpg" alt="Logo2" width={40} height={40} />
-      </div>
+      </div> */}
       <ul className="nav-list">
-        <li><Link href="/home">Home</Link></li>
-        <li><Link href="/Activities">Activities</Link></li>
-        <li><Link href="/Tools">Tools</Link></li>
-        <li><Link href="/about">About</Link></li>
-        <li><Link href="/contact">Contact</Link></li>
+        <li>
+          <Link href="/home" onClick={(e) => handleNavClick(e, "/home")}>
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link href="/Activities" onClick={(e) => handleNavClick(e, "/Activities")}>
+            Activities
+          </Link>
+        </li>
+        <li>
+          <Link href="/Tools" onClick={(e) => handleNavClick(e, "/Tools")}>
+            Tools
+          </Link>
+        </li>
+        <li>
+          <Link href="/about" onClick={(e) => handleNavClick(e, "/about")}>
+            About
+          </Link>
+        </li>
+        <li>
+          <Link href="/contact" onClick={(e) => handleNavClick(e, "/contact")}>
+            Contact
+          </Link>
+        </li>
       </ul>
 
-      <style jsx>{`
+      <style jsx global>{`
         .navbar {
           display: flex;
           align-items: center;
+          justify-content: center;
           padding: 10px 20px;
           background-color: #000;
           border-bottom: 1px solid #333;
-          // font-family: 'Cedarville Cursive', cursive; /* Manuscript font */
-          font-family: 'Kunstler Script', 'Lucida Handwriting', cursive; /* Kunstler with fallback */
+          font-family: 'Orbitron', sans-serif;
+          font-size: 15px;
         }
 
         .logo-container {
           margin-right: 20px;
+          
         }
 
         .nav-list {
@@ -105,18 +214,22 @@ const Navbar = () => {
           padding: 0;
           margin: 0;
           gap: 15px;
+          
         }
 
         .nav-list li a {
           color: #fff;
-          text-decoration: none; /* Removes underline */
+          text-decoration: none;
           transition: color 0.3s ease;
           font-size: 30px;
-        }
+          cursor: pointer;
+          font-family: 'Rajdhani', sans-serif;
 
+          font-size: 20px;
+        }
         .nav-list li a:hover {
-          color: #1e90ff; /* Light blue on hover */
-          text-decoration: none; /* Ensure no underline on hover */
+          color: silver;
+          text-decoration: none;
         }
       `}</style>
     </nav>

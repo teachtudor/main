@@ -38,7 +38,6 @@ import Navbar from "./Navbar"; // ✅ Correct import
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -66,3 +65,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+

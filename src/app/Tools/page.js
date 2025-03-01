@@ -15,6 +15,36 @@ const blogPosts = [
   //   image: "/staword.jpeg", // Ensure this is the correct path
   //   description: "WORD TEST",
   // },
+  // {
+  //   id:18,
+  //   title: "BE A PART OF A STATISTICS STUDY",
+  //   image: "/staword.jpeg", // Ensure this is the correct path
+  //   description: "WORD TEST",
+  // },
+  {
+    id:11,
+    title: "TPR Lesson Plans",
+    image: "/tpr.jpg", // Ensure this is the correct path
+    description: "Interactive TPR LESSON PLANS!",
+  },
+  {
+    id:20,
+    title: "Area 51 3D Drone Game",
+    image: "/area51.jpg", // Ensure this is the correct path
+    description: "IN DEVELOPMENT",
+  },
+  {
+    id:19,
+    title: "BE A PART OF A STATISTICS STUDY",
+    image: "/staword.jpeg", // Ensure this is the correct path
+    description: "WORD TEST",
+  },
+  {
+    id: 5,
+    title: "Precise Word Test CEFR NO FILE VERSION",
+    image: "/wordtestcefr2.jpg", // Ensure this is the correct path
+    description: "THE GREAT WORD TEST NO FILE VERSION",
+  },
   {
     id: 1,
     title: "Slide Presentation with Text Board 1-LEVEL Single Folder Only.",
@@ -39,12 +69,6 @@ const blogPosts = [
   //   image: "/wordtest.jpg", // Ensure this is the correct path
   //   description: "THE GREAT WORD TEST",
   // },
-  {
-    id: 5,
-    title: "Precise Word Test CEFR NO FILE VERSION",
-    image: "/wordtestcefr2.jpg", // Ensure this is the correct path
-    description: "THE GREAT WORD TEST NO FILE VERSION",
-  },
   {
     id: 6,
     title: "Magic Ball",
@@ -75,12 +99,6 @@ const blogPosts = [
   //   image: "/GRE1.jpg", // Ensure this is the correct path
   //   description: "GRE FLIP CARD GAME FOR PRACTICE 6021 words",
   // },
-  {
-    id:11,
-    title: "TPR Lesson Plans",
-    image: "/tpr.jpg", // Ensure this is the correct path
-    description: "Interactive TPR LESSON PLANS!",
-  },
   // {
   //   id:12,
   //   title: "Pictionary",

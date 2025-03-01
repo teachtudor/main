@@ -1091,19 +1091,25 @@ export default function Home() {
   <div className="user-info">
     <div className="form-container">
       <label>First Name:</label>
-      <input type="text" placeholder="Enter First Name" value={username} onChange={(e) => setUsername(e.target.value)} required />
+      <input type="text" title="Enter your name" placeholder="Enter First Name" value={username} onChange={(e) => setUsername(e.target.value)} required />
+
+      <label for="test-date">Test Date:</label>
+      <input id="test-date" type="date" value="{{testDate}}" required/>
+
+      <label for="test-duration">Test Duration (seconds):</label>
+      <input id="test-duration" type="number" value="{{testDuration}}" readonly required/>
 
       <label>Birthday:</label>
-      <input type="date" value={birthday} onChange={(e) => setBirthday(e.target.value)} required />
+      <input type="date" title="Enter your Birthday" value={birthday} onChange={(e) => setBirthday(e.target.value)} required />
 
       <label>Gender:</label>
-      <input type="text" placeholder="Gender" value={gender} onChange={(e) => setGender(e.target.value)} required />
+      <input type="text" title="Enter your gender" placeholder="Gender" value={gender} onChange={(e) => setGender(e.target.value)} required />
 
       <label>Height:</label>
-      <input type="text" placeholder="Height" value={height} onChange={(e) => setHeight(e.target.value)} required />
+      <input type="text" title="Enter your Height" placeholder="Height" value={height} onChange={(e) => setHeight(e.target.value)} required />
 
       <label>Years of Study:</label>
-      <input type="number" placeholder="Years of Study" value={yearsOfStudy} onChange={(e) => setYearsOfStudy(e.target.value)} required />
+      <input type="number" title="Enter years of study" placeholder="Years of Study" value={yearsOfStudy} onChange={(e) => setYearsOfStudy(e.target.value)} required />
 
       {/* <label>Education Level:</label>
       <input type="text" placeholder="Education Level" value={educationLevel} onChange={(e) => setEducationLevel(e.target.value)} required /> */}
@@ -1120,19 +1126,19 @@ export default function Home() {
       </select>
 
       <label>Occupation:</label>
-      <input type="text" placeholder="Occupation" value={occupation} onChange={(e) => setOccupation(e.target.value)} required />
+      <input type="text" title="Enter occupation" placeholder="Occupation" value={occupation} onChange={(e) => setOccupation(e.target.value)} required />
 
       <label>Native Language:</label>
-      <input type="text" placeholder="Native Language" value={nativeLanguage} onChange={(e) => setNativeLanguage(e.target.value)} required />
+      <input type="text" title="Enter native language" placeholder="Native Language" value={nativeLanguage} onChange={(e) => setNativeLanguage(e.target.value)} required />
 
       <label>Country:</label>
-      <input type="text" placeholder="Country" value={country} onChange={(e) => setCountry(e.target.value)} required />
+      <input type="text" title="Enter Country" placeholder="Country" value={country} onChange={(e) => setCountry(e.target.value)} required />
 
       <label>City:</label>
-      <input type="text" placeholder="City" value={city} onChange={(e) => setCity(e.target.value)} required />
+      <input type="text" title="Enter City" placeholder="City" value={city} onChange={(e) => setCity(e.target.value)} required />
 
       <label>State/Region:</label>
-      <input type="text" placeholder="State/Region" value={state} onChange={(e) => setState(e.target.value)} required />
+      <input type="text" title="Enter State" placeholder="State/Region" value={state} onChange={(e) => setState(e.target.value)} required />
 
       <label>Do you support the drone program?</label>
       <select value={drone} required onChange={(e) => setDrone(e.target.value)}>
@@ -1178,8 +1184,8 @@ export default function Home() {
         <option value="Never">Never 0%</option>
       </select>
 
-      <label>How do you get exposed (CTRL Multiple)?</label>
-      <select value={method} required onChange={handleChange} multiple>
+      <label for="multi-select">How do you get exposed (CTRL Multiple)?</label>
+      <select id="multi-select" value={method} required onChange={handleChange} multiple>
 
         <option value="Movies">Movies</option>
         <option value="TV shows">TV shows</option>
@@ -1219,14 +1225,14 @@ export default function Home() {
       </select>
 
       <label>Time A.M/P.M ?</label>
-      <input type="text" placeholder="i.e. 10 A.M/P.M." value={timeOfDay} onChange={(e) => setTimeOfDay(e.target.value)} required />
+      <input type="text"  title="Enter time" placeholder="i.e. 10 A.M/P.M." value={timeOfDay} onChange={(e) => setTimeOfDay(e.target.value)} required />
 
       <label>Comments:</label>
-      <input type="text" placeholder="Comments" value={comment} onChange={(e) => setComment(e.target.value)} required />
+      <input type="text" title="Enter Comments:" placeholder="Comments" value={comment} onChange={(e) => setComment(e.target.value)} required />
 
 
       <label>What is your favorite color?</label>
-      <input type="text" placeholder="Favorite Color" value={color} onChange={(e) => setColor(e.target.value)} required />
+      <input type="text" title="Enter Color" placeholder="Favorite Color" value={color} onChange={(e) => setColor(e.target.value)} required />
 
       <button onClick={handleSubmit} disabled={isSubmitted} className="ready-button">Submit Test</button>
     </div>

@@ -1374,13 +1374,11 @@ export default function Home() {
         </div>
 
         <style jsx>{`
-
                 .user-info {
                   display: flex;
                   justify-content: center;
                   margin: 20px;
                 }
-               
 
                 .form-container {
                   display: grid;
@@ -1390,7 +1388,6 @@ export default function Home() {
                   gap: 20px;
                   align-items: center;
                 }
-
 
                 .form-group {
                   display: flex;

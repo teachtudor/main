@@ -1375,7 +1375,7 @@ export default function Home() {
 
         <style jsx>{`
 
-                  .user-info {
+                .user-info {
                   display: flex;
                   justify-content: center;
                   margin: 20px;
@@ -1547,7 +1547,13 @@ export default function Home() {
               /* Phones & small tablets: 1 column */
               @media (max-width: 768px) {
                 .form-container {
-                  grid-template-columns: 1fr;
+                  display: flex;
+                  flex-direction: column; /* Force everything into one column */
+                }
+
+                .form-group {
+                  display: flex;
+                  flex-direction: column;
                 }
               }
 

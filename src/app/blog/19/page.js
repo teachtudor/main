@@ -882,7 +882,7 @@ export default function Home() {
 
     // setTotalTested(testedCount);
 
-    if (totalTested < 5) {
+    if (totalTested < 500) {
       setConfidenceMessage("You need more words for testing.");
       return false;
     }
@@ -1114,7 +1114,7 @@ export default function Home() {
 
         {/* Stop Button */}
         {showReadyButton &&(
-          <button onClick={() => handleStop()} disabled ={isSubmitted || (totalAmount <5)} className="ready-button">
+          <button onClick={() => handleStop()} disabled ={isSubmitted || (totalAmount <500)} className="ready-button">
             Stop
           </button>
         )}

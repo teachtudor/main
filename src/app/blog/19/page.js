@@ -1114,7 +1114,7 @@ export default function Home() {
 
         {/* Stop Button */}
         {showReadyButton &&(
-          <button onClick={() => handleStop()} disabled ={isSubmitted || (totalAmount <501)} className="ready-button">
+          <button onClick={() => handleStop()} disabled ={isSubmitted || (totalAmount <525)} className="ready-button">
             Stop
           </button>
         )}

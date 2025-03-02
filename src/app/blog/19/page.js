@@ -882,7 +882,7 @@ export default function Home() {
 
     // setTotalTested(testedCount);
 
-    if (totalTested < 5) {
+    if (totalTested < 500) {
       setConfidenceMessage("You need more words for testing.");
       return false;
     }
@@ -1114,7 +1114,7 @@ export default function Home() {
 
         {/* Stop Button */}
         {showReadyButton &&(
-          <button onClick={() => handleStop()} disabled ={isSubmitted || (totalAmount <5)} className="ready-button">
+          <button onClick={() => handleStop()} disabled ={isSubmitted || (totalAmount <500)} className="ready-button">
             Stop
           </button>
         )}
@@ -1122,153 +1122,197 @@ export default function Home() {
   {showReadyButton && isTestStopped &&(
   <div className="user-info">
     <div className="form-container">
-      <label>First Name:</label>
-      <input type="text" title="Enter your name" placeholder="Enter First Name" value={username} onChange={(e) => { setUsername(e.target.value)}} required />
 
-      <label htmlFor="test-date">Test Date:</label>
-      <input id="test-date" type="date" defaultValue={testDate} readOnly required/>
+      <div className = "form-group">
+        <label>First Name:</label>
+        <input type="text" title="Enter your name" placeholder="Enter First Name" value={username} onChange={(e) => { setUsername(e.target.value)}} required />
+      </div>
 
-      <label htmlFor="test-duration">Test Duration (seconds):</label>
-      <input id="test-duration" type="text" value={testDuration.toFixed(3)/1000} readOnly required/>
+      <div className = "form-group">
+        <label htmlFor="test-date">Test Date:</label>
+        <input id="test-date" type="date" defaultValue={testDate} readOnly required/>
+      </div>
 
-      <label>Birthday:</label>
-      <input type="date" title="Enter your Birthday" value={birthday} onChange={(e) => setBirthday(e.target.value)} required />
+      <div className = "form-group">
+        <label htmlFor="test-duration">Test Duration (seconds):</label>
+        <input id="test-duration" type="text" value={testDuration.toFixed(3)/1000} readOnly required/>
+      </div>
 
-      <label>Gender:</label>
-      <input type="text" title="Enter your gender" placeholder="Gender" value={gender} onChange={(e) => setGender(e.target.value)} required />
+      <div className = "form-group">
+        <label>Birthday:</label>
+        <input type="date" title="Enter your Birthday" value={birthday} onChange={(e) => setBirthday(e.target.value)} required />
+      </div>
 
-      <label>Height:</label>
-      <input type="text" title="Enter your Height" placeholder="Height" value={height} onChange={(e) => setHeight(e.target.value)} required />
+      <div className = "form-group">
+        <label>Gender:</label>
+      </div> 
+       
+      <div className = "form-group">
+        <label>Height:</label>
+        <input type="text" title="Enter your Height" placeholder="Height" value={height} onChange={(e) => setHeight(e.target.value)} required />
+      </div>
 
-      <label>Years of Study:</label>
-      <input type="number" title="Enter years of study" placeholder="Years of Study" value={yearsOfStudy} onChange={(e) => setYearsOfStudy(e.target.value)} required />
-
-      {/* <label>Education Level:</label>
-      <input type="text" placeholder="Education Level" value={educationLevel} onChange={(e) => setEducationLevel(e.target.value)} required /> */}
-
-      <label>Education Level</label>
-      <select title="Enter Education level" value={educationLevel} required onChange={(e) => setEducationLevel(e.target.value)}>
-        <option value="">Select</option>
-        <option value="Less than High School">Less than High School</option>
-        <option value="High School">High School</option>
-        <option value="Associate/Technical">Associate/Technical</option>
-        <option value="Bachelor's">Bachelor's Degree</option>
-        <option value="Master's">Master's Degree</option>
-        <option value="PhD">Ph.D</option>
-      </select>
-
-      <label>Occupation:</label>
-      <input type="text" title="Enter occupation" placeholder="Occupation" value={occupation} onChange={(e) => setOccupation(e.target.value)} required />
-
-      <label>Native Language:</label>
-      <input type="text" title="Enter native language" placeholder="Native Language" value={nativeLanguage} onChange={(e) => setNativeLanguage(e.target.value)} required />
-
-      <label>Country:</label>
-      <input type="text" title="Enter Country" placeholder="Country" value={country} onChange={(e) => setCountry(e.target.value)} required />
-
-      <label>City:</label>
-      <input type="text" title="Enter City" placeholder="City" value={city} onChange={(e) => setCity(e.target.value)} required />
-
-      <label>State/Region:</label>
-      <input type="text" title="Enter State" placeholder="State/Region" value={state} onChange={(e) => setState(e.target.value)} required />
-
-      <label>Do you support the drone program?</label>
-      <select title="Enter yes or no" value={drone} required onChange={(e) => setDrone(e.target.value)}>
-        <option value="">Select</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-        <option value="Don't Know">Don't Know</option>
-      </select>
-
-      <label>Did you take a Grammar CEFR Test?</label>
-      <select title="Enter Test Status" value={takeTest} required onChange={(e) => setTakeTest(e.target.value)}>
-        <option value="">Select</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-        <option value="Don't Know">Don't Know</option>
-      </select>
-
-      <label>What Level CEFR English are you?</label>
-      <select title="Enter CEFR Level" value={level} required onChange={(e) => setLevel(e.target.value)}>
-        <option value="">Select</option>
-        <option value="A1">A1</option>
-        <option value="A2">A2</option>
-        <option value="B1">B1</option>
-        <option value="B2">B2</option>
-        <option value="C1">C1</option>
-        <option value="C2">C2</option>
-        <option value="Native">Native</option>
-        <option value="DK">I Don't Know</option>
-      </select>
-
-      <label>How often are you exposed to English?</label>
-      <select title="Enter frequency" value={exposure} required onChange={(e) => setExposure(e.target.value)}>
+      <div className = "form-group">
+        <label>Years of Study:</label>
+        <input type="number" title="Enter years of study" placeholder="Years of Study" value={yearsOfStudy} onChange={(e) => setYearsOfStudy(e.target.value)} required />
+      </div>
+        {/* <label>Education Level:</label>
+        <input type="text" placeholder="Education Level" value={educationLevel} onChange={(e) => setEducationLevel(e.target.value)} required /> */}
       
-        <option value="">Select</option>
-        <option value="Constantly">Constantly 90-100%</option>
-        <option value="Daily">Daily 70-90%</option>
-        <option value="Regularly">Regularly 50-70%</option>
-        <option value="Several Times a Week">Several Times a Week 30-50%</option>
-        <option value="Weekly">Weekly 15-30%</option>
-        <option value="Occasionally">Occasionally 5-15%</option>
-        <option value="Rarely">Rarely 1-5%</option>
-        <option value="Hardly Ever">Hardly Ever 0-1%</option>
-        <option value="Never">Never 0%</option>
-      </select>
 
-      <label htmlFor="multi-select">How do you get exposed (CTRL Multiple)?</label>
-      <select title="Enter multiple" id="multi-select" value={method} required onChange={handleChange} multiple>
+      <div className = "form-group">
+        <label>Education Level</label>
+        <select title="Enter Education level" value={educationLevel} required onChange={(e) => setEducationLevel(e.target.value)}>
+          <option value="">Select</option>
+          <option value="Less than High School">Less than High School</option>
+          <option value="High School">High School</option>
+          <option value="Associate/Technical">Associate/Technical</option>
+          <option value="Bachelor's">Bachelor's Degree</option>
+          <option value="Master's">Master's Degree</option>
+          <option value="PhD">Ph.D</option>
+        </select>
+      </div>
 
-        <option value="Movies">Movies</option>
-        <option value="TV shows">TV shows</option>
-        <option value="Books">Books</option>
-        <option value="School">School</option>
-        <option value="Apps">Apps</option>
-        <option value="Tutor">Tutor</option>
-        <option value="Work">Work</option>
-        <option value="Magazines">Magazines</option>
-        <option value="Podcasts">Podcasts</option>
-        <option value="Music">Music</option>
-        <option value="News articles">News articles</option>
-        <option value="Online forums">Online forums</option>
-        <option value="Social media">Social media</option>
-        <option value="Video games">Video games</option>
-        <option value="Radio">Radio</option>
-        <option value="Lectures">Lectures</option>
-        <option value="Conversations">Conversations</option>
-        <option value="Emails">Emails</option>
-        <option value="Websites">Websites</option>
-        <option value="Text messages">Text messages</option>
-        <option value="Blogs">Blogs</option>
-        <option value="Speeches">Speeches</option>
-        <option value="Interviews">Interviews</option>
-      </select>
+      <div className = "form-group">
+        <label>Occupation:</label>
+        <input type="text" title="Enter occupation" placeholder="Occupation" value={occupation} onChange={(e) => setOccupation(e.target.value)} required />
+      </div>
+            
+      <div className = "form-group">
+        <label>Native Language:</label>
+        <input type="text" title="Enter native language" placeholder="Native Language" value={nativeLanguage} onChange={(e) => setNativeLanguage(e.target.value)} required />
+      </div>
 
-      <label>What is your learning style?</label>
-      <select title="Enter learning Style" value={learningStyle} required onChange={(e) => setLearningStyle(e.target.value)}>
-        <option value="Visual">Visual (Images, charts, diagrams, videos)</option>
-        <option value="Auditory">Auditory (Listening, lectures, discussions, podcasts)</option>
-        <option value="Reading/Writing">Reading/Writing (Books, articles, note-taking)</option>
-        <option value="Kinesthetic">Kinesthetic (Hands-on activities, role-playing, movement)</option>
-        <option value="Logical">Logical (Problem-solving, puzzles, patterns, analysis)</option>
-        <option value="Social">Social (Group discussions, study groups, teamwork)</option>
-        <option value="Solitary">Solitary (Self-study, reflection, independent research)</option>
-        <option value="Multimodal">Multimodal (A mix of multiple styles)</option>
-      </select>
+      <div className = "form-group">
+        <label>Country:</label>
+        <input type="text" title="Enter Country" placeholder="Country" value={country} onChange={(e) => setCountry(e.target.value)} required />
+      </div>
 
-      <label>Time A.M/P.M ?</label>
-      <input type="text"  title="Enter time" placeholder="i.e. 10 A.M/P.M." value={timeOfDay} onChange={(e) => setTimeOfDay(e.target.value)} required />
+      <div className = "form-group">
+        <label>City:</label>
+        <input type="text" title="Enter City" placeholder="City" value={city} onChange={(e) => setCity(e.target.value)} required />
+      </div>
 
-      <label>Comments:</label>
-      <input type="text" title="Enter Comments:" placeholder="Comments" value={comment} onChange={(e) => setComment(e.target.value)} required />
+      <div className = "form-group">
+        <label>State/Region:</label>
+        <input type="text" title="Enter State" placeholder="State/Region" value={state} onChange={(e) => setState(e.target.value)} required />
+      </div>
 
+      <div className = "form-group">
+        <label>Do you support the drone program?</label>
+        <select title="Enter yes or no" value={drone} required onChange={(e) => setDrone(e.target.value)}>
+          <option value="">Select</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          <option value="Don't Know">Don't Know</option>
+        </select>
+      </div>
 
-      <label>What is your favorite color?</label>
-      <input type="text" title="Enter Color" placeholder="Favorite Color" value={color} onChange={(e) => setColor(e.target.value)} required />
+      <div className = "form-group">
+        <label>Did you take a Grammar CEFR Test?</label>
+        <select title="Enter Test Status" value={takeTest} required onChange={(e) => setTakeTest(e.target.value)}>
+          <option value="">Select</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          <option value="Don't Know">Don't Know</option>
+        </select>
+      </div>
+      
+      <div className = "form-group">
+        <label>What Level CEFR English are you?</label>
+        <select title="Enter CEFR Level" value={level} required onChange={(e) => setLevel(e.target.value)}>
+          <option value="">Select</option>
+          <option value="A1">A1</option>
+          <option value="A2">A2</option>
+          <option value="B1">B1</option>
+          <option value="B2">B2</option>
+          <option value="C1">C1</option>
+          <option value="C2">C2</option>
+          <option value="Native">Native</option>
+          <option value="DK">I Don't Know</option>
+        </select>
+      </div>
 
+      <div className = "form-group">
+        <label>How often are you exposed to English?</label>
+        <select title="Enter frequency" value={exposure} required onChange={(e) => setExposure(e.target.value)}>
+        
+          <option value="">Select</option>
+          <option value="Constantly">Constantly 90-100%</option>
+          <option value="Daily">Daily 70-90%</option>
+          <option value="Regularly">Regularly 50-70%</option>
+          <option value="Several Times a Week">Several Times a Week 30-50%</option>
+          <option value="Weekly">Weekly 15-30%</option>
+          <option value="Occasionally">Occasionally 5-15%</option>
+          <option value="Rarely">Rarely 1-5%</option>
+          <option value="Hardly Ever">Hardly Ever 0-1%</option>
+          <option value="Never">Never 0%</option>
+        </select>
+      </div>
+
+      <div className = "form-group">
+        <label htmlFor="multi-select">How do you get exposed (CTRL Multiple)?</label>
+        <select title="Enter multiple" id="multi-select" value={method} required onChange={handleChange} multiple>
+
+          <option value="Movies">Movies</option>
+          <option value="TV shows">TV shows</option>
+          <option value="Books">Books</option>
+          <option value="School">School</option>
+          <option value="Apps">Apps</option>
+          <option value="Tutor">Tutor</option>
+          <option value="Work">Work</option>
+          <option value="Magazines">Magazines</option>
+          <option value="Podcasts">Podcasts</option>
+          <option value="Music">Music</option>
+          <option value="News articles">News articles</option>
+          <option value="Online forums">Online forums</option>
+          <option value="Social media">Social media</option>
+          <option value="Video games">Video games</option>
+          <option value="Radio">Radio</option>
+          <option value="Lectures">Lectures</option>
+          <option value="Conversations">Conversations</option>
+          <option value="Emails">Emails</option>
+          <option value="Websites">Websites</option>
+          <option value="Text messages">Text messages</option>
+          <option value="Blogs">Blogs</option>
+          <option value="Speeches">Speeches</option>
+          <option value="Interviews">Interviews</option>
+        </select>
+      </div>
+
+      <div className = "form-group">
+        <label>What is your learning style?</label>
+        <select title="Enter learning Style" value={learningStyle} required onChange={(e) => setLearningStyle(e.target.value)}>
+          <option value="Visual">Visual (Images, charts, diagrams, videos)</option>
+          <option value="Auditory">Auditory (Listening, lectures, discussions, podcasts)</option>
+          <option value="Reading/Writing">Reading/Writing (Books, articles, note-taking)</option>
+          <option value="Kinesthetic">Kinesthetic (Hands-on activities, role-playing, movement)</option>
+          <option value="Logical">Logical (Problem-solving, puzzles, patterns, analysis)</option>
+          <option value="Social">Social (Group discussions, study groups, teamwork)</option>
+          <option value="Solitary">Solitary (Self-study, reflection, independent research)</option>
+          <option value="Multimodal">Multimodal (A mix of multiple styles)</option>
+        </select>
+      </div>
+
+      <div className = "form-group">
+        <label>Time A.M/P.M ?</label>
+        <input type="text"  title="Enter time" placeholder="i.e. 10 A.M/P.M." value={timeOfDay} onChange={(e) => setTimeOfDay(e.target.value)} required />
+      </div>
+
+      <div className = "form-group">
+        <label>Comments:</label>
+        <input type="text" title="Enter Comments:" placeholder="Comments" value={comment} onChange={(e) => setComment(e.target.value)} required />
+      </div>
+
+      <div className = "form-group">
+        <label>What is your favorite color?</label>
+        <input type="text" title="Enter Color" placeholder="Favorite Color" value={color} onChange={(e) => setColor(e.target.value)} required />
+      </div>
+      
       <button onClick={handleSubmit} disabled={isSubmitted} className="ready-button">Submit Test</button>
     </div>
   </div>
+  
   )}
         {/* Confidence Interval & Standard Error */}
         {confidenceMessage && (

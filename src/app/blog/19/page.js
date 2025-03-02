@@ -882,7 +882,7 @@ export default function Home() {
 
     // setTotalTested(testedCount);
 
-    if (totalTested < 500) {
+    if (totalTested < 5) {
       setConfidenceMessage("You need more words for testing.");
       return false;
     }
@@ -1114,7 +1114,7 @@ export default function Home() {
 
         {/* Stop Button */}
         {showReadyButton &&(
-          <button onClick={() => handleStop()} disabled ={isSubmitted || (totalAmount <500)} className="ready-button">
+          <button onClick={() => handleStop()} disabled ={isSubmitted || (totalAmount <5)} className="ready-button">
             Stop
           </button>
         )}
@@ -1145,6 +1145,7 @@ export default function Home() {
 
       <div className = "form-group">
         <label>Gender:</label>
+        <input type="text" title="Enter your Height" placeholder="Height" value={height} onChange={(e) => setHeight(e.target.value)} required />
       </div> 
        
       <div className = "form-group">
@@ -1390,8 +1391,9 @@ export default function Home() {
 
                 .form-group {
                   display: flex;
-                  flex-direction: column;
-                  gap: 5px; /* Space between label and input */
+                  flex-wrap: wrap;
+                  
+                  gap: 16px; /* Space between label and input */
                 }
 
                 .form-container label {

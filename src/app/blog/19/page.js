@@ -1380,14 +1380,17 @@ export default function Home() {
                   justify-content: center;
                   margin: 20px;
                 }
+               
+
                 .form-container {
-                  width: 800px; /* Adjust width as needed */
+                  display: grid;
                   padding: 15px;
                   border: 1px solid black;
-                  display: grid;
-                  grid-template-columns: repeat(4, 1fr); /* 4 columns */
-                  gap: 20px; /* Space between grid items */
+                  grid-template-columns: auto 1fr;
+                  gap: 20px;
+                  align-items: center;
                 }
+
 
                 .form-group {
                   display: flex;

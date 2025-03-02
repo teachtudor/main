@@ -935,7 +935,7 @@ export default function Home() {
       UniqueID: uniqueID,
       FirstName: username,
       TestDate: testDate,
-      TestDuration: testDuration,
+      TestDuration: testDuration/1000,
       Birthday: birthday,
       Gender: gender,
       Height: height,

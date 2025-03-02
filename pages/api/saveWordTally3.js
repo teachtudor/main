@@ -492,7 +492,58 @@
 //     }
 // }
 
-//CODE VERCEL BLOB 3 WORDS SAME FILE
+//CODE VERCEL BLOB 3 WORDS SAME FILE WORKS BEAUTIFUL BUT TOO MANY FILES PAUSE IT.
+// import { put, get } from '@vercel/blob';
+
+// export default async function handler(req, res) {
+//     if (req.method !== 'POST') {
+//         return res.status(405).json({ error: 'Method Not Allowed' });
+//     }
+
+//     try {
+//         const { uniqueID, word, knownCount, unknownCount, seenCount, totalCount, timeBetweenClicks } = req.body;
+
+//         console.log("Received:", req.body);
+
+//         if (!uniqueID || 
+//             !word || 
+//             knownCount === undefined || 
+//             unknownCount === undefined || 
+//             seenCount === undefined || 
+//             totalCount === undefined || 
+//             timeBetweenClicks === undefined) {
+//             console.error("Invalid Data:", req.body);
+//             return res.status(400).json({ error: "Invalid data received" });
+//         }
+
+//         const userFilePath = `WordTally_${uniqueID}.csv`;
+//         const csvRow = `${uniqueID},${word},${knownCount},${unknownCount},${seenCount},${totalCount},${timeBetweenClicks}\n`;
+//         console.log(`Appending to ${userFilePath}:`, csvRow);
+
+//         let existingData = "";
+//         try {
+//             const fileResponse = await get(userFilePath);
+//             if (fileResponse && fileResponse.url) {
+//                 const fileContent = await fetch(fileResponse.url);
+//                 existingData = await fileContent.text();
+//             }
+//         } catch (error) {
+//             console.log(`No existing file for ${uniqueID}, creating a new one.`);
+//         }
+
+//         const updatedData = existingData + csvRow;
+
+//         await put(userFilePath, updatedData, { access: 'public' });
+
+//         res.status(200).json({ message: `Word tally saved successfully for user ${uniqueID}` });
+
+//     } catch (error) {
+//         console.error("Unexpected Error:", error);
+//         res.status(500).json({ error: 'Internal Server Error' });
+//     }
+// }
+
+//pause upload of minute files
 import { put, get } from '@vercel/blob';
 
 export default async function handler(req, res) {
@@ -516,32 +567,17 @@ export default async function handler(req, res) {
             return res.status(400).json({ error: "Invalid data received" });
         }
 
-        const userFilePath = `WordTally_${uniqueID}.csv`;
-        const csvRow = `${uniqueID},${word},${knownCount},${unknownCount},${seenCount},${totalCount},${timeBetweenClicks}\n`;
-        console.log(`Appending to ${userFilePath}:`, csvRow);
-
-        let existingData = "";
-        try {
-            const fileResponse = await get(userFilePath);
-            if (fileResponse && fileResponse.url) {
-                const fileContent = await fetch(fileResponse.url);
-                existingData = await fileContent.text();
-            }
-        } catch (error) {
-            console.log(`No existing file for ${uniqueID}, creating a new one.`);
-        }
-
-        const updatedData = existingData + csvRow;
-
-        await put(userFilePath, updatedData, { access: 'public' });
-
-        res.status(200).json({ message: `Word tally saved successfully for user ${uniqueID}` });
+        console.log(`Skipping file operations for ${uniqueID}`);
+        
+        // Prevent file operations
+        return res.status(200).json({ message: `File operations disabled for ${uniqueID}` });
 
     } catch (error) {
         console.error("Unexpected Error:", error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
+
 
 
 

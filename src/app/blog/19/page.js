@@ -882,7 +882,7 @@ export default function Home() {
 
     // setTotalTested(testedCount);
 
-    if (totalTested < 500) {
+    if (totalTested < 5) {
       setConfidenceMessage("You need more words for testing.");
       return false;
     }
@@ -1114,7 +1114,7 @@ export default function Home() {
 
         {/* Stop Button */}
         {showReadyButton &&(
-          <button onClick={() => handleStop()} disabled ={isSubmitted || (totalAmount <500)} className="ready-button">
+          <button onClick={() => handleStop()} disabled ={isSubmitted || (totalAmount <5)} className="ready-button">
             Stop
           </button>
         )}
@@ -1487,6 +1487,33 @@ export default function Home() {
                   opacity: 1;
                 }
               }
+
+               /* Tablets: 2 columns */
+              @media (max-width: 1024px) {
+                .form-container {
+                  grid-template-columns: repeat(2, 1fr);
+                }
+              }
+
+              /* Phones & small tablets: 1 column */
+              @media (max-width: 768px) {
+                .form-container {
+                  grid-template-columns: 1fr;
+                }
+              }
+
+              /* Extra small screens (≤ 480px): Ensure full-width inputs */
+              @media (max-width: 480px) {
+                .form-container {
+                  grid-template-columns: 1fr;
+                  width: 100%;
+                  padding: 10px;
+                }
+                .form-container input,
+                .form-container select,
+                .form-container button {
+                  width: 100%;
+                }
         `}</style>
       </div>
     </div>

@@ -170,8 +170,8 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link href="/Activities" onClick={(e) => handleNavClick(e, "/Activities")}>
-            Activities
+          <Link href="/Store" onClick={(e) => handleNavClick(e, "/Store")}>
+            Store
           </Link>
         </li>
         <li>
@@ -180,8 +180,8 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link href="/about" onClick={(e) => handleNavClick(e, "/about")}>
-            About
+          <Link href="/Resume" onClick={(e) => handleNavClick(e, "/Resume")}>
+            Resume
           </Link>
         </li>
         <li>

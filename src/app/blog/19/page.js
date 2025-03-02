@@ -1552,8 +1552,7 @@ export default function Home() {
                 }
 
                 .form-group {
-                  display: flex;
-                  flex-direction: column;
+                  width: 100%;
                 }
               }
 

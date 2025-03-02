@@ -3355,7 +3355,9 @@ export default function Kitchen() {
         </div>
 
         {/* <div className="flex flex-col items-center justify-center w-full max-w-4xl bg-white p-6 border rounded-lg shadow-md"> */}
-        <div className="flex flex-col items-center justify-center w-[800px] h-[600px] bg-white p-6 border rounded-lg shadow-md">
+        {/* <div className="flex flex-col items-center justify-center w-[800px] h-[600px] bg-white p-6 border rounded-lg shadow-md"> */}
+        <div className="flex flex-col items-center justify-center w-full max-w-[800px] min-h-[600px] bg-white p-6 border rounded-lg shadow-md">
+
           <div className="grid grid-cols-3 gap-4 mt-6 w-full h-[500px] justify-items-center place-items-center">
             {currentItems.map((item, index) => {
               const keyBase = item.name.toLowerCase().replace(/ /g, '');

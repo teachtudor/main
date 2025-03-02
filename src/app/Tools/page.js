@@ -37,7 +37,7 @@ const blogPosts = [
     id:19,
     title: "BE A PART OF A STATISTICS STUDY",
     image: "/staword.jpeg", // Ensure this is the correct path
-    description: "MINIMUM 500 WORDS TEST",
+    description: "MINIMUM 525 WORDS TEST",
   },
   {
     id: 5,

@@ -3334,12 +3334,16 @@ export default function Kitchen() {
   return (
     <div>
       <Navbar />
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        <div className="flex flex-col space-y-4 p-6">
+      {/* <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <div className="flex flex-col space-y-4 p-6"> */}
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        {/* <div className="flex flex-wrap justify-center space-x-2 p-2"> Buttons in a row */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-2 ">
+          
           {categories.map((cat) => (
             <button
               key={cat}
-              className={`p-2 bg-blue-500 text-white rounded-lg ${category === cat ? 'bg-blue-700' : ''}`}
+              className={`px-2 py-1 w-auto bg-blue-500 text-white rounded-lg ${category === cat ? 'bg-blue-700' : ''}`}
               onClick={() => {
                 setCategory(cat);
                 setCurrentPage(0); // Reset page when changing category

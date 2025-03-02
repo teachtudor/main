@@ -506,12 +506,22 @@ export default function Home() {
   
   const saveTally = async (word, type) => {
     try {
+
+      // Retrieve or generate UniqueID
+      let uniqueID = sessionStorage.getItem("UniqueID");
+      if (!uniqueID) {
+          uniqueID = `user_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+          sessionStorage.setItem("UniqueID", uniqueID);
+      }
+
+      // let firstName =username || sessionStorage.getItem("firstName") || "Unknown";
+
       // 1. Input Validation: Ensure randomWord and its CEFR property are valid
       if (!randomWord || !randomWord.CEFR) {
         console.warn("Invalid state: randomWord or randomWord.CEFR is undefined.");
         return; // Exit early if input is invalid
       }
-  
+
       // 2. Retrieve Stored Tallies: Fetch from sessionStorage or initialize empty objects
       const storedKnown = JSON.parse(sessionStorage.getItem("knownWords")) || {};
       const storedUnknown = JSON.parse(sessionStorage.getItem("unknownWords")) || {};
@@ -560,6 +570,7 @@ export default function Home() {
 
       // 8. Prepare Payload: Create object for backend API request
       const payload = {
+        uniqueID,
         word: word || randomWord.word,
         knownCount: totalKnown,
         unknownCount: totalUnknown,
@@ -860,7 +871,7 @@ export default function Home() {
       !exposure || !method || !comment
     ) {
       alert("Please fill in all required fields before submitting.");
-      return; // Stop function if any field is empty
+      return false; // Stop function if any field is empty
     }
 
     const totalKnown = Object.values(knownWords).reduce((a, b) => a + b, 0);
@@ -981,9 +992,26 @@ export default function Home() {
         body: JSON.stringify(testResults),
       });
 
-      if (!response.ok) throw new Error("Failed to save test results");
+      // const responseData = await response.json().catch(() => null); // Try to parse response JSON, or return null
+
+      const responseText = await response.text(); // Get raw response
+      let responseData;
+      try {
+        responseData = JSON.parse(responseText);
+      } catch (e) {
+        responseData = responseText; // Fallback in case of non-JSON response
+      }
+
+      console.log("Server Response:", responseData);
+
+      if (!response.ok) {
+        throw new Error(`Failed to save test results. Status: ${response.status}`);
+      }
+
+      // if (!response.ok) throw new Error("Failed to save test results");
 
       console.log("Test results saved successfully");
+
       return true; // ✅ Success
     } catch (error) {
       console.error("Error saving test results:", error);
@@ -1002,7 +1030,11 @@ export default function Home() {
     //   return;
     // }
 
-    testDuration = elapsedTime; // Capture final time
+    setTestDuration(elapsedTime);
+    console.log("code is running");
+    console.log(elapsedTime);
+
+    // testDuration = elapsedTime; // Capture final time
     // calculateResults(testDuration); // Pass test duration to results calculation
   };
 
@@ -1091,13 +1123,13 @@ export default function Home() {
   <div className="user-info">
     <div className="form-container">
       <label>First Name:</label>
-      <input type="text" title="Enter your name" placeholder="Enter First Name" value={username} onChange={(e) => setUsername(e.target.value)} required />
+      <input type="text" title="Enter your name" placeholder="Enter First Name" value={username} onChange={(e) => { setUsername(e.target.value)}} required />
 
-      <label for="test-date">Test Date:</label>
-      <input id="test-date" type="date" value="{{testDate}}" required/>
+      <label htmlFor="test-date">Test Date:</label>
+      <input id="test-date" type="date" defaultValue={testDate} readOnly required/>
 
-      <label for="test-duration">Test Duration (seconds):</label>
-      <input id="test-duration" type="number" value="{{testDuration}}" readonly required/>
+      <label htmlFor="test-duration">Test Duration (seconds):</label>
+      <input id="test-duration" type="text" value={testDuration.toFixed(3)/1000} readOnly required/>
 
       <label>Birthday:</label>
       <input type="date" title="Enter your Birthday" value={birthday} onChange={(e) => setBirthday(e.target.value)} required />
@@ -1115,7 +1147,7 @@ export default function Home() {
       <input type="text" placeholder="Education Level" value={educationLevel} onChange={(e) => setEducationLevel(e.target.value)} required /> */}
 
       <label>Education Level</label>
-      <select value={educationLevel} required onChange={(e) => setEducationLevel(e.target.value)}>
+      <select title="Enter Education level" value={educationLevel} required onChange={(e) => setEducationLevel(e.target.value)}>
         <option value="">Select</option>
         <option value="Less than High School">Less than High School</option>
         <option value="High School">High School</option>
@@ -1141,7 +1173,7 @@ export default function Home() {
       <input type="text" title="Enter State" placeholder="State/Region" value={state} onChange={(e) => setState(e.target.value)} required />
 
       <label>Do you support the drone program?</label>
-      <select value={drone} required onChange={(e) => setDrone(e.target.value)}>
+      <select title="Enter yes or no" value={drone} required onChange={(e) => setDrone(e.target.value)}>
         <option value="">Select</option>
         <option value="Yes">Yes</option>
         <option value="No">No</option>
@@ -1149,7 +1181,7 @@ export default function Home() {
       </select>
 
       <label>Did you take a Grammar CEFR Test?</label>
-      <select value={takeTest} required onChange={(e) => setTakeTest(e.target.value)}>
+      <select title="Enter Test Status" value={takeTest} required onChange={(e) => setTakeTest(e.target.value)}>
         <option value="">Select</option>
         <option value="Yes">Yes</option>
         <option value="No">No</option>
@@ -1157,7 +1189,7 @@ export default function Home() {
       </select>
 
       <label>What Level CEFR English are you?</label>
-      <select value={level} required onChange={(e) => setLevel(e.target.value)}>
+      <select title="Enter CEFR Level" value={level} required onChange={(e) => setLevel(e.target.value)}>
         <option value="">Select</option>
         <option value="A1">A1</option>
         <option value="A2">A2</option>
@@ -1170,7 +1202,7 @@ export default function Home() {
       </select>
 
       <label>How often are you exposed to English?</label>
-      <select value={exposure} required onChange={(e) => setExposure(e.target.value)}>
+      <select title="Enter frequency" value={exposure} required onChange={(e) => setExposure(e.target.value)}>
       
         <option value="">Select</option>
         <option value="Constantly">Constantly 90-100%</option>
@@ -1184,8 +1216,8 @@ export default function Home() {
         <option value="Never">Never 0%</option>
       </select>
 
-      <label for="multi-select">How do you get exposed (CTRL Multiple)?</label>
-      <select id="multi-select" value={method} required onChange={handleChange} multiple>
+      <label htmlFor="multi-select">How do you get exposed (CTRL Multiple)?</label>
+      <select title="Enter multiple" id="multi-select" value={method} required onChange={handleChange} multiple>
 
         <option value="Movies">Movies</option>
         <option value="TV shows">TV shows</option>
@@ -1213,7 +1245,7 @@ export default function Home() {
       </select>
 
       <label>What is your learning style?</label>
-      <select value={learningStyle} required onChange={(e) => setLearningStyle(e.target.value)}>
+      <select title="Enter learning Style" value={learningStyle} required onChange={(e) => setLearningStyle(e.target.value)}>
         <option value="Visual">Visual (Images, charts, diagrams, videos)</option>
         <option value="Auditory">Auditory (Listening, lectures, discussions, podcasts)</option>
         <option value="Reading/Writing">Reading/Writing (Books, articles, note-taking)</option>

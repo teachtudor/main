@@ -882,7 +882,7 @@ export default function Home() {
 
     // setTotalTested(testedCount);
 
-    if (totalTested < 500) {
+    if (totalTested <500) {
       setConfidenceMessage("You need more words for testing.");
       return false;
     }
@@ -1145,7 +1145,7 @@ export default function Home() {
 
       <div className = "form-group">
         <label>Gender:</label>
-        <input type="text" title="Enter your Height" placeholder="Height" value={height} onChange={(e) => setHeight(e.target.value)} required />
+        <input type="text" title="Enter your Gender" placeholder="Gender" value={gender} onChange={(e) => setGender(e.target.value)} required />
       </div> 
        
       <div className = "form-group">
@@ -1283,7 +1283,18 @@ export default function Home() {
 
       <div className = "form-group">
         <label>What is your learning style?</label>
-        <select title="Enter learning Style" value={learningStyle} required onChange={(e) => setLearningStyle(e.target.value)}>
+        {/* <select title="Enter learning Style" value={learningStyle} required onChange={(e) => setLearningStyle(e.target.value)}> */}
+        <select
+            name="learningStyle"
+            title="Enter learning Style"
+            value={learningStyle}
+            required
+            onChange={(e) => {
+              console.log("Dropdown changed to:", e.target.value);
+              setLearningStyle(e.target.value);
+            }}
+>
+          <option value="" disabled>Select your learning style</option>
           <option value="Visual">Visual (Images, charts, diagrams, videos)</option>
           <option value="Auditory">Auditory (Listening, lectures, discussions, podcasts)</option>
           <option value="Reading/Writing">Reading/Writing (Books, articles, note-taking)</option>

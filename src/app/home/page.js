@@ -2607,14 +2607,18 @@ function Car({ position, buildings }) {
     let touchMoveY = 0;
 
     const handleTouchStart = (event) => {
-      if (event.touches.length === 1) {
+      // if (event.touches.length === 1) {
+        if (isTouchDevice && event.touches.length === 1) {
+        event.preventDefault();
         startTouchX = event.touches[0].clientX;
         startTouchY = event.touches[0].clientY;
       }d
     };
 
     const handleTouchMove = (event) => {
-      if (event.touches.length === 1) {
+      // if (event.touches.length === 1) {
+        if (isTouchDevice && event.touches.length === 1) {
+        event.preventDefault();
         touchMoveX = event.touches[0].clientX;
         touchMoveY = event.touches[0].clientY;
 
@@ -2645,6 +2649,13 @@ function Car({ position, buildings }) {
         // down: false,
       }));
     };
+
+    // Only prevent default scrolling if it's a touch device
+    // if (isTouchDevice) {
+    //   document.addEventListener("touchmove", (event) => {
+    //     event.preventDefault();
+    //   }, { passive: false });
+    // }
 
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);

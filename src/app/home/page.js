@@ -2195,6 +2195,8 @@ function Car({ position, buildings }) {
           backward: deltaY > 50,  // Move backward if swipe down
           left: deltaX < -50,     // Move left if swipe left
           right: deltaX > 50,     // Move right if swipe right
+          up: deltaY < -50,//new code
+          down: deltaY > 50,//new code
         }));
       }
     };
@@ -2206,6 +2208,8 @@ function Car({ position, buildings }) {
         backward: false,
         left: false,
         right: false,
+        up: false,
+        down: false,
       }));
     };
 

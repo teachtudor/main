@@ -2056,7 +2056,439 @@
 //   );
 // }
 
-//CODE 6
+//CODE 6 GREAT FOR COMPUTERS WORKS OK FOR PHONES
+// "use client";
+
+// import { useRef, useEffect, useState } from "react";
+// import dynamic from "next/dynamic";
+// import { useFrame, useThree, useLoader } from "@react-three/fiber";
+// import * as THREE from "three";
+// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+// import Navbar from '../Navbar';
+// import { TextureLoader } from "three";
+
+
+// // Dynamically import OrbitControls to avoid SSR issues
+// const OrbitControls = dynamic(
+//   () => import('@react-three/drei').then((mod) => mod.OrbitControls),
+//   { ssr: false }
+// );
+
+// // Dynamically load the Canvas to prevent SSR issues
+// const Canvas = dynamic(() => import("@react-three/fiber").then((mod) => mod.Canvas), { ssr: false });
+
+// function Ocean() {
+//   // const texture = useLoader(TextureLoader, "/waternormals.jpg"); // Update with your texture path
+//   const texture = new TextureLoader().load("/waternormals1.jpg");
+//   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+//   texture.repeat.set(1,1); // Adjust the tiling as needed
+
+//   return (
+//     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.5, 0]}>
+//       <planeGeometry args={[1000, 1000, 1000, 1000]} /> 
+//       {/* <meshStandardMaterial color="blue" roughness={0.5} metalness={0.3} /> */}
+//       <meshStandardMaterial map={texture} roughness={0.5} metalness={0.3} />
+//     </mesh>
+//   );
+// }
+
+// //island function
+// function Island() {
+//   const islandRef = useRef();
+//   const [islandModel, setIslandModel] = useState(null);
+
+//   useEffect(() => {
+//     const loader = new GLTFLoader();
+//     loader.load("/grothustangi_koltur.glb", (gltf) => {
+//       const model = gltf.scene;
+//       model.scale.set(5, 5, 5); // Adjust scale
+//       model.position.set(0, -5, 0); // Position it at ground level
+//       // setIslandModel(model);
+//       setIslandModel(model);
+//     });
+//   }, []);
+
+//   return islandModel ? <primitive object={islandModel} ref={islandRef} /> : null;
+// }
+
+// function Car({ position, buildings }) {
+//   const carRef = useRef();
+//   const { camera } = useThree();
+//   const speed = 1;
+//   const rotationSpeed = 0.03;
+//   const [verticalSpeed, setVerticalSpeed] = useState(0.5);
+//   const [direction, setDirection] = useState({ forward: false, backward: false, left: false, right: false });
+//   const [carModel, setCarModel] = useState(null);  // State to store the car model
+
+//   useEffect(() => {
+//     if (typeof window === "undefined") return; // Prevent SSR execution
+
+//     const loader = new GLTFLoader();
+//     loader.load("/car_model1.glb", (gltf) => {
+//       const model = gltf.scene;
+//       model.scale.set(0.8, 0.8, 0.8);
+//       model.position.set(0, 10, 0);
+//       setCarModel((prev) => {
+//         if (prev) prev.traverse((child) => child.dispose?.());
+//         return model;
+//       });
+//     });
+  
+//     return () => {
+//       if (carModel) carModel.traverse((child) => child.dispose?.());
+//     };
+//   }, []);
+
+//   // Handle user inputs for controlling the car (keyboard and touch)
+//   useEffect(() => {
+
+//     if (typeof window === "undefined") return;
+
+//     const handleKeyDown = (event) => {
+//       setDirection((dir) => ({
+//         ...dir,
+//         forward: event.key === "ArrowUp" || dir.forward,
+//         backward: event.key === "ArrowDown" || dir.backward,
+//         left: event.key === "ArrowLeft" || dir.left,
+//         right: event.key === "ArrowRight" || dir.right,
+//         up: event.key === "w" || dir.up,   // Press 'W' to go up
+//         down: event.key === "s" || dir.down // Press 'S' to go down
+//       }));
+//     };
+
+//     const handleKeyUp = (event) => {
+//       setDirection((dir) => ({
+//         ...dir,
+//         forward: event.key === "ArrowUp" ? false : dir.forward,
+//         backward: event.key === "ArrowDown" ? false : dir.backward,
+//         left: event.key === "ArrowLeft" ? false : dir.left,
+//         right: event.key === "ArrowRight" ? false : dir.right,
+//         up: event.key === "w" ? false : dir.up,   // Release 'W' to stop going up
+//         down: event.key === "s" ? false : dir.down // Release 'S' to stop going down
+//       }));
+//     };
+
+//     // Touch event handlers for mobile
+//     let startTouchX = 0;
+//     let startTouchY = 0;
+//     let touchMoveX = 0;
+//     let touchMoveY = 0;
+
+//     const handleTouchStart = (event) => {
+//       if (event.touches.length === 1) {
+//         startTouchX = event.touches[0].clientX;
+//         startTouchY = event.touches[0].clientY;
+//       }
+//     };
+
+//     const handleTouchMove = (event) => {
+//       if (event.touches.length === 1) {
+//         touchMoveX = event.touches[0].clientX;
+//         touchMoveY = event.touches[0].clientY;
+
+//         const deltaX = touchMoveX - startTouchX;
+//         const deltaY = touchMoveY - startTouchY;
+
+//         setDirection((dir) => ({
+//           ...dir,
+//           forward: deltaY < -50,  // Move forward if swipe up
+//           backward: deltaY > 50,  // Move backward if swipe down
+//           left: deltaX < -50,     // Move left if swipe left
+//           right: deltaX > 50,     // Move right if swipe right
+//           up: deltaY < -50,//new code
+//           down: deltaY > 50,//new code
+//         }));
+//       }
+//     };
+
+//     const handleTouchEnd = () => {
+//       setDirection((dir) => ({
+//         ...dir,
+//         forward: false,
+//         backward: false,
+//         left: false,
+//         right: false,
+//         up: false,
+//         down: false,
+//       }));
+//     };
+
+//     window.addEventListener("keydown", handleKeyDown);
+//     window.addEventListener("keyup", handleKeyUp);
+//     window.addEventListener("touchstart", handleTouchStart);
+//     window.addEventListener("touchmove", handleTouchMove);
+//     window.addEventListener("touchend", handleTouchEnd);
+
+//     return () => {
+//       window.removeEventListener("keydown", handleKeyDown);
+//       window.removeEventListener("keyup", handleKeyUp);
+//       window.removeEventListener("touchstart", handleTouchStart);
+//       window.removeEventListener("touchmove", handleTouchMove);
+//       window.removeEventListener("touchend", handleTouchEnd);
+//     };
+//   }, []);
+
+// // //car function WORK GREAT
+// // function Car({ position, buildings }) {
+// //   const carRef = useRef();
+// //   const { camera } = useThree();
+// //   const speed = 1
+// //   const rotationSpeed = 0.03;
+// //   const [verticalSpeed, setVerticalSpeed] = useState(0.5);
+// //   const [direction, setDirection] = useState({ forward: false, backward: false, left: false, right: false });
+// //   const [carModel, setCarModel] = useState(null);  // State to store the car model
+
+// //   useEffect(() => {
+
+// //     if (typeof window === "undefined") return; // Prevent SSR execution
+
+// //     const loader = new GLTFLoader();
+// //     loader.load("/car_model1.glb", (gltf) => {
+// //       const model = gltf.scene;
+// //       model.scale.set(0.8, 0.8, 0.8);
+// //       model.position.set(0, 10, 0);
+// //       setCarModel((prev) => {
+// //         if (prev) prev.traverse((child) => child.dispose?.());
+// //         return model;
+// //       });
+// //     });
+  
+// //     return () => {
+// //       if (carModel) carModel.traverse((child) => child.dispose?.());
+// //     };
+// //   }, []);
+
+// //   // Handle user inputs for controlling the car WORKS GREAT
+// //   useEffect(() => {
+
+// //     if (typeof window === "undefined") return;
+
+// //     const handleKeyDown = (event) => {
+// //       setDirection((dir) => ({
+// //         ...dir,
+// //         forward: event.key === "ArrowUp" || dir.forward,
+// //         backward: event.key === "ArrowDown" || dir.backward,
+// //         left: event.key === "ArrowLeft" || dir.left,
+// //         right: event.key === "ArrowRight" || dir.right,
+// //         up: event.key === "w" || dir.up,   // Press 'W' to go up
+// //         down: event.key === "s" || dir.down // Press 'S' to go down
+// //       }));
+// //     };
+
+// //     const handleKeyUp = (event) => {
+// //       setDirection((dir) => ({
+// //         ...dir,
+// //         forward: event.key === "ArrowUp" ? false : dir.forward,
+// //         backward: event.key === "ArrowDown" ? false : dir.backward,
+// //         left: event.key === "ArrowLeft" ? false : dir.left,
+// //         right: event.key === "ArrowRight" ? false : dir.right,
+// //         up: event.key === "w" ? false : dir.up,   // Release 'W' to stop going up
+// //         down: event.key === "s" ? false : dir.down // Release 'S' to stop going down
+// //       }));
+// //     };
+
+// //     window.addEventListener("keydown", handleKeyDown);
+// //     window.addEventListener("keyup", handleKeyUp);
+
+// //     return () => {
+// //       window.removeEventListener("keydown", handleKeyDown);
+// //       window.removeEventListener("keyup", handleKeyUp);
+// //     };
+// //   }, []);
+
+//   // Check for collisions with buildings
+//   function checkCollision(newPos) {
+//     if(!carRef.current) return false;
+//     const carBox = new THREE.Box3().setFromObject(carRef.current);
+//     carBox.expandByScalar(0.1);
+
+//     return buildings.some(({ x, z, width, depth, height }) => {
+//       const buildingBox = new THREE.Box3(
+//         new THREE.Vector3(x - width / 2, 0, z - depth / 2),
+//         new THREE.Vector3(x + width / 2, height, z + depth / 2)
+//       );
+
+//       return carBox.intersectsBox(buildingBox);
+//     });
+//   }
+
+//   // Update car position and camera movement every frame
+//   useFrame(() => {
+//     if (!carRef.current || !carModel) return;  // Wait until the model is loaded
+
+//     const zoomOutFactor = 30;
+//     const followDistance = -15;
+//     const heightAbove = 15;
+//     const lerpFactor = 0.01;
+
+//     const offsetX = -Math.sin(carRef.current.rotation.y) * followDistance;
+//     const offsetZ = -Math.cos(carRef.current.rotation.y) * followDistance;
+
+//     camera.position.lerp(
+//       new THREE.Vector3(
+//         carRef.current.position.x + offsetX,
+//         carRef.current.position.y + heightAbove,
+//         carRef.current.position.z + offsetZ
+//       ),
+//       lerpFactor
+//     );
+
+//     //camera.lookAt(carRef.current.position);
+//     camera.lookAt(
+//       new THREE.Vector3(
+//         carRef.current.position.x,
+//         carRef.current.position.y+1,  // Keep camera looking slightly above the car for better visibility
+//         carRef.current.position.z
+//       )
+//     );
+
+//     let newPos = carRef.current.position.clone();
+
+//     // Move Up/Down
+//     if (direction.up) newPos.y += 0.1;   // W key (go up)
+//     if (direction.down) newPos.y -= 0.1; // S key (go down)
+
+//     //add gravity (car slowly falls)
+//     newPos.y -= 0.01;
+
+//     if (newPos.y < 10) newPos.y = 10;
+
+//     const forwardStep = new THREE.Vector3(
+//       -Math.sin(carRef.current.rotation.y) * speed,
+//       0,
+//       -Math.cos(carRef.current.rotation.y) * speed
+//     );
+
+//     const backwardStep = new THREE.Vector3(
+//       Math.sin(carRef.current.rotation.y) * speed,
+//       0,
+//       Math.cos(carRef.current.rotation.y) * speed
+//     );
+
+//     if (direction.forward) {
+//       const testPos = newPos.clone().add(forwardStep);
+//       if (!checkCollision(testPos)) newPos.add(forwardStep);
+//     }
+
+//     if (direction.backward) {
+//       const testPos = newPos.clone().add(backwardStep);
+//       if (!checkCollision(testPos)) newPos.add(backwardStep);
+//     }
+
+//     // ✨ New: Adjust Y position using Up/Down arrow keys
+//     if (direction.up) newPos.y += verticalSpeed;   // Move up
+//     if (direction.down) newPos.y -= verticalSpeed; // Move down
+
+//     if (checkCollision(newPos)) {
+//       newPos.x += Math.random() * 0.2 - 0.1;
+//       newPos.z += Math.random() * 0.2 - 0.1;
+//     }
+
+//     carRef.current.position.copy(newPos);
+
+//     if (direction.left) carRef.current.rotation.y += rotationSpeed;
+//     if (direction.right) carRef.current.rotation.y -= rotationSpeed;
+//   });
+
+//   return (
+//     <group ref={carRef} position={position}>
+//       {carModel && <primitive object={carModel} />}
+//     </group>
+//   );
+// }
+
+// function Building({ position, color, size }) {
+//   return (
+//     <mesh position={position}>
+//       <boxGeometry args={[size.width, size.height, size.depth]} />
+//       <meshStandardMaterial color={color} metalness={0.3} />
+//     </mesh>
+//   );
+// }
+
+// function InfiniteGreenGrid() {
+//   return <gridHelper args={[1000, 100, "green", "green"]} visible={false} />;
+// }
+
+// const categories = [
+//   { name: "Technology", color: "lightgrey" },
+//   { name: "Sustainability", color: "blue" },
+//   { name: "Future", color: "green" },
+//   { name: "Space", color: "red" },
+//   { name: "Geography", color: "brown" },
+//   { name: "Ecosystem", color: "red" },
+// ];
+
+// function generateBuildings() {
+//   const buildings = [];
+//   const rowSpacing = 20;
+//   const colSpacing = 10;
+//   const numBuildingsPerRow = 0;
+//   const startX = -35;
+//   const startZ = -5;
+
+//   categories.forEach((category, rowIndex) => {
+//     for (let i = 0; i < numBuildingsPerRow; i++) {
+//       buildings.push({
+//         x: startX + i * colSpacing,
+//         z: startZ - rowIndex * rowSpacing,
+//         width: 5,
+//         depth: 2,
+//         height: 10,
+//         color: category.color,
+//         category: category.name,
+//       });
+//     }
+//   });
+
+//   return buildings;
+// }
+
+// export default function BoardGame() {
+//   const [mounted, setMounted] = useState(false);
+
+//   useEffect(() => {
+//     setMounted(true);
+//   }, []);
+
+//   if (!mounted) return <div className="w-full h-screen bg-black" />;
+
+//   return <DynamicBoardGameContent />;
+// }
+
+// // const BoardGameContent = dynamic(() => Promise.resolve(BoardGameContentComponent), { ssr: false });
+// // Dynamically wrap the existing function
+// const DynamicBoardGameContent = dynamic(() => Promise.resolve(BoardGameContent), { ssr: false });
+
+
+// function BoardGameContent() {
+//   const buildings = generateBuildings();
+
+//   return (
+//     <>
+//       <Navbar />
+//       <div className="w-full h-screen">
+//         <Canvas camera={{ position: [0, 10, -15] }}>
+//           <ambientLight intensity={2} />
+//           <directionalLight position={[5, 10, 5]} intensity={3} castShadow />
+          
+
+//           <pointLight position={[10, 10, 10]} />
+//           <OrbitControls enableZoom={true} enablePan={true} />
+//           <InfiniteGreenGrid />
+//           <Ocean/>
+//           <Island /> {/* Add the island to the scene */}
+//           <Car position={[0, 0.25, 0]} buildings={buildings} />
+//           {buildings.map((b, i) => (
+//             <Building key={i} position={[b.x, b.height / 2, b.z]} color={b.color} size={b} />
+//           ))}
+//         </Canvas>
+//       </div>
+//     </>
+//   );
+// }
+
+//code 7 
 "use client";
 
 import { useRef, useEffect, useState } from "react";
@@ -2085,9 +2517,9 @@ function Ocean() {
 
   return (
     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.5, 0]}>
-      <planeGeometry args={[1000, 1000, 1000, 1000]} /> 
-      {/* <meshStandardMaterial color="blue" roughness={0.5} metalness={0.3} /> */}
-      <meshStandardMaterial map={texture} roughness={0.5} metalness={0.3} />
+      <planeGeometry args={[10000, 10000, 1000, 1000]} /> 
+      <meshStandardMaterial color="blue" roughness={0.5} metalness={0.3} />
+      {/* <meshStandardMaterial map={texture} roughness={0.5} metalness={0.3} /> */}
     </mesh>
   );
 }
@@ -2117,7 +2549,7 @@ function Car({ position, buildings }) {
   const speed = 1;
   const rotationSpeed = 0.03;
   const [verticalSpeed, setVerticalSpeed] = useState(0.5);
-  const [direction, setDirection] = useState({ forward: false, backward: false, left: false, right: false });
+  const [direction, setDirection] = useState({ forward: false, backward: false, left: false, right: false, up: false, down: false });
   const [carModel, setCarModel] = useState(null);  // State to store the car model
 
   useEffect(() => {
@@ -2178,7 +2610,7 @@ function Car({ position, buildings }) {
       if (event.touches.length === 1) {
         startTouchX = event.touches[0].clientX;
         startTouchY = event.touches[0].clientY;
-      }
+      }d
     };
 
     const handleTouchMove = (event) => {
@@ -2195,8 +2627,9 @@ function Car({ position, buildings }) {
           backward: deltaY > 50,  // Move backward if swipe down
           left: deltaX < -50,     // Move left if swipe left
           right: deltaX > 50,     // Move right if swipe right
-          up: deltaY < -50,//new code
-          down: deltaY > 50,//new code
+          // up: deltaY < -50,//new code
+          // down: deltaY > 50,//new code
+          
         }));
       }
     };
@@ -2208,8 +2641,8 @@ function Car({ position, buildings }) {
         backward: false,
         left: false,
         right: false,
-        up: false,
-        down: false,
+        // up: false,
+        // down: false,
       }));
     };
 

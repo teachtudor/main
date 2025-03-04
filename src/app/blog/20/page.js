@@ -2010,6 +2010,239 @@
 
 
 //CODE 13
+// "use client";
+
+// import { useRef, useEffect, useState } from "react";
+// import dynamic from "next/dynamic";
+// import { useFrame, useThree } from "@react-three/fiber";
+// import * as THREE from "three";
+// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+
+// // Dynamically import OrbitControls to avoid SSR issues
+// const OrbitControls = dynamic(
+//   () => import('@react-three/drei').then((mod) => mod.OrbitControls),
+//   { ssr: false }
+// );
+
+// // Dynamically load the Canvas to prevent SSR issues
+// const Canvas = dynamic(() => import("@react-three/fiber").then((mod) => mod.Canvas), { ssr: false });
+
+// function Car({ position, buildings }) {
+//   const carRef = useRef();
+//   const { camera } = useThree();
+//   const speed = 0.08;
+//   const rotationSpeed = 0.03;
+//   const [direction, setDirection] = useState({ forward: false, backward: false, left: false, right: false });
+//   const [carModel, setCarModel] = useState(null);  // State to store the car model
+
+//   // Load the car model
+//   useEffect(() => {
+//     const loader = new GLTFLoader();
+//     loader.load("/car_model.glb", (gltf) => {
+//     // loader.load("/disco_drone.glb", (gltf) => {
+//       const model = gltf.scene;
+//       // model.scale.set(0.5, 0.5, 0.5);  // Scale the model to 50% of its original size
+//       model.scale.set(0.8,0.8,0.8);
+      
+//       //NEW CODE
+//       model.position.set(0,15,0);
+
+//       setCarModel(model);  // Store the model in state
+//     });
+
+//   }, []);
+
+//   // Handle user inputs for controlling the car
+//   useEffect(() => {
+//     const handleKeyDown = (event) => {
+//       setDirection((dir) => ({
+//         ...dir,
+//         forward: event.key === "ArrowUp" || dir.forward,
+//         backward: event.key === "ArrowDown" || dir.backward,
+//         left: event.key === "ArrowLeft" || dir.left,
+//         right: event.key === "ArrowRight" || dir.right,
+//       }));
+//     };
+
+//     const handleKeyUp = (event) => {
+//       setDirection((dir) => ({
+//         ...dir,
+//         forward: event.key === "ArrowUp" ? false : dir.forward,
+//         backward: event.key === "ArrowDown" ? false : dir.backward,
+//         left: event.key === "ArrowLeft" ? false : dir.left,
+//         right: event.key === "ArrowRight" ? false : dir.right,
+//       }));
+//     };
+
+//     window.addEventListener("keydown", handleKeyDown);
+//     window.addEventListener("keyup", handleKeyUp);
+
+//     return () => {
+//       window.removeEventListener("keydown", handleKeyDown);
+//       window.removeEventListener("keyup", handleKeyUp);
+//     };
+//   }, []);
+
+//   // Check for collisions with buildings
+//   function checkCollision(newPos) {
+//     const carBox = new THREE.Box3().setFromObject(carRef.current);
+//     carBox.expandByScalar(0.1);
+
+//     return buildings.some(({ x, z, width, depth, height }) => {
+//       const buildingBox = new THREE.Box3(
+//         new THREE.Vector3(x - width / 2, 0, z - depth / 2),
+//         new THREE.Vector3(x + width / 2, height, z + depth / 2)
+//       );
+
+//       return carBox.intersectsBox(buildingBox);
+//     });
+//   }
+
+//   // Update car position and camera movement every frame
+//   useFrame(() => {
+//     if (!carRef.current || !carModel) return;  // Wait until the model is loaded
+
+//     const zoomOutFactor = 30;
+//     const followDistance = -15;
+//     const heightAbove = 8;
+//     const lerpFactor = 0.01;
+
+//     const offsetX = -Math.sin(carRef.current.rotation.y) * followDistance;
+//     const offsetZ = -Math.cos(carRef.current.rotation.y) * followDistance;
+
+//     camera.position.lerp(
+//       new THREE.Vector3(
+//         carRef.current.position.x + offsetX,
+//         carRef.current.position.y + heightAbove,
+//         carRef.current.position.z + offsetZ
+//       ),
+//       lerpFactor
+//     );
+
+//     camera.lookAt(carRef.current.position);
+
+//     let newPos = carRef.current.position.clone();
+
+//     const forwardStep = new THREE.Vector3(
+//       -Math.sin(carRef.current.rotation.y) * speed,
+//       0,
+//       -Math.cos(carRef.current.rotation.y) * speed
+//     );
+
+//     const backwardStep = new THREE.Vector3(
+//       Math.sin(carRef.current.rotation.y) * speed,
+//       0,
+//       Math.cos(carRef.current.rotation.y) * speed
+//     );
+
+//     if (direction.forward) {
+//       const testPos = newPos.clone().add(forwardStep);
+//       if (!checkCollision(testPos)) newPos.add(forwardStep);
+//     }
+
+//     if (direction.backward) {
+//       const testPos = newPos.clone().add(backwardStep);
+//       if (!checkCollision(testPos)) newPos.add(backwardStep);
+//     }
+
+//     if (checkCollision(newPos)) {
+//       newPos.x += Math.random() * 0.2 - 0.1;
+//       newPos.z += Math.random() * 0.2 - 0.1;
+//     }
+
+//     carRef.current.position.copy(newPos);
+
+//     if (direction.left) carRef.current.rotation.y += rotationSpeed;
+//     if (direction.right) carRef.current.rotation.y -= rotationSpeed;
+//   });
+
+//   return (
+//     <group ref={carRef} position={position}>
+//       {carModel && <primitive object={carModel} />}
+//     </group>
+//   );
+// }
+
+// function Building({ position, color, size }) {
+//   return (
+//     <mesh position={position}>
+//       <boxGeometry args={[size.width, size.height, size.depth]} />
+//       <meshStandardMaterial color={color} metalness={0.3} />
+//     </mesh>
+//   );
+// }
+
+// function InfiniteGreenGrid() {
+//   return <gridHelper args={[1000, 100, "green", "green"]} />;
+// }
+
+// const categories = [
+//   { name: "Technology", color: "lightgrey" },
+//   { name: "Sustainability", color: "blue" },
+//   { name: "Future", color: "green" },
+//   { name: "Space", color: "red" },
+//   { name: "Geography", color: "brown" },
+//   { name: "Ecosystem", color: "red" },
+// ];
+
+// function generateBuildings() {
+//   const buildings = [];
+//   const rowSpacing = 20;
+//   const colSpacing = 10;
+//   const numBuildingsPerRow = 7;
+//   const startX = -35;
+//   const startZ = -5;
+
+//   categories.forEach((category, rowIndex) => {
+//     for (let i = 0; i < numBuildingsPerRow; i++) {
+//       buildings.push({
+//         x: startX + i * colSpacing,
+//         z: startZ - rowIndex * rowSpacing,
+//         width: 5,
+//         depth: 2,
+//         height: 10,
+//         color: category.color,
+//         category: category.name,
+//       });
+//     }
+//   });
+
+//   return buildings;
+// }
+
+// export default function BoardGame() {
+//   const [mounted, setMounted] = useState(false);
+
+//   useEffect(() => {
+//     setMounted(true);
+//   }, []);
+
+//   if (!mounted) return <div className="w-full h-screen bg-black" />;
+
+//   return <BoardGameContent />;
+// }
+
+// function BoardGameContent() {
+//   const buildings = generateBuildings();
+
+//   return (
+//     <div className="w-full h-screen">
+//       <Canvas camera={{ position: [0, 10, -15] }}>
+//         <ambientLight intensity={0.5} />
+//         <pointLight position={[10, 10, 10]} />
+//         <OrbitControls enableZoom={true} enablePan={true} />
+//         <InfiniteGreenGrid />
+//         <Car position={[0, 0.25, 0]} buildings={buildings} />
+//         {buildings.map((b, i) => (
+//           <Building key={i} position={[b.x, b.height / 2, b.z]} color={b.color} size={b} />
+//         ))}
+//       </Canvas>
+//     </div>
+//   );
+// }
+
+
+//CODE 14
 "use client";
 
 import { useRef, useEffect, useState } from "react";
@@ -2043,6 +2276,10 @@ function Car({ position, buildings }) {
       const model = gltf.scene;
       // model.scale.set(0.5, 0.5, 0.5);  // Scale the model to 50% of its original size
       model.scale.set(0.8,0.8,0.8);
+      
+      //NEW CODE
+      model.position.set(0,2,0);
+
       setCarModel(model);  // Store the model in state
     });
 
@@ -2100,7 +2337,7 @@ function Car({ position, buildings }) {
 
     const zoomOutFactor = 30;
     const followDistance = -15;
-    const heightAbove = 8;
+    const heightAbove = 2;
     const lerpFactor = 0.01;
 
     const offsetX = -Math.sin(carRef.current.rotation.y) * followDistance;

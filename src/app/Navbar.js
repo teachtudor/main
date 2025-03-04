@@ -171,7 +171,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link href="/Store" onClick={(e) => handleNavClick(e, "/Store")}>
-            Store
+            Must-see
           </Link>
         </li>
         <li>

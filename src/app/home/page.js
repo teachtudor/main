@@ -2607,18 +2607,18 @@ function Car({ position, buildings }) {
     let touchMoveY = 0;
 
     const handleTouchStart = (event) => {
-      // if (event.touches.length === 1) {
-        if (isTouchDevice && event.touches.length === 1) {
-        event.preventDefault();
+      if (event.touches.length === 1) {
+        // if (isTouchDevice && event.touches.length === 1) {
+        // event.preventDefault();
         startTouchX = event.touches[0].clientX;
         startTouchY = event.touches[0].clientY;
       }d
     };
 
     const handleTouchMove = (event) => {
-      // if (event.touches.length === 1) {
-        if (isTouchDevice && event.touches.length === 1) {
-        event.preventDefault();
+      if (event.touches.length === 1) {
+        // if (isTouchDevice && event.touches.length === 1) {
+        // event.preventDefault();
         touchMoveX = event.touches[0].clientX;
         touchMoveY = event.touches[0].clientY;
 
@@ -2631,8 +2631,8 @@ function Car({ position, buildings }) {
           backward: deltaY > 50,  // Move backward if swipe down
           left: deltaX < -50,     // Move left if swipe left
           right: deltaX > 50,     // Move right if swipe right
-          // up: deltaY < -50,//new code
-          // down: deltaY > 50,//new code
+          up: deltaY < -50,//new code
+          down: deltaY > 50,//new code
           
         }));
       }
@@ -2645,8 +2645,8 @@ function Car({ position, buildings }) {
         backward: false,
         left: false,
         right: false,
-        // up: false,
-        // down: false,
+        up: false,
+        down: false,
       }));
     };
 

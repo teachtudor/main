@@ -27,17 +27,17 @@ const blogPosts = [
     image: "/tpr.jpg", // Ensure this is the correct path
     description: "Interactive TPR LESSON PLANS!",
   },
-  {
-    id:20,
-    title: "Area 51 3D Drone Game",
-    image: "/area51.jpg", // Ensure this is the correct path
-    description: "IN DEVELOPMENT",
-  },
+  // {
+  //   id:20,
+  //   title: "TPR GAME",
+  //   image: "/tprgame.jpg", // Ensure this is the correct path
+  //   description: "IN DEVELOPMENT",
+  // },
   {
     id:19,
     title: "BE A PART OF A STATISTICS STUDY",
     image: "/staword.jpeg", // Ensure this is the correct path
-    description: "MINIMUM 525 WORDS TEST",
+    description: "MINIMUM 525 WORDS TEST - By proceeding, you agree to participate in this vocabulary study. Your responses, including demographic and test data, will be used for research purposes only. No personally identifiable information is collected, and your data remains anonymous. Participation is voluntary, and you may exit at any time.",
   },
   {
     id: 5,

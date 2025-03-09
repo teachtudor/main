@@ -1077,7 +1077,10 @@ export default function Home() {
       </div>
 
       <div className="container">
-        <h1>Magic Ball Word Selector</h1>
+        <h1>"By proceeding, you agree to participate in this vocabulary study. Your responses, including demographic and test data, 
+          will be used for research purposes only. No personally 
+          identifiable information is collected, and your data remains anonymous. 
+          Participation is voluntary, and you may exit at any time."</h1>
 
         {/* CEFR Level Selection */}
         <div className="checkbox-group">

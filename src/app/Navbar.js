@@ -181,7 +181,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link href="/Resume" onClick={(e) => handleNavClick(e, "/Resume")}>
-            Resume
+            Space
           </Link>
         </li>
         <li>

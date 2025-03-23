@@ -767,7 +767,7 @@ const ParticleBlob = () => {
     const textureLoader = new THREE.TextureLoader();
     const textureLoaderExr = new RGBELoader();
 
-    const milkyWayTexture = textureLoader.load('/mw1.jpg'); // Your Milky Way texture file path
+    const milkyWayTexture = textureLoader.load('/mw.jpg'); // Your Milky Way texture file path
     // const milkyWayTextureExr = textureLoaderExr.load('/mw.exr', (texture) => {
     //   texture.encoding = THREE.RGBEEncoding;  // Ensure encoding is correct for .exr files
     //   texture.mapping = THREE.EquirectangularReflectionMapping; // Set correct mapping for environment textures

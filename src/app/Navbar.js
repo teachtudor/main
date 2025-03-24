@@ -186,7 +186,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link href="/contact" onClick={(e) => handleNavClick(e, "/contact")}>
-            Contact
+            Amazon 3D
           </Link>
         </li>
       </ul>

@@ -1390,230 +1390,525 @@
 
 
 //code 11
-'use client';
+// 'use client';
 
-import { useEffect, useRef } from 'react';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
-import Stats from 'three/addons/libs/stats.module.js';
+// import { useEffect, useRef } from 'react';
+// import * as THREE from 'three';
+// import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+// import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+// import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
+// import Stats from 'three/addons/libs/stats.module.js';
 
-const ThreeScene = () => {
-  const canvasRef = useRef(null);
+// const ThreeScene = () => {
+//   const canvasRef = useRef(null);
 
-  useEffect(() => {
-    let camera, scene, renderer, stats;
-    let glbModel1, glbModel2, shinySphere;
-    let cubeCamera, cubeRenderTarget;
-    let controls;
+//   useEffect(() => {
+//     let camera, scene, renderer, stats;
+//     let glbModel1, glbModel2, shinySphere;
+//     let cubeCamera, cubeRenderTarget;
+//     let controls;
 
-    // Raycaster and mouse vector for detecting clicks
-    const raycaster = new THREE.Raycaster();
-    const mouse = new THREE.Vector2();
-    let intersectedObject = null; // Track the intersected object
+//     // Raycaster and mouse vector for detecting clicks
+//     const raycaster = new THREE.Raycaster();
+//     const mouse = new THREE.Vector2();
+//     let intersectedObject = null; // Track the intersected object
 
-    // Initialize the scene
-    renderer = new THREE.WebGLRenderer({ antialias: true, canvas: canvasRef.current });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 2;
+//     // Initialize the scene
+//     renderer = new THREE.WebGLRenderer({ antialias: true, canvas: canvasRef.current });
+//     renderer.setPixelRatio(window.devicePixelRatio);
+//     renderer.setSize(window.innerWidth, window.innerHeight);
+//     renderer.toneMapping = THREE.ACESFilmicToneMapping;
+//     renderer.toneMappingExposure = 2;
 
-    // Declare the animate function before using it
-    const animate = (msTime) => {
-      const time = msTime / 1000;
+//     // Declare the animate function before using it
+//     const animate = (msTime) => {
+//       const time = msTime / 1000;
 
-      if (glbModel1) {
-        glbModel1.rotation.x += 0.02;
-        glbModel1.rotation.y += 0.02;
-      }
+//       if (glbModel1) {
+//         glbModel1.rotation.x += 0.02;
+//         glbModel1.rotation.y += 0.02;
+//       }
 
-      if (glbModel2) {
-        glbModel2.rotation.x += 0.02;
-        glbModel2.rotation.y += 0.02;
-      }
+//       if (glbModel2) {
+//         glbModel2.rotation.x += 0.02;
+//         glbModel2.rotation.y += 0.02;
+//       }
 
-      shinySphere.rotation.x += 0;
-      shinySphere.rotation.y += 0;
+//       shinySphere.rotation.x += 0;
+//       shinySphere.rotation.y += 0;
 
-      cubeCamera.update(renderer, scene);
-      controls.update();
-      renderer.render(scene, camera);
-      stats.update();
-    };
+//       cubeCamera.update(renderer, scene);
+//       controls.update();
+//       renderer.render(scene, camera);
+//       stats.update();
+//     };
 
-    renderer.setAnimationLoop(animate);
+//     renderer.setAnimationLoop(animate);
 
-    // Resize handler
-    const onWindowResized = () => {
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-    };
-    window.addEventListener('resize', onWindowResized);
+//     // Resize handler
+//     const onWindowResized = () => {
+//       renderer.setSize(window.innerWidth, window.innerHeight);
+//       camera.aspect = window.innerWidth / window.innerHeight;
+//       camera.updateProjectionMatrix();
+//     };
+//     window.addEventListener('resize', onWindowResized);
 
-    stats = new Stats();
-    document.body.appendChild(stats.dom);
+//     stats = new Stats();
+//     document.body.appendChild(stats.dom);
 
-    camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-    camera.position.z = 75;
+//     camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
+//     camera.position.z = 75;
+    
 
-    scene = new THREE.Scene();
-    scene.rotation.y = 0; // avoid flying objects occluding the sun
+//     scene = new THREE.Scene();
+//     scene.rotation.y = 0; // avoid flying objects occluding the sun
 
-    // Load HDR texture
-    new RGBELoader()
-      .setPath('/')
-      .load('3dimage.hdr', (texture) => {
-        texture.mapping = THREE.EquirectangularReflectionMapping;
-        scene.background = texture;
-        scene.environment = texture;
-      });
+//     // Load HDR texture
+//     new RGBELoader()
+//       .setPath('/')
+//       .load('3dimage.hdr', (texture) => {
+//         texture.mapping = THREE.EquirectangularReflectionMapping;
+//         scene.background = texture;
+//         scene.environment = texture;
+//       });
 
-    // Setup cube camera and render target
-    cubeRenderTarget = new THREE.WebGLCubeRenderTarget(256);
-    cubeRenderTarget.texture.type = THREE.HalfFloatType;
-    cubeCamera = new THREE.CubeCamera(1, 1000, cubeRenderTarget);
+//     // Setup cube camera and render target
+//     cubeRenderTarget = new THREE.WebGLCubeRenderTarget(256);
+//     cubeRenderTarget.texture.type = THREE.HalfFloatType;
+//     cubeCamera = new THREE.CubeCamera(1, 1000, cubeRenderTarget);
 
-    // Material for the objects
-    const material = new THREE.MeshStandardMaterial({
-      envMap: cubeRenderTarget.texture,
-      roughness: 0,
-      metalness: 1,
-    });
+//     // Material for the objects
+//     const material = new THREE.MeshStandardMaterial({
+//       envMap: cubeRenderTarget.texture,
+//       roughness: 0,
+//       metalness: 1,
+//     });
 
-    // const gui = new GUI();
-    // gui.add(material, 'roughness', 0, 1);
-    // gui.add(material, 'metalness', 0, 1);
-    // gui.add(renderer, 'toneMappingExposure', 0, 2).name('exposure');
+//     // const gui = new GUI();
+//     // gui.add(material, 'roughness', 0, 1);
+//     // gui.add(material, 'metalness', 0, 1);
+//     // gui.add(renderer, 'toneMappingExposure', 0, 2).name('exposure');
 
-    // Load GLB models
-    const loader = new GLTFLoader();
+//     // Load GLB models
+//     const loader = new GLTFLoader();
 
-    loader.load('/Amazon-Logo.glb', (gltf) => {
-      glbModel1 = gltf.scene;
-      scene.add(glbModel1);
+//     loader.load('/Amazon-Logo.glb', (gltf) => {
+//       glbModel1 = gltf.scene;
+//       scene.add(glbModel1);
 
-      // Optional: Scale and position the first model
-      glbModel1.scale.set(0.5, 0.5, 0.5);
-      glbModel1.position.set(40, 0, 40);
-      glbModel1.rotation.x = Math.PI / 2;
+//       // Optional: Scale and position the first model
+//       glbModel1.scale.set(0.5, 0.5, 0.5);
+//       glbModel1.position.set(40, 0, 40);
+//       glbModel1.rotation.x = Math.PI / 2;
 
-      // Make the model clickable by adding it to the intersected object tracker
-      glbModel1.userData = {
-        link: 'https://www.amazon.com/Best-Sellers-Books-English-as-a-Second-Language-Instruction/zgbs/books/11823?utm_source=chatgpt.com&linkCode=ll2&tag=teachtudor-20&linkId=d052a145087524e53a33126694f9bea1&language=en_US&ref_=as_li_ss_tl',
-      };
-    });
+//       // Make the model clickable by adding it to the intersected object tracker
+//       glbModel1.userData = {
+//         link: 'https://www.amazon.com/Best-Sellers-Books-English-as-a-Second-Language-Instruction/zgbs/books/11823?utm_source=chatgpt.com&linkCode=ll2&tag=teachtudor-20&linkId=d052a145087524e53a33126694f9bea1&language=en_US&ref_=as_li_ss_tl',
+//       };
+//     });
 
-    loader.load('/Amazon-Logo.glb', (gltf) => {
-      glbModel2 = gltf.scene;
-      scene.add(glbModel2);
+//     loader.load('/Amazon-Logo.glb', (gltf) => {
+//       glbModel2 = gltf.scene;
+//       scene.add(glbModel2);
 
-      // Optional: Scale and position the second model
-      glbModel2.scale.set(0.5, 0.5, 0.5);
-      glbModel2.position.set(-40, 0, -40);
-      glbModel2.rotation.x = Math.PI / 2;
+//       // Optional: Scale and position the second model
+//       glbModel2.scale.set(0.5, 0.5, 0.5);
+//       glbModel2.position.set(-40, 0, -40);
+//       glbModel2.rotation.x = Math.PI / 2;
 
-      // Make the model clickable by adding it to the intersected object tracker
-      glbModel2.userData = {
-        link: 'https://www.amazon.com/Best-Sellers-Books-English-as-a-Second-Language-Instruction/zgbs/books/11823?utm_source=chatgpt.com&linkCode=ll2&tag=teachtudor-20&linkId=d052a145087524e53a33126694f9bea1&language=en_US&ref_=as_li_ss_tl',
-      };
-    });
+//       // Make the model clickable by adding it to the intersected object tracker
+//       glbModel2.userData = {
+//         link: 'https://www.amazon.com/Best-Sellers-Books-English-as-a-Second-Language-Instruction/zgbs/books/11823?utm_source=chatgpt.com&linkCode=ll2&tag=teachtudor-20&linkId=d052a145087524e53a33126694f9bea1&language=en_US&ref_=as_li_ss_tl',
+//       };
+//     });
 
-    // Create the shiny sphere in the center
-    shinySphere = new THREE.Mesh(
-      new THREE.SphereGeometry(15, 32, 32),
-      new THREE.MeshStandardMaterial({
-        roughness: 0,
-        metalness: 1,
-      })
-    );
-    shinySphere.position.set(0, 0, 0);
-    scene.add(shinySphere);
+//     // Create the shiny sphere in the center
+//     shinySphere = new THREE.Mesh(
+//       new THREE.SphereGeometry(15, 32, 32),
+//       new THREE.MeshStandardMaterial({
+//         roughness: 0,
+//         metalness: 1,
+//       })
+//     );
+//     shinySphere.position.set(0, 0, 0);
+//     scene.add(shinySphere);
 
-    // Orbit controls
-    controls = new OrbitControls(camera, renderer.domElement);
-    controls.autoRotate = false;
+//     // Orbit controls
+//     controls = new OrbitControls(camera, renderer.domElement);
+//     controls.autoRotate = false;
 
-    // Add event listener for mouse clicks
-    const onMouseClick = (event) => {
-      // Normalize mouse coordinates
-      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-      // Update the raycaster with the camera and mouse position
-      raycaster.setFromCamera(mouse, camera);
-
-      // Calculate objects intersecting the ray
-      const intersects = getIntersects();
-
-      if (intersects.length > 0) {
-        const object = intersects[0].object;
-        if (object && object.userData && object.userData.link) {
-          // If clicked model has a link, open it in a new tab
-          window.open(object.userData.link, '_blank');
-        }
-      }
-    };
-
+//     // Add event listener for mouse clicks
 //     const onMouseClick = (event) => {
-//     // Normalize mouse coordinates
-//     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-//     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+//       // Normalize mouse coordinates
+//       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+//       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-//   // Update the raycaster with the camera and mouse position
-//   raycaster.update();
+//       // Update the raycaster with the camera and mouse position
+//       raycaster.setFromCamera(mouse, camera);
 
-//   // Calculate objects intersecting the ray
-//   const intersects = getIntersects();
+//       // Calculate objects intersecting the ray
+//       const intersects = getIntersects();
 
-//   if (intersects.length > 0) {
-//     const object = intersects[0].object;
-//     if (object && object.userData && object.userData.link) {
-//       // If clicked model has a link, open it in a new tab
-//       window.open(object.userData.link, '_blank');
-//     }
-//   }
+//       if (intersects.length > 0) {
+//         const object = intersects[0].object;
+//         if (object && object.userData && object.userData.link) {
+//           // If clicked model has a link, open it in a new tab
+//           window.open(object.userData.link, '_blank');
+//         }
+//       }
+//     };
+
+// //     const onMouseClick = (event) => {
+// //     // Normalize mouse coordinates
+// //     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+// //     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+// //   // Update the raycaster with the camera and mouse position
+// //   raycaster.update();
+
+// //   // Calculate objects intersecting the ray
+// //   const intersects = getIntersects();
+
+// //   if (intersects.length > 0) {
+// //     const object = intersects[0].object;
+// //     if (object && object.userData && object.userData.link) {
+// //       // If clicked model has a link, open it in a new tab
+// //       window.open(object.userData.link, '_blank');
+// //     }
+// //   }
+// // };
+
+//     // Helper function to check for intersections
+//     const getIntersects = () => {
+//       // Find all objects that intersect with the ray
+//       return raycaster.intersectObjects(scene.children);
+//     };
+
+//     // Listen for mouse clicks
+//     window.addEventListener('click', onMouseClick, false);
+
+//     // Cleanup on unmount
+//     return () => {
+//       window.removeEventListener('resize', onWindowResized);
+//       window.removeEventListener('click', onMouseClick);
+//     };
+//   }, []);
+
+//   // return <canvas ref={canvasRef}></canvas>;
+//   return (
+//     <>
+//       <canvas ref={canvasRef}></canvas>
+
+//       {/* Clickable Image Below Models */}
+//       <div style={{
+//         position: 'absolute', 
+//         bottom: '50px', 
+//         left: '50%', 
+//         transform: 'translateX(-50%)',
+//         textAlign: 'center'
+//       }}>
+//         <a href="https://www.amazon.com/gp/bestsellers/?ref_=nav_cs_bestsellers" 
+//            target="_blank">
+//           <img src="https://www.teachtudor.com/_next/image?url=https%3A%2F%2Flogos-world.net%2Fwp-content%2Fuploads%2F2020%2F06%2FAmazon-Logo.png&w=256&q=75" alt="Amazon" style={{ width: '200px', height: 'auto', cursor: 'pointer' }} />
+//         </a>
+//       </div>
+//     </>
+//   );
 // };
 
-    // Helper function to check for intersections
-    const getIntersects = () => {
-      // Find all objects that intersect with the ray
-      return raycaster.intersectObjects(scene.children);
-    };
+// export default ThreeScene;
 
-    // Listen for mouse clicks
-    window.addEventListener('click', onMouseClick, false);
 
-    // Cleanup on unmount
-    return () => {
-      window.removeEventListener('resize', onWindowResized);
-      window.removeEventListener('click', onMouseClick);
-    };
-  }, []);
+//code 12
+// 'use client';
 
-  // return <canvas ref={canvasRef}></canvas>;
+// import { useEffect, useRef } from 'react';
+// import * as THREE from 'three';
+// import { World, Body, Sphere, Plane, Vec3, Material, ContactMaterial } from 'cannon-es';
+// import { OrbitControls } from '@react-three/drei';
+// import { Canvas } from '@react-three/fiber';
+// import * as CANNON from 'cannon-es'; //Cannon.js for physics
+
+// export default function PhysicsScene() {
+//   const sceneRef = useRef();
+//   const worldRef = useRef();
+//   const spheres = useRef([]);
+//   const cameraRef = useRef();
+
+//   useEffect(() => {
+
+//     window.addEventListener('resize', () => {
+//       camera.aspect = window.innerWidth / window.innerHeight;
+//       camera.updateProjectionMatrix();
+//       renderer.setSize(window.innerWidth, window.innerHeight);
+//     });
+    
+//     // Scene setup
+//     const scene = new THREE.Scene();
+//     const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+//     camera.position.z = 100;
+//     camera.position.y = 50;
+//     // camera.lookAt(new THREE.Vector3(0,0,0));
+//     // cameraRef.current = camera;
+
+//     const renderer = new THREE.WebGLRenderer({ antialias: true });
+//     renderer.setSize(window.innerWidth, window.innerHeight);
+//     // sceneRef.current.appendChild(renderer.domElement);
+
+//     // Lights
+//     const light = new THREE.DirectionalLight(0xffffff, 3);
+//     light.position.set(5, 10, 7);
+//     scene.add(light);
+
+//     // Cannon world setup
+//     const world = new World();
+//     world.gravity.set(0, -30.82, 0);
+//     worldRef.current = world;
+
+//     // Materials for bounce
+//     const ballMaterial = new Material('ballMaterial');
+//     const groundMaterial = new Material('groundMaterial');
+//     const contactMaterial = new ContactMaterial(ballMaterial, groundMaterial, {
+//       friction: 0.4,
+//       restitution: 1, // Bounciness
+//     });
+//     world.addContactMaterial(contactMaterial);
+
+//     // Ground body
+//     const groundBody = new Body({
+//       mass: 0, // Static
+//       shape: new Plane(),
+//       material: groundMaterial,
+//     });
+//     groundBody.quaternion.setFromEuler(-Math.PI / 2, 0, 0);
+//     world.addBody(groundBody);
+
+//     // Ground mesh
+//     const groundGeometry = new THREE.PlaneGeometry(5000, 5000);
+//     const groundMaterialMesh = new THREE.MeshStandardMaterial({ color: 0x808080 });
+//     const groundMesh = new THREE.Mesh(groundGeometry, groundMaterialMesh);
+//     groundMesh.rotation.x = -Math.PI / 2;
+//     scene.add(groundMesh);
+
+//     // 🔄 Function to create spheres (Mesh + Body together)
+//     function createSphere(radius, position) {
+//       // Three.js mesh
+//       const geometry = new THREE.SphereGeometry(radius, 32, 32);
+//       const material = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+//       const mesh = new THREE.Mesh(geometry, material);
+//       scene.add(mesh);
+
+//       // Cannon.js body
+//       const shape = new Sphere(radius);
+//       const body = new Body({
+//         mass: 1,
+//         shape: shape,
+//         material: ballMaterial,
+//       });
+//       body.position.copy(position);
+//       world.addBody(body);
+     
+      
+
+//       // Store pair for updating
+//       spheres.current.push({ mesh, body });
+//     }
+
+//     // createSphere(1, new Vec3(Math.random()*20, 20, Math.random()*20));
+//     // createSphere(1, new Vec3(Math.random()*20, 20, Math.random()*20));
+//     // createSphere(1, new Vec3(Math.random()*20, 20, Math.random()*20));
+//     // createSphere(1, new Vec3(Math.random()*20, 20, Math.random()*20));
+//     // createSphere(1, new Vec3(Math.random()*20, 20, Math.random()*20));
+//     // createSphere(1, new Vec3(Math.random()*20, 20, Math.random()*20));
+//     // createSphere(1, new Vec3(Math.random()*20, 20, Math.random()*20));
+//     // createSphere(1, new Vec3(Math.random()*20, 20, Math.random()*20));
+//     // createSphere(1, new Vec3(Math.random()*20, 20, Math.random()*20));
+//     // createSphere(1, new Vec3(Math.random()*20, 20, Math.random()*20));
+//     // createSphere(1, new Vec3(Math.random()*20, 20, Math.random()*20));
+//     // createSphere(1, new Vec3(Math.random()*20, 20, Math.random()*20));
+//     // createSphere(1, new Vec3(Math.random()*20, 20, Math.random()*20));
+//     // createSphere(1, new Vec3(Math.random()*20, 20, Math.random()*20));
+
+//     // createSphere(1, new Vec3(-Math.random()*20, 20, -Math.random()*20));
+//     // createSphere(1, new Vec3(-Math.random()*20, 20, -Math.random()*20));
+//     // createSphere(1, new Vec3(-Math.random()*20, 20, -Math.random()*20));
+//     // createSphere(1, new Vec3(-Math.random()*20, 20, -Math.random()*20));
+//     // createSphere(1, new Vec3(-Math.random()*20, 20, -Math.random()*20));
+//     // createSphere(1, new Vec3(-Math.random()*20, 20, -Math.random()*20));
+//     // createSphere(1, new Vec3(-Math.random()*20, 20, -Math.random()*20));
+//     // createSphere(1, new Vec3(-Math.random()*20, 20, -Math.random()*20));
+//     // createSphere(1, new Vec3(-Math.random()*20, 20, -Math.random()*20));
+//     // createSphere(1, new Vec3(-Math.random()*20, 20, -Math.random()*20));
+//     // createSphere(1, new Vec3(-Math.random()*20, 20, -Math.random()*20));
+//     // createSphere(1, new Vec3(-Math.random()*20, 20, -Math.random()*20));
+//     // createSphere(1, new Vec3(-Math.random()*20, 20, -Math.random()*20));
+//     // createSphere(1, new Vec3(-Math.random()*20, 20, -Math.random()*20));
+   
+//     // Create multiple spheres at random positions
+//     for (let i = 0; i < 150; i++) {
+//       createSphere(1, new Vec3(Math.random() * 20, 80, Math.random() * 20));
+//       createSphere(1, new Vec3(-Math.random() * 20, 80, -Math.random() * 20));
+//       createSphere(1, new Vec3(Math.random() * 10, 80, Math.random() * 10));
+//       createSphere(1, new Vec3(-Math.random() * 10, 80, -Math.random() * 10));
+//     }
+
+
+//     // Animate loop
+//     const clock = new THREE.Clock();
+//     const animate = () => {
+//       requestAnimationFrame(animate);
+//       const delta = clock.getDelta();
+
+//       world.step(1 / 60, delta, 3);
+
+//       // Update meshes to match physics
+//       spheres.current.forEach(({ mesh, body }) => {
+//         mesh.position.copy(body.position);
+//         mesh.quaternion.copy(body.quaternion);
+//       });
+
+//       renderer.render(scene, camera);
+//     };
+
+//     animate();
+
+//     // Cleanup
+//     return () => {
+//       renderer.dispose();
+//       scene.clear();
+//       spheres.current = [];
+//     };
+//   }, []);
+
+//   // return <div ref={sceneRef} style={{ width: '100vw', height: '100vh' }} />;
+//   return (
+//     <Canvas style={{ height: "120vh" }}>
+//       {/* OrbitControls allow us to move the camera */}
+//       <OrbitControls />
+      
+//       {/* Create a plane with a basic material */}
+//       <mesh>
+//         <planeGeometry args={[5, 5]} />
+//         <meshStandardMaterial color="lightblue" />
+//       </mesh>
+
+//       {/* Add a light source for better visibility */}
+//       <ambientLight intensity={0.5} />
+//       <pointLight position={[10, 10, 10]} />
+//     </Canvas>
+//   );
+
+// }
+'use client';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import * as THREE from 'three';
+import { Physics, usePlane, useSphere } from '@react-three/cannon';
+import React, { useState, useEffect, useCallback } from 'react';
+
+function Sphere({position}) {
+  // Creating a sphere with physics properties using useSphere hook
+  const [ref] = useSphere(() => ({
+    mass: 5,  // Mass of the sphere
+    // position: [0, 50, 0], // Initial position of the sphere (5 units above the ground)
+    position: position,
+    args: [1], // Radius of the sphere
+    material:{
+      restitution: 1,//Bounciness of the sphere, 0 (no bounce) to 1(maximum bounce)
+    },
+  }));
+
+  return (
+    <mesh ref={ref}>
+      <sphereGeometry args={[1]} />
+      <meshStandardMaterial color="orange" />
+    </mesh>
+  );
+}
+
+function GroundPlane() {
+  const [ref] = usePlane(() => ({
+    rotation: [-Math.PI / 2, 0, 0], // Flat on the XZ axis
+    position: [0, 0, 0],           // Ground level
+    material: {
+      restitution: 0.8, //Bounciness of the ground
+    }
+  }));
+
+  return (
+    <mesh ref={ref} receiveShadow>
+      <planeGeometry args={[5000, 5000]} />
+      <meshStandardMaterial color="black" side={THREE.DoubleSide} />
+    </mesh>
+  );
+}
+
+
+
+function App() {
+
+ // State to store random sphere positions
+ const [positions, setPositions] = useState([]);
+
+ // Generate random positions for spheres
+ useEffect(() => {
+   const generateRandomPositions = (noSpheres) => {
+     const newPositions = [];
+     for (let i = 0; i < noSpheres; i++) {
+       const x = Math.random() * 50 - 20; // Random x between -5 and 5
+       const y = Math.random() * 20 + 200; // Random y between 10 and 30 (above ground)
+       const z = Math.random() * 50 - 20; // Random z between -5 and 5
+       newPositions.push([x, y, z]);
+     }
+     setPositions(newPositions); // Update state with new positions
+   };
+
+   generateRandomPositions(300); // Generate positions once when the component mounts
+ }, []);
+
+  // Reset positions when reset button is clicked
+  const handleReset = () => {
+    generateRandomPositions(500); // Generate new random positions for spheres
+  };
+
+    
+
   return (
     <>
-      <canvas ref={canvasRef}></canvas>
+    <Canvas 
+      style={{ height: '100vh' }}
+      camera={{ position: [300,100,10], fov:75}}
+      gl={{ antialias: false }}>
+      {/* Enable OrbitControls for camera interaction */}
+      <OrbitControls 
+        maxPolarAngle={Math.PI*2} 
+        minPolarAngle={0}
+        enablePan={true} />
 
-      {/* Clickable Image Below Models */}
-      <div style={{
-        position: 'absolute', 
-        bottom: '50px', 
-        left: '50%', 
-        transform: 'translateX(-50%)',
-        textAlign: 'center'
-      }}>
-        <a href="https://www.amazon.com/gp/bestsellers/?ref_=nav_cs_bestsellers" 
-           target="_blank">
-          <img src="https://www.teachtudor.com/_next/image?url=https%3A%2F%2Flogos-world.net%2Fwp-content%2Fuploads%2F2020%2F06%2FAmazon-Logo.png&w=256&q=75" alt="Amazon" style={{ width: '200px', height: 'auto', cursor: 'pointer' }} />
-        </a>
-      </div>
+      {/* Set up the physics engine */}
+      <Physics 
+        gravity={[0,-90, 0]}
+        iterations={5}
+        substeps={1}>
+        {/* Add a sphere with physics properties */}
+        {positions.map((position, index) => (
+          <Sphere key={index} position={position} />
+        ))}
+        <GroundPlane/>
+        
+      </Physics>
+
+      {/* Lighting */}
+      <ambientLight intensity={5} />
+      <pointLight position={[10, 10, 10]} />
+    </Canvas>
+
+       
     </>
   );
-};
+}
 
-export default ThreeScene;
+export default App;
+
+

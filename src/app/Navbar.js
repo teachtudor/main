@@ -238,44 +238,115 @@
 
 // export default Navbar;
 
-//3d navbar
+//3d navbar 1
+// 'use client';
+// import { Canvas } from '@react-three/fiber';
+// import { Text, OrbitControls } from '@react-three/drei';
+// import { useRouter } from 'next/navigation';
+// import * as THREE from 'three';
 
+// export default function Navbar() {
+//   const router = useRouter();
+
+//   return (
+//     <Canvas style={{ 
+//         height: '15vh', 
+//         background: 'transparent', 
+//         width: '100%',
+//         top:0,
+//         left:0 }}>
+//       <ambientLight intensity={3} />
+//       <pointLight position={[10, 10, 10]} />
+
+//       <OrbitControls />
+
+//       {/* Example 3D Nav Links */}
+//       <NavText position={[-20, 0, 0]} text="Home" onClick={() => router.push('/home')} />
+//       <NavText position={[-13, 0, 0]} text="Must-see" onClick={() => router.push('/Store')} />
+//       <NavText position={[-3, 0, 0]} text="Tools" onClick={() => router.push('/Tools')} />
+//       <NavText position={[4, 0, 0]} text="Space" onClick={() => router.push('/Resume')} />
+//       <NavText position={[11, 0, 0]} text="Bouncy Balls" onClick={() => router.push('/contact')} />
+//     </Canvas>
+//   );
+// }
+
+// function NavText({ text, position, onClick }) {
+//   return (
+//     <Text
+//       position={position}
+//       fontSize={2}
+//       color="orange"
+//       onPointerOver={(e) => (e.object.color = 'white')}
+//       onClick={onClick}
+//       anchorX="left"
+//       anchorY="middle"
+//       font="/Sansation-Regular.ttf"
+//       outlineWidth={0.06}
+//       outlineColor="black"
+//       cursor="pointer"
+//     >
+//       {text}
+//     </Text>
+//   );
+// }
+
+//3d navbar 2
 'use client';
 import { Canvas } from '@react-three/fiber';
 import { Text, OrbitControls } from '@react-three/drei';
 import { useRouter } from 'next/navigation';
 import * as THREE from 'three';
+import { useEffect, useState } from 'react';
 
 export default function Navbar() {
   const router = useRouter();
+  const [fontSize, setFontSize] = useState(2); // Default font size
+
+  // Responsive font size based on screen width
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 480) {
+        setFontSize(0.8); // Mobile
+      } else if (window.innerWidth <= 768) {
+        setFontSize(1.5); // Tablet
+      } else {
+        setFontSize(2); // Desktop
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
-    <Canvas style={{ 
-        height: '15vh', 
+    <Canvas 
+      style={{ 
+        height: '12vh', // Can adjust based on preference
         background: 'transparent', 
         width: '100%',
-        top:0,
-        left:0 }}>
+        position: 'sticky',
+        top: 0,
+        zIndex: 10
+      }}
+    >
       <ambientLight intensity={3} />
       <pointLight position={[10, 10, 10]} />
+      <OrbitControls enableZoom={false} enablePan={false} />
 
-      <OrbitControls />
-
-      {/* Example 3D Nav Links */}
-      <NavText position={[-20, 0, 0]} text="Home" onClick={() => router.push('/home')} />
-      <NavText position={[-13, 0, 0]} text="Must-see" onClick={() => router.push('/Store')} />
-      <NavText position={[-3, 0, 0]} text="Tools" onClick={() => router.push('/Tools')} />
-      <NavText position={[4, 0, 0]} text="Space" onClick={() => router.push('/Resume')} />
-      <NavText position={[11, 0, 0]} text="Bouncy Balls" onClick={() => router.push('/contact')} />
+      <NavText position={[-20, 0, 0]} text="Home" onClick={() => router.push('/home')} fontSize={fontSize} />
+      <NavText position={[-12, 0, 0]} text="Must-see" onClick={() => router.push('/Store')} fontSize={fontSize} />
+      <NavText position={[-1, 0, 0]} text="Tools" onClick={() => router.push('/Tools')} fontSize={fontSize} />
+      <NavText position={[7, 0, 0]} text="Space" onClick={() => router.push('/Resume')} fontSize={fontSize} />
+      <NavText position={[15, 0, 0]} text="Bouncy Balls" onClick={() => router.push('/contact')} fontSize={fontSize} />
     </Canvas>
   );
 }
 
-function NavText({ text, position, onClick }) {
+function NavText({ text, position, onClick, fontSize }) {
   return (
     <Text
       position={position}
-      fontSize={2}
+      fontSize={fontSize}
       color="orange"
       onPointerOver={(e) => (e.object.color = 'white')}
       onClick={onClick}
@@ -290,6 +361,7 @@ function NavText({ text, position, onClick }) {
     </Text>
   );
 }
+
 
 
 

@@ -128,115 +128,193 @@
 
 
 //temp code
-"use client";
-import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
-import "./globals.css";
+// "use client";
+// import Link from "next/link";
+// import Image from "next/image";
+// import { usePathname } from "next/navigation";
+// import "./globals.css";
 
-const Navbar = () => {
-  const pathname = usePathname(); // Get the current route
+// const Navbar = () => {
+//   const pathname = usePathname(); // Get the current route
 
-  const handleNavClick = (event, url) => {
-    if (pathname === url) {
-      event.preventDefault(); // Prevent Next.js handling
-      window.location.reload(); // Force a full page reload
-    } else {
-      // sessionStorage.clear(); // Reset session data when navigating
-      // Only reset session storage when clicking a navbar tab
-      // sessionStorage.removeItem("testProgress"); // Reset only test-related data
-      // ✅ Ensure we're in the client before accessing sessionStorage
-      if (typeof window !== "undefined") {
-        // Reset session data when navigating
-        sessionStorage.removeItem("lastClickTime"); 
-        sessionStorage.removeItem("knownWords");   
-        sessionStorage.removeItem("unknownWords"); 
-        sessionStorage.removeItem("seenWords");    
-        sessionStorage.removeItem("timeBetweenClicks"); 
-        sessionStorage.removeItem("levels"); 
-      }
-    }
-  };
+//   const handleNavClick = (event, url) => {
+//     if (pathname === url) {
+//       event.preventDefault(); // Prevent Next.js handling
+//       window.location.reload(); // Force a full page reload
+//     } else {
+//       // sessionStorage.clear(); // Reset session data when navigating
+//       // Only reset session storage when clicking a navbar tab
+//       // sessionStorage.removeItem("testProgress"); // Reset only test-related data
+//       // ✅ Ensure we're in the client before accessing sessionStorage
+//       if (typeof window !== "undefined") {
+//         // Reset session data when navigating
+//         sessionStorage.removeItem("lastClickTime"); 
+//         sessionStorage.removeItem("knownWords");   
+//         sessionStorage.removeItem("unknownWords"); 
+//         sessionStorage.removeItem("seenWords");    
+//         sessionStorage.removeItem("timeBetweenClicks"); 
+//         sessionStorage.removeItem("levels"); 
+//       }
+//     }
+//   };
+
+//   return (
+//     <nav className="navbar">
+//       {/* <div className="logo-container">
+//         <Image src="/logo2.jpg" alt="Logo2" width={40} height={40} />
+//       </div> */}
+//       <ul className="nav-list">
+//         <li>
+//           <Link href="/home" onClick={(e) => handleNavClick(e, "/home")}>
+//             Home
+//           </Link>
+//         </li>
+//         <li>
+//           <Link href="/Store" onClick={(e) => handleNavClick(e, "/Store")}>
+//             Must-see
+//           </Link>
+//         </li>
+//         <li>
+//           <Link href="/Tools" onClick={(e) => handleNavClick(e, "/Tools")}>
+//             Tools
+//           </Link>
+//         </li>
+//         <li>
+//           <Link href="/Resume" onClick={(e) => handleNavClick(e, "/Resume")}>
+//             Space
+//           </Link>
+//         </li>
+//         <li>
+//           <Link href="/contact" onClick={(e) => handleNavClick(e, "/contact")}>
+//             Bouncy Balls
+//           </Link>
+//         </li>
+//       </ul>
+
+//       <style jsx global>{`
+//         .navbar {
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+//           padding: 10px 20px;
+//           background-color: #000;
+//           border-bottom: 1px solid #333;
+//           font-family: 'Orbitron', sans-serif;
+//           font-size: 15px;
+//         }
+
+//         .logo-container {
+//           margin-right: 20px;
+          
+//         }
+
+//         .nav-list {
+//           display: flex;
+//           list-style: none;
+//           padding: 0;
+//           margin: 0;
+//           gap: 15px;
+          
+//         }
+
+//         .nav-list li a {
+//           color: #fff;
+//           text-decoration: none;
+//           transition: color 0.3s ease;
+//           font-size: 30px;
+//           cursor: pointer;
+//           font-family: 'Rajdhani', sans-serif;
+
+//           font-size: 20px;
+//         }
+//         .nav-list li a:hover {
+//           color: silver;
+//           text-decoration: none;
+//         }
+//       `}</style>
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
+
+//3d navbar
+
+'use client';
+import { Canvas } from '@react-three/fiber';
+import { Text, OrbitControls } from '@react-three/drei';
+import { useRouter } from 'next/navigation';
+import * as THREE from 'three';
+
+export default function Navbar() {
+  const router = useRouter();
 
   return (
-    <nav className="navbar">
-      {/* <div className="logo-container">
-        <Image src="/logo2.jpg" alt="Logo2" width={40} height={40} />
-      </div> */}
-      <ul className="nav-list">
-        <li>
-          <Link href="/home" onClick={(e) => handleNavClick(e, "/home")}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link href="/Store" onClick={(e) => handleNavClick(e, "/Store")}>
-            Must-see
-          </Link>
-        </li>
-        <li>
-          <Link href="/Tools" onClick={(e) => handleNavClick(e, "/Tools")}>
-            Tools
-          </Link>
-        </li>
-        <li>
-          <Link href="/Resume" onClick={(e) => handleNavClick(e, "/Resume")}>
-            Space
-          </Link>
-        </li>
-        <li>
-          <Link href="/contact" onClick={(e) => handleNavClick(e, "/contact")}>
-            Bouncy Balls
-          </Link>
-        </li>
-      </ul>
+    <Canvas style={{ 
+        height: '15vh', 
+        background: 'transparent', 
+        width: '100%',
+        top:0,
+        left:0 }}>
+      <ambientLight intensity={3} />
+      <pointLight position={[10, 10, 10]} />
 
-      <style jsx global>{`
-        .navbar {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 10px 20px;
-          background-color: #000;
-          border-bottom: 1px solid #333;
-          font-family: 'Orbitron', sans-serif;
-          font-size: 15px;
-        }
+      <OrbitControls />
 
-        .logo-container {
-          margin-right: 20px;
-          
-        }
-
-        .nav-list {
-          display: flex;
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          gap: 15px;
-          
-        }
-
-        .nav-list li a {
-          color: #fff;
-          text-decoration: none;
-          transition: color 0.3s ease;
-          font-size: 30px;
-          cursor: pointer;
-          font-family: 'Rajdhani', sans-serif;
-
-          font-size: 20px;
-        }
-        .nav-list li a:hover {
-          color: silver;
-          text-decoration: none;
-        }
-      `}</style>
-    </nav>
+      {/* Example 3D Nav Links */}
+      <NavText position={[-20, 0, 0]} text="Home" onClick={() => router.push('/home')} />
+      <NavText position={[-13, 0, 0]} text="Must-see" onClick={() => router.push('/Store')} />
+      <NavText position={[-3, 0, 0]} text="Tools" onClick={() => router.push('/Tools')} />
+      <NavText position={[4, 0, 0]} text="Space" onClick={() => router.push('/Resume')} />
+      <NavText position={[11, 0, 0]} text="Bouncy Balls" onClick={() => router.push('/contact')} />
+    </Canvas>
   );
-};
+}
 
-export default Navbar;
+function NavText({ text, position, onClick }) {
+  return (
+    <Text
+      position={position}
+      fontSize={2}
+      color="orange"
+      onPointerOver={(e) => (e.object.color = 'white')}
+      onClick={onClick}
+      anchorX="left"
+      anchorY="middle"
+      font="/Sansation-Regular.ttf"
+      outlineWidth={0.06}
+      outlineColor="black"
+      cursor="pointer"
+    >
+      {text}
+    </Text>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

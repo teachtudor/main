@@ -128,115 +128,115 @@
 
 
 //temp code
-// "use client";
-// import Link from "next/link";
-// import Image from "next/image";
-// import { usePathname } from "next/navigation";
-// import "./globals.css";
+"use client";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import "./globals.css";
 
-// const Navbar = () => {
-//   const pathname = usePathname(); // Get the current route
+const Navbar = () => {
+  const pathname = usePathname(); // Get the current route
 
-//   const handleNavClick = (event, url) => {
-//     if (pathname === url) {
-//       event.preventDefault(); // Prevent Next.js handling
-//       window.location.reload(); // Force a full page reload
-//     } else {
-//       // sessionStorage.clear(); // Reset session data when navigating
-//       // Only reset session storage when clicking a navbar tab
-//       // sessionStorage.removeItem("testProgress"); // Reset only test-related data
-//       // ✅ Ensure we're in the client before accessing sessionStorage
-//       if (typeof window !== "undefined") {
-//         // Reset session data when navigating
-//         sessionStorage.removeItem("lastClickTime"); 
-//         sessionStorage.removeItem("knownWords");   
-//         sessionStorage.removeItem("unknownWords"); 
-//         sessionStorage.removeItem("seenWords");    
-//         sessionStorage.removeItem("timeBetweenClicks"); 
-//         sessionStorage.removeItem("levels"); 
-//       }
-//     }
-//   };
+  const handleNavClick = (event, url) => {
+    if (pathname === url) {
+      event.preventDefault(); // Prevent Next.js handling
+      window.location.reload(); // Force a full page reload
+    } else {
+      // sessionStorage.clear(); // Reset session data when navigating
+      // Only reset session storage when clicking a navbar tab
+      // sessionStorage.removeItem("testProgress"); // Reset only test-related data
+      // ✅ Ensure we're in the client before accessing sessionStorage
+      if (typeof window !== "undefined") {
+        // Reset session data when navigating
+        sessionStorage.removeItem("lastClickTime"); 
+        sessionStorage.removeItem("knownWords");   
+        sessionStorage.removeItem("unknownWords"); 
+        sessionStorage.removeItem("seenWords");    
+        sessionStorage.removeItem("timeBetweenClicks"); 
+        sessionStorage.removeItem("levels"); 
+      }
+    }
+  };
 
-//   return (
-//     <nav className="navbar">
-//       {/* <div className="logo-container">
-//         <Image src="/logo2.jpg" alt="Logo2" width={40} height={40} />
-//       </div> */}
-//       <ul className="nav-list">
-//         <li>
-//           <Link href="/home" onClick={(e) => handleNavClick(e, "/home")}>
-//             Home
-//           </Link>
-//         </li>
-//         <li>
-//           <Link href="/Store" onClick={(e) => handleNavClick(e, "/Store")}>
-//             Must-see
-//           </Link>
-//         </li>
-//         <li>
-//           <Link href="/Tools" onClick={(e) => handleNavClick(e, "/Tools")}>
-//             Tools
-//           </Link>
-//         </li>
-//         <li>
-//           <Link href="/Resume" onClick={(e) => handleNavClick(e, "/Resume")}>
-//             Space
-//           </Link>
-//         </li>
-//         <li>
-//           <Link href="/contact" onClick={(e) => handleNavClick(e, "/contact")}>
-//             Bouncy Balls
-//           </Link>
-//         </li>
-//       </ul>
+  return (
+    <nav className="navbar">
+      {/* <div className="logo-container">
+        <Image src="/logo2.jpg" alt="Logo2" width={40} height={40} />
+      </div> */}
+      <ul className="nav-list">
+        <li>
+          <Link href="/home" onClick={(e) => handleNavClick(e, "/home")}>
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link href="/Store" onClick={(e) => handleNavClick(e, "/Store")}>
+            Must-see
+          </Link>
+        </li>
+        <li>
+          <Link href="/Tools" onClick={(e) => handleNavClick(e, "/Tools")}>
+            Tools
+          </Link>
+        </li>
+        <li>
+          <Link href="/Resume" onClick={(e) => handleNavClick(e, "/Resume")}>
+            Space
+          </Link>
+        </li>
+        <li>
+          <Link href="/contact" onClick={(e) => handleNavClick(e, "/contact")}>
+            Bouncy Balls
+          </Link>
+        </li>
+      </ul>
 
-//       <style jsx global>{`
-//         .navbar {
-//           display: flex;
-//           align-items: center;
-//           justify-content: center;
-//           padding: 10px 20px;
-//           background-color: #000;
-//           border-bottom: 1px solid #333;
-//           font-family: 'Orbitron', sans-serif;
-//           font-size: 15px;
-//         }
+      <style jsx global>{`
+        .navbar {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 10px 20px;
+          background-color: #000;
+          border-bottom: 1px solid #333;
+          font-family: 'Orbitron', sans-serif;
+          font-size: 15px;
+        }
 
-//         .logo-container {
-//           margin-right: 20px;
+        .logo-container {
+          margin-right: 20px;
           
-//         }
+        }
 
-//         .nav-list {
-//           display: flex;
-//           list-style: none;
-//           padding: 0;
-//           margin: 0;
-//           gap: 15px;
+        .nav-list {
+          display: flex;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          gap: 15px;
           
-//         }
+        }
 
-//         .nav-list li a {
-//           color: #fff;
-//           text-decoration: none;
-//           transition: color 0.3s ease;
-//           font-size: 30px;
-//           cursor: pointer;
-//           font-family: 'Rajdhani', sans-serif;
+        .nav-list li a {
+          color: #fff;
+          text-decoration: none;
+          transition: color 0.3s ease;
+          font-size: 30px;
+          cursor: pointer;
+          font-family: 'Rajdhani', sans-serif;
 
-//           font-size: 20px;
-//         }
-//         .nav-list li a:hover {
-//           color: silver;
-//           text-decoration: none;
-//         }
-//       `}</style>
-//     </nav>
-//   );
-// };
+          font-size: 20px;
+        }
+        .nav-list li a:hover {
+          color: silver;
+          text-decoration: none;
+        }
+      `}</style>
+    </nav>
+  );
+};
 
-// export default Navbar;
+export default Navbar;
 
 //3d navbar 1
 // 'use client';
@@ -291,77 +291,165 @@
 // }
 
 //3d navbar 2
-'use client';
-import { Canvas } from '@react-three/fiber';
-import { Text, OrbitControls } from '@react-three/drei';
-import { useRouter } from 'next/navigation';
-import * as THREE from 'three';
-import { useEffect, useState } from 'react';
+// 'use client';
+// import { Canvas } from '@react-three/fiber';
+// import { Text, OrbitControls } from '@react-three/drei';
+// import { useRouter } from 'next/navigation';
+// import * as THREE from 'three';
+// import { useEffect, useState } from 'react';
 
-export default function Navbar() {
-  const router = useRouter();
-  const [fontSize, setFontSize] = useState(2); // Default font size
+// export default function Navbar() {
+//   const router = useRouter();
+//   const [fontSize, setFontSize] = useState(2); // Default font size
 
-  // Responsive font size based on screen width
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 480) {
-        setFontSize(0.8); // Mobile
-      } else if (window.innerWidth <= 768) {
-        setFontSize(1.5); // Tablet
-      } else {
-        setFontSize(2); // Desktop
-      }
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+//   // Responsive font size based on screen width
+//   useEffect(() => {
+//     const handleResize = () => {
+//       if (window.innerWidth <= 480) {
+//         setFontSize(0.5); // Mobile
+//       } else if (window.innerWidth <= 768) {
+//         setFontSize(1.5); // Tablet
+//       } else {
+//         setFontSize(2); // Desktop
+//       }
+//     };
+//     handleResize();
+//     window.addEventListener('resize', handleResize);
+//     return () => window.removeEventListener('resize', handleResize);
+//   }, []);
 
-  return (
-    <Canvas 
-      style={{ 
-        height: '12vh', // Can adjust based on preference
-        background: 'transparent', 
-        width: '100%',
-        position: 'sticky',
-        top: 0,
-        zIndex: 10
-      }}
-    >
-      <ambientLight intensity={3} />
-      <pointLight position={[10, 10, 10]} />
-      <OrbitControls enableZoom={false} enablePan={false} />
+//   return (
+//     <Canvas 
+//       style={{ 
+//         height: '12vh', // Can adjust based on preference
+//         background: 'transparent', 
+//         width: '100%',
+//         position: 'sticky',
+//         top: 0,
+//         zIndex: 10
+//       }}
+//     >
+//       <ambientLight intensity={3} />
+//       <pointLight position={[10, 10, 10]} />
+//       <OrbitControls enableZoom={false} enablePan={false} />
 
-      <NavText position={[-20, 0, 0]} text="Home" onClick={() => router.push('/home')} fontSize={fontSize} />
-      <NavText position={[-12, 0, 0]} text="Must-see" onClick={() => router.push('/Store')} fontSize={fontSize} />
-      <NavText position={[-1, 0, 0]} text="Tools" onClick={() => router.push('/Tools')} fontSize={fontSize} />
-      <NavText position={[7, 0, 0]} text="Space" onClick={() => router.push('/Resume')} fontSize={fontSize} />
-      <NavText position={[15, 0, 0]} text="Bouncy Balls" onClick={() => router.push('/contact')} fontSize={fontSize} />
-    </Canvas>
-  );
-}
+//       <NavText position={[-20, 0, 0]} text="Home" onClick={() => router.push('/home')} fontSize={fontSize} />
+//       <NavText position={[-15, 0, 0]} text="Must-see" onClick={() => router.push('/Store')} fontSize={fontSize} />
+//       <NavText position={[-8, 0, 0]} text="Tools" onClick={() => router.push('/Tools')} fontSize={fontSize} />
+//       <NavText position={[-3, 0, 0]} text="Space" onClick={() => router.push('/Resume')} fontSize={fontSize} />
+//       <NavText position={[2, 0, 0]} text="Bouncy Balls" onClick={() => router.push('/contact')} fontSize={fontSize} />
+//     </Canvas>
+//   );
+// }
 
-function NavText({ text, position, onClick, fontSize }) {
-  return (
-    <Text
-      position={position}
-      fontSize={fontSize}
-      color="orange"
-      onPointerOver={(e) => (e.object.color = 'white')}
-      onClick={onClick}
-      anchorX="left"
-      anchorY="middle"
-      font="/Sansation-Regular.ttf"
-      outlineWidth={0.06}
-      outlineColor="black"
-      cursor="pointer"
-    >
-      {text}
-    </Text>
-  );
-}
+// function NavText({ text, position, onClick, fontSize }) {
+//   return (
+//     <Text
+//       position={position}
+//       fontSize={fontSize}
+//       color="orange"
+//       onPointerOver={(e) => (e.object.color = 'white')}
+//       onClick={onClick}
+//       anchorX="left"
+//       anchorY="middle"
+//       font="/Sansation-Regular.ttf"
+//       outlineWidth={0.06}
+//       outlineColor="black"
+//       cursor="pointer"
+//     >
+//       {text}
+//     </Text>
+//   );
+// }
 
+
+// 'use client';
+// import { Canvas } from '@react-three/fiber';
+// import { Text, OrbitControls } from '@react-three/drei';
+// import { useRouter } from 'next/navigation';
+// import * as THREE from 'three';
+// import { useEffect, useState } from 'react';
+
+// export default function Navbar() {
+//   const router = useRouter();
+//   const [fontSize, setFontSize] = useState(2); // Default font size
+//   const [spacing, setSpacing] = useState(12); // Default spacing between nav items
+
+//   // Responsive font size and spacing based on screen width
+//   useEffect(() => {
+//     const handleResize = () => {
+//       if (window.innerWidth <= 480) {
+//         setFontSize(0.5); // Mobile
+//         setSpacing(4); // Less space on mobile
+//       } else if (window.innerWidth <= 768) {
+//         setFontSize(1.5); // Tablet
+//         setSpacing(6); // Slightly reduced space on tablet
+//       } else {
+//         setFontSize(2); // Desktop
+//         setSpacing(8); // More space on desktop
+//       }
+//     };
+//     handleResize();
+//     window.addEventListener('resize', handleResize);
+//     return () => window.removeEventListener('resize', handleResize);
+//   }, []);
+
+//   const navItems = [
+//     { text: "Home", route: "/home" },
+//     { text: "Must-see", route: "/Store" },
+//     { text: "Tools", route: "/Tools" },
+//     { text: "Space", route: "/Resume" },
+//     { text: "Bouncy Balls", route: "/contact" },
+//   ];
+
+//   return (
+//     <Canvas
+//       style={{
+//         height: '12vh',
+//         background: 'transparent',
+//         width: '100%',
+//         position: 'sticky',
+//         top: 0,
+//         zIndex: 10,
+//       }}
+//     >
+//       <ambientLight intensity={3} />
+//       <pointLight position={[10, 10, 10]} />
+//       <OrbitControls enableZoom={false} enablePan={false} />
+
+//       {/* Dynamically positioned NavText */}
+//       {navItems.map((item, index) => (
+//         <NavText
+//           key={item.text}
+//           position={[(index - Math.floor(navItems.length / 2)) * spacing, 0, 0]}
+//           text={item.text}
+//           onClick={() => router.push(item.route)}
+//           fontSize={fontSize}
+//         />
+//       ))}
+//     </Canvas>
+//   );
+// }
+
+// function NavText({ text, position, onClick, fontSize }) {
+//   return (
+//     <Text
+//       position={position}
+//       fontSize={fontSize}
+//       color="orange"
+//       onPointerOver={(e) => (e.object.color = 'white')}
+//       onClick={onClick}
+//       anchorX="left"
+//       anchorY="middle"
+//       font="/Sansation-Regular.ttf"
+//       outlineWidth={0.06}
+//       outlineColor="black"
+//       cursor="pointer"
+//     >
+//       {text}
+//     </Text>
+//   );
+// }
 
 
 

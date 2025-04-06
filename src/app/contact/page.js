@@ -1845,7 +1845,6 @@ function GroundPlane() {
 }
 
 
-
 function App() {
 
  // State to store random sphere positions

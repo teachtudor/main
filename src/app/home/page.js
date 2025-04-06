@@ -648,7 +648,7 @@
 //   );
 // }
 
-//CODE 5 moving
+//CODE 5 moving THIS IS ALWAYS GOOD
 'use client';
 
 import React, { useState } from 'react';
@@ -1125,6 +1125,118 @@ export default function ProductFloatingWithNavbar() {
     </div>
   );
 }
+
+
+// 'use client';
+// import { useEffect, useRef } from "react";
+// import * as THREE from "three";
+// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+
+// const products = [
+//   { id: 1, name: "INTERNATIONAL TEFL ACADEMY", imageUrl: "https://www.internationalteflacademy.com/hubfs/logo/logo_200x70.png", productUrl: "https://www.internationalteflacademy.com/" },
+//   // { id: 2, name: "PREPLY.COM", imageUrl: "https://preply.com/wp-content/uploads/2023/09/Preply_new_slogan_en-820x470.png", productUrl: "https://www.preply.com" },
+//   // { id: 3, name: "AMAZON BEST SELLER", imageUrl: "https://logos-world.net/wp-content/uploads/2020/06/Amazon-Logo.png", productUrl: "https://www.amazon.com/Best-Sellers-Books-English-as-a-Second-Language-Instruction/zgbs/books/11823?utm_source=chatgpt.com&linkCode=ll2&tag=teachtudor-20&linkId=d052a145087524e53a33126694f9bea1&language=en_US&ref" },
+//   { id: 1, name: "GRAMMAR BOOK", imageUrl: "https://m.media-amazon.com/images/I/61N-El7zZQL._SY385_.jpg", productUrl: "https://www.amazon.com/Focus-Grammar-4-MyEnglishLab-5th/dp/0134119991?psc=1&linkCode=ll1&tag=teachtudor-20&linkId=838f8553453d33155e6e950d00757692&language=en_US&ref_=as_li_ss_tl" },
+//   { id: 2, name: "PREPLY.COM", imageUrl: "https://preply.com/wp-content/uploads/2023/09/Preply_new_slogan_en-820x470.png", productUrl: "https://www.preply.com" },
+//   { id: 3, name: "AMAZON BEST SELLER", imageUrl: "https://logos-world.net/wp-content/uploads/2020/06/Amazon-Logo.png", productUrl: "https://www.amazon.com/Best-Sellers-Books-English-as-a-Second-Language-Instruction/zgbs/books/11823?utm_source=chatgpt.com&linkCode=ll2&tag=teachtudor-20&linkId=d052a145087524e53a33126694f9bea1&language=en_US&ref_=as_li_ss_tl" },
+//   { id: 32, name: "Tube Resistance Bands", imageUrl: "https://m.media-amazon.com/images/I/71jQgHH1cwL.__AC_SY300_SX300_QL70_FMwebp_.jpg", productUrl: "https://www.amazon.com/dp/B0C26DJYPJ?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.27BOK049G26P6&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.27BOK049G26P6_1739311827695" },
+//   { id: 33, name: "Tube Resistance Bands", imageUrl: "https://m.media-amazon.com/images/I/71I2e74gIPL.__AC_SX300_SY300_QL70_FMwebp_.jpg", productUrl: "https://www.amazon.com/dp/B0C267MYRX?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.12TFATJKL1UJB&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.12TFATJKL1UJB_1739312338924" },
+//   { id: 34, name: "PopDarts", imageUrl: "https://m.media-amazon.com/images/I/7126HJ83ZsL._AC_SX679_.jpg", productUrl: "https://www.amazon.com/dp/B09LJVS68N?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1I8K2OU3PLZEU&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1I8K2OU3PLZEU_1739312586130" },
+//   { id: 35, name: "Ks First Case", imageUrl: "https://m.media-amazon.com/images/I/51qrHRbtlsL.jpg", productUrl: "https://www.amazon.com/First-Longman-American-Structural-Readers/dp/0582798159?crid=E5O3AJPVE5GR&dib=eyJ2IjoiMSJ9.1wfU7WGwaqVsu7QzhCZ8LQ.IXCTVTDnZbMxtRS7G6JABX3dQnrXmU9u6Li99BAPW3s&dib_tag=se&keywords=longman+series+k%27s+first+case&qid=1739306503&sprefix=longman+series+k%27s+first+case%2Caps%2C239&sr=8-1&linkCode=ll1&tag=teachtudor-20&linkId=1450333de7f2dcfd0f58a0d9da40cfed&language=en_US&ref_=as_li_ss_tl" },
+//   { id: 36, name: "Thermal Coffee", imageUrl: "https://m.media-amazon.com/images/I/81U76KoptOL.__AC_SX300_SY300_QL70_FMwebp_.jpg", productUrl: "https://www.amazon.com/dp/B01F8P78IS?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1LIFAZ2LGG7B8&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1LIFAZ2LGG7B8_1739313331670" }
+// ];
+
+// export default function HoneycombProducts() {
+//   const mountRef = useRef(null);
+
+//   useEffect(() => {
+//     const scene = new THREE.Scene();
+//     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+//     camera.position.set(0, 0, 5);
+
+//     const renderer = new THREE.WebGLRenderer({ antialias: true });
+//     renderer.setSize(window.innerWidth, window.innerHeight);
+//     mountRef.current.appendChild(renderer.domElement);
+
+//     const controls = new OrbitControls(camera, renderer.domElement);
+//     controls.enableDamping = true;
+
+//     const hexRadius = 1;
+//     const hexWidth = Math.sqrt(3) * hexRadius;
+//     const hexHeight = 2 * hexRadius;
+
+//     const textureLoader = new THREE.TextureLoader();
+
+//     products.forEach((product, i) => {
+//       textureLoader.load(
+//         product.imageUrl,
+//         (texture) => {
+//           const geometry = new THREE.CircleGeometry(hexRadius, 6);
+//           const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
+//           const hexagon = new THREE.Mesh(geometry, material);
+
+//           const row = Math.floor(i / 3);
+//           const col = i % 3;
+//           const xOffset = col * hexWidth - (row % 2) * (hexWidth / 2);
+//           const yOffset = -row * (hexHeight * 0.75);
+          
+//           hexagon.position.set(xOffset, yOffset, 0);
+//           hexagon.userData = { url: product.productUrl };
+
+//           scene.add(hexagon);
+
+//           hexagon.callback = () => window.open(product.productUrl, "_blank");
+//         },
+//         undefined,
+//         (error) => console.error(`Error loading texture for ${product.name}:`, error)
+//       );
+//     });
+
+//     const raycaster = new THREE.Raycaster();
+//     const mouse = new THREE.Vector2();
+
+//     function onMouseClick(event) {
+//       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+//       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+//       raycaster.setFromCamera(mouse, camera);
+//       const intersects = raycaster.intersectObjects(scene.children);
+//       if (intersects.length > 0 && intersects[0].object.callback) {
+//         intersects[0].object.callback();
+//       }
+//     }
+//     window.addEventListener("click", onMouseClick);
+
+//     function animate() {
+//       requestAnimationFrame(animate);
+//       controls.update();
+//       renderer.render(scene, camera);
+//     }
+//     animate();
+
+//     return () => {
+//       mountRef.current.removeChild(renderer.domElement);
+//       window.removeEventListener("click", onMouseClick);
+//     };
+//   }, []);
+
+//   return <div ref={mountRef} />;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //play code
 // 'use client';

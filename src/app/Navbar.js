@@ -189,6 +189,11 @@ const Navbar = () => {
             Bouncy Balls
           </Link>
         </li>
+        <li>
+          <Link href="/MoreDev" onClick={(e) => handleNavClick(e, "/MoreDev")}>
+            More Dev
+          </Link>
+        </li>
       </ul>
 
       <style jsx global>{`

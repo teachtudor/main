@@ -887,7 +887,7 @@ const Canvas = dynamic(() => import("@react-three/fiber").then((mod) => mod.Canv
 //WORKS GREAT
 function Ocean() {
   // const texture = useLoader(TextureLoader, "/waternormals.jpg"); // Update with your texture path
-  const texture = new TextureLoader().load("/waternormals1.jpg");
+  const texture = new TextureLoader().load("/terrain.jpg");
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
   texture.repeat.set(1,1); // Adjust the tiling as needed
 
@@ -964,7 +964,7 @@ function Ocean() {
 function Island() {
   const islandRef = useRef();
   const [islandModel, setIslandModel] = useState(null);
-
+  
   useEffect(() => {
     const loader = new GLTFLoader();
     loader.load("/grothustangi_koltur.glb", (gltf) => {
@@ -992,11 +992,14 @@ function Car({ position, buildings }) {
     if (typeof window === "undefined") return; // Prevent SSR execution
 
     const loader = new GLTFLoader();
-    loader.load("/car_model1.glb", (gltf) => {
+    loader.load("/wrightModel.glb", (gltf) => {
     // loader.load("/dragonfly.glb", (gltf) => {
       const model = gltf.scene;
       model.scale.set(0.8, 0.8, 0.8);
       model.position.set(0, 10, 0);
+      model.rotation.y = Math.PI;
+      camera.position.z = -camera.position.z;
+
       setCarModel((prev) => {
         if (prev) prev.traverse((child) => child.dispose?.());
         return model;
@@ -1299,4 +1302,442 @@ function BoardGameContent() {
 }
 
 
+//code works but needs some tweaking
+// "use client";
 
+// import { useRef, useEffect, useState } from "react";
+// import dynamic from "next/dynamic";
+// import { useFrame, useThree } from "@react-three/fiber";
+// import * as THREE from "three";
+// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+// import { TextureLoader } from "three";
+// import Navbar from "../Navbar";
+
+// // Dynamically load components to prevent SSR issues
+// const Canvas = dynamic(() => import("@react-three/fiber").then(mod => mod.Canvas), { ssr: false });
+// const OrbitControls = dynamic(() => import("@react-three/drei").then(mod => mod.OrbitControls), { ssr: false });
+
+// // 🌊 Ocean Plane
+// function Ocean() {
+//   const texture = new TextureLoader().load("/waternormals1.jpg");
+//   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+//   texture.repeat.set(1, 1);
+
+//   return (
+//     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.5, 0]}>
+//       <planeGeometry args={[10000, 10000, 1000, 1000]} />
+//       <meshStandardMaterial color="blue" roughness={1} metalness={0.9} />
+//     </mesh>
+//   );
+// }
+
+// // 🏝️ Island Model
+// function Island() {
+//   const islandRef = useRef();
+//   const [model, setModel] = useState(null);
+
+//   useEffect(() => {
+//     new GLTFLoader().load("/grothustangi_koltur.glb", (gltf) => {
+//       const island = gltf.scene;
+//       island.scale.set(5, 5, 5);
+//       island.position.set(0, -5, 0);
+//       setModel(island);
+//     });
+//   }, []);
+
+//   return model ? <primitive object={model} ref={islandRef} /> : null;
+// }
+
+// // ✈️ Wright Airplane Model with Controls
+// function Airplane({ position }) {
+//   const airplaneRef = useRef();
+//   const { camera } = useThree();
+//   const speed = 1;
+//   const rotationSpeed = 0.03;
+//   const [model, setModel] = useState(null);
+//   const [direction, setDirection] = useState({ forward: false, backward: false, left: false, right: false, up: false, down: false });
+
+//   useEffect(() => {
+//     new GLTFLoader().load("/wrightModel.glb", (gltf) => {
+//       const plane = gltf.scene;
+//       plane.scale.set(0.8, 0.8, 0.8);
+//       plane.position.set(...position);
+//       plane.rotation.y = Math.PI;
+//       setModel(plane);
+//     });
+//   }, []);
+
+//   useEffect(() => {
+//     const handleKey = (key, value) => {
+//       setDirection((dir) => ({ ...dir, [key]: value }));
+//     };
+
+//     const onKeyDown = (e) => {
+//       const keys = {
+//         ArrowUp: "forward",
+//         ArrowDown: "backward",
+//         ArrowLeft: "left",
+//         ArrowRight: "right",
+//         w: "up",
+//         s: "down"
+//       };
+//       if (keys[e.key]) handleKey(keys[e.key], true);
+//     };
+
+//     const onKeyUp = (e) => {
+//       const keys = {
+//         ArrowUp: "forward",
+//         ArrowDown: "backward",
+//         ArrowLeft: "left",
+//         ArrowRight: "right",
+//         w: "up",
+//         s: "down"
+//       };
+//       if (keys[e.key]) handleKey(keys[e.key], false);
+//     };
+
+//     window.addEventListener("keydown", onKeyDown);
+//     window.addEventListener("keyup", onKeyUp);
+
+//     return () => {
+//       window.removeEventListener("keydown", onKeyDown);
+//       window.removeEventListener("keyup", onKeyUp);
+//     };
+//   }, []);
+
+//   useFrame(() => {
+//     if (!airplaneRef.current || !model) return;
+
+//     const plane = airplaneRef.current;
+
+//     // Movement
+//     const forwardVec = new THREE.Vector3(-Math.sin(plane.rotation.y) * speed, 0, -Math.cos(plane.rotation.y) * speed);
+//     const backwardVec = new THREE.Vector3(Math.sin(plane.rotation.y) * speed, 0, Math.cos(plane.rotation.y) * speed);
+
+//     const newPos = plane.position.clone();
+//     if (direction.forward) newPos.add(forwardVec);
+//     if (direction.backward) newPos.add(backwardVec);
+//     if (direction.up) newPos.y += 0.5;
+//     if (direction.down) newPos.y -= 0.5;
+
+//     plane.position.copy(newPos);
+//     if (direction.left) plane.rotation.y += rotationSpeed;
+//     if (direction.right) plane.rotation.y -= rotationSpeed;
+
+//     // Camera follow
+//     const camOffset = new THREE.Vector3(
+//       -Math.sin(plane.rotation.y) * -15,
+//       15,
+//       -Math.cos(plane.rotation.y) * -15
+//     );
+//     camera.position.lerp(plane.position.clone().add(camOffset), 0.05);
+//     camera.lookAt(plane.position.clone().add(new THREE.Vector3(0, 1, 0)));
+//   });
+
+//   return <group ref={airplaneRef} position={position}>{model && <primitive object={model} />}</group>;
+// }
+
+// // 🚀 Main Scene
+// export default function FlightScene() {
+//   const [mounted, setMounted] = useState(false);
+//   useEffect(() => setMounted(true), []);
+//   if (!mounted) return <div className="w-full h-screen bg-black" />;
+
+//   return (
+//     <>
+//       <Navbar />
+//       <div className="w-full h-screen">
+//         <Canvas camera={{ position: [0, 10, -15] }}>
+//           <ambientLight intensity={2} />
+//           <directionalLight position={[5, 10, 5]} intensity={3} castShadow />
+//           <pointLight position={[10, 10, 10]} />
+//           <OrbitControls enableZoom enablePan />
+//           <Ocean />
+//           <Island />
+//           <Airplane position={[0, 10, 0]} />
+//         </Canvas>
+//       </div>
+//     </>
+//   );
+// }
+
+
+//code shaders
+// "use client";
+
+// import { useRef, useEffect, useState } from "react";
+// import { Canvas, useFrame, useThree, extend } from "@react-three/fiber";
+// import { shaderMaterial, OrbitControls } from "@react-three/drei";
+// import * as THREE from "three";
+// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+// import Navbar from "../Navbar";
+
+
+// // Extend custom shader as a material
+// const OceanMaterial = shaderMaterial(
+//   {
+//     iTime: 0,
+//     iResolution: new THREE.Vector3(),
+//     iMouse: new THREE.Vector2(),
+//   },
+//   `
+//     varying vec2 vUv;
+//     void main() {
+//       vUv = uv;
+//       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+//     }
+//   `,
+//   `
+//     precision highp float;
+//     uniform float iTime;
+//     uniform vec3 iResolution;
+//     uniform vec2 iMouse;
+
+//     #define NUM_STEPS 32
+//     #define PI 3.141592
+//     #define EPSILON 1e-3
+//     #define EPSILON_NRM (0.1 / iResolution.x)
+//     const int ITER_GEOMETRY = 3;
+//     const int ITER_FRAGMENT = 5;
+//     const float SEA_HEIGHT = 0.6;
+//     const float SEA_CHOPPY = 4.0;
+//     const float SEA_SPEED = 0.8;
+//     const float SEA_FREQ = 0.16;
+//     const vec3 SEA_BASE = vec3(0.0,0.09,0.18);
+//     const vec3 SEA_WATER_COLOR = vec3(0.8,0.9,0.6)*0.6;
+//     #define SEA_TIME (1.0 + iTime * SEA_SPEED)
+//     const mat2 octave_m = mat2(1.6,1.2,-1.2,1.6);
+
+//     float hash(vec2 p){ float h = dot(p,vec2(127.1,311.7)); return fract(sin(h)*43758.5453123); }
+//     float noise(vec2 p) {
+//         vec2 i = floor(p); vec2 f = fract(p);
+//         vec2 u = f*f*(3.0-2.0*f);
+//         return -1.0+2.0*mix( mix(hash(i),hash(i+vec2(1.0,0.0)),u.x),
+//                             mix(hash(i+vec2(0.0,1.0)),hash(i+vec2(1.0,1.0)),u.x), u.y);
+//     }
+
+//     float sea_octave(vec2 uv, float choppy) {
+//         uv += noise(uv);
+//         vec2 wv = 1.0 - abs(sin(uv));
+//         vec2 swv = abs(cos(uv));
+//         wv = mix(wv, swv, wv);
+//         return pow(1.0 - pow(wv.x * wv.y, 0.65), choppy);
+//     }
+
+//     float map(vec3 p) {
+//         float freq = SEA_FREQ, amp = SEA_HEIGHT, choppy = SEA_CHOPPY;
+//         vec2 uv = p.xz; uv.x *= 0.75;
+//         float d, h = 0.0;
+//         for (int i = 0; i < ITER_GEOMETRY; i++) {
+//             d = sea_octave((uv + SEA_TIME) * freq, choppy);
+//             d += sea_octave((uv - SEA_TIME) * freq, choppy);
+//             h += d * amp;
+//             uv *= octave_m; freq *= 1.9; amp *= 0.22;
+//             choppy = mix(choppy, 1.0, 0.2);
+//         }
+//         return p.y - h;
+//     }
+
+//     float map_detailed(vec3 p) {
+//         float freq = SEA_FREQ, amp = SEA_HEIGHT, choppy = SEA_CHOPPY;
+//         vec2 uv = p.xz; uv.x *= 0.75;
+//         float d, h = 0.0;
+//         for (int i = 0; i < ITER_FRAGMENT; i++) {
+//             d = sea_octave((uv + SEA_TIME) * freq, choppy);
+//             d += sea_octave((uv - SEA_TIME) * freq, choppy);
+//             h += d * amp;
+//             uv *= octave_m; freq *= 1.9; amp *= 0.22;
+//             choppy = mix(choppy, 1.0, 0.2);
+//         }
+//         return p.y - h;
+//     }
+
+//     vec3 getNormal(vec3 p, float eps) {
+//         vec3 n;
+//         n.y = map_detailed(p);
+//         n.x = map_detailed(vec3(p.x + eps, p.y, p.z)) - n.y;
+//         n.z = map_detailed(vec3(p.x, p.y, p.z + eps)) - n.y;
+//         n.y = eps;
+//         return normalize(n);
+//     }
+
+//     vec3 getSkyColor(vec3 e) {
+//         e.y = (max(e.y, 0.0) * 0.8 + 0.2) * 0.8;
+//         return vec3(pow(1.0 - e.y, 2.0), 1.0 - e.y, 0.6 + (1.0 - e.y) * 0.4) * 1.1;
+//     }
+
+//     float diffuse(vec3 n, vec3 l, float p) {
+//         return pow(dot(n, l) * 0.4 + 0.6, p);
+//     }
+
+//     float specular(vec3 n, vec3 l, vec3 e, float s) {
+//         float nrm = (s + 8.0) / (PI * 8.0);
+//         return pow(max(dot(reflect(e, n), l), 0.0), s) * nrm;
+//     }
+
+//     vec3 getSeaColor(vec3 p, vec3 n, vec3 l, vec3 eye, vec3 dist) {
+//         float fresnel = clamp(1.0 - dot(n, -eye), 0.0, 1.0);
+//         fresnel = min(fresnel * fresnel * fresnel, 0.5);
+//         vec3 reflected = getSkyColor(reflect(eye, n));
+//         vec3 refracted = SEA_BASE + diffuse(n, l, 80.0) * SEA_WATER_COLOR * 0.12;
+//         vec3 color = mix(refracted, reflected, fresnel);
+//         float atten = max(1.0 - dot(dist, dist) * 0.001, 0.0);
+//         color += SEA_WATER_COLOR * (p.y - SEA_HEIGHT) * 0.18 * atten;
+//         color += specular(n, l, eye, 60.0);
+//         return color;
+//     }
+
+//     float heightMapTracing(vec3 ori, vec3 dir, out vec3 p) {
+//         float tm = 0.0;
+//         float tx = 1000.0;
+//         float hx = map(ori + dir * tx);
+//         if (hx > 0.0) { p = ori + dir * tx; return tx; }
+//         float hm = map(ori);
+//         for (int i = 0; i < NUM_STEPS; i++) {
+//             float tmid = mix(tm, tx, hm / (hm - hx));
+//             p = ori + dir * tmid;
+//             float hmid = map(p);
+//             if (hmid < 0.0) { tx = tmid; hx = hmid; }
+//             else { tm = tmid; hm = hmid; }
+//             if (abs(hmid) < EPSILON) break;
+//         }
+//         return mix(tm, tx, hm / (hm - hx));
+//     }
+
+//     mat3 fromEuler(vec3 ang) {
+//         vec2 a1 = vec2(sin(ang.x), cos(ang.x));
+//         vec2 a2 = vec2(sin(ang.y), cos(ang.y));
+//         vec2 a3 = vec2(sin(ang.z), cos(ang.z));
+//         mat3 m;
+//         m[0] = vec3(a1.y * a3.y + a1.x * a2.x * a3.x, a1.y * a2.x * a3.x + a3.y * a1.x, -a2.y * a3.x);
+//         m[1] = vec3(-a2.y * a1.x, a1.y * a2.y, a2.x);
+//         m[2] = vec3(a3.y * a1.x * a2.x + a1.y * a3.x, a1.x * a3.x - a1.y * a3.y * a2.x, a2.y * a3.y);
+//         return m;
+//     }
+
+//     vec3 getPixel(vec2 fragCoord, float time) {
+//         vec2 uv = fragCoord / iResolution.xy;
+//         uv = uv * 2.0 - 1.0;
+//         uv.x *= iResolution.x / iResolution.y;
+//         vec3 ang = vec3(sin(time * 3.0) * 0.1, sin(time) * 0.2 + 0.3, time);
+//         vec3 ori = vec3(0.0, 3.5, time * 5.0);
+//         vec3 dir = normalize(vec3(uv.xy, -2.0)); dir.z += length(uv) * 0.14;
+//         dir = normalize(dir) * fromEuler(ang);
+//         vec3 p; heightMapTracing(ori, dir, p);
+//         vec3 dist = p - ori;
+//         vec3 n = getNormal(p, dot(dist, dist) * EPSILON_NRM);
+//         vec3 light = normalize(vec3(0.0, 1.0, 0.8));
+//         return mix(getSkyColor(dir), getSeaColor(p, n, light, dir, dist), pow(smoothstep(0.0, -0.02, dir.y), 0.2));
+//     }
+
+//     void main() {
+//         vec3 color = getPixel(gl_FragCoord.xy, iTime * 0.3 + iMouse.x * 0.01);
+//         gl_FragColor = vec4(pow(color, vec3(0.65)), 1.0);
+//     }
+//   `
+// );
+
+// extend({ OceanMaterial });
+
+// function OceanShader() {
+//   const ref = useRef();
+//   const { size, mouse } = useThree();
+//   useFrame(({ clock }) => {
+//     if (ref.current) {
+//       ref.current.iTime = clock.getElapsedTime();
+//       ref.current.iMouse = mouse;
+//     }
+//   });
+
+//   useEffect(() => {
+//     if (ref.current) {
+//       ref.current.iResolution.set(size.width, size.height, 1);
+//     }
+//   }, [size]);
+
+//   return (
+//     <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.5, 0]}>
+//       <planeGeometry args={[10000, 10000, 1, 1]} />
+//       <oceanMaterial ref={ref} />
+//     </mesh>
+//   );
+// }
+
+// function Island() {
+//   const [model, setModel] = useState(null);
+//   useEffect(() => {
+//     new GLTFLoader().load("/grothustangi_koltur.glb", (gltf) => {
+//       const m = gltf.scene;
+//       m.scale.set(5, 5, 5);
+//       m.position.set(0, -5, 0);
+//       setModel(m);
+//     });
+//   }, []);
+//   return model ? <primitive object={model} /> : null;
+// }
+
+// function Airplane({ position }) {
+//   const { camera } = useThree();
+//   const planeRef = useRef();
+//   const [model, setModel] = useState(null);
+//   const [dir, setDir] = useState({ forward: false, back: false, left: false, right: false, up: false, down: false });
+
+//   useEffect(() => {
+//     new GLTFLoader().load("/wrightModel.glb", (gltf) => {
+//       const m = gltf.scene;
+//       m.scale.set(0.8, 0.8, 0.8);
+//       m.position.set(...position);
+//       m.rotation.y = Math.PI;
+//       setModel(m);
+//     });
+//   }, []);
+
+//   useEffect(() => {
+//     const updateKey = (key, val) => setDir((d) => ({ ...d, [key]: val }));
+//     const map = { ArrowUp: "forward", ArrowDown: "back", ArrowLeft: "left", ArrowRight: "right", w: "up", s: "down" };
+//     const down = (e) => map[e.key] && updateKey(map[e.key], true);
+//     const up = (e) => map[e.key] && updateKey(map[e.key], false);
+//     window.addEventListener("keydown", down);
+//     window.addEventListener("keyup", up);
+//     return () => { window.removeEventListener("keydown", down); window.removeEventListener("keyup", up); };
+//   }, []);
+
+//   useFrame(() => {
+//     if (!planeRef.current || !model) return;
+//     const plane = planeRef.current;
+//     const speed = 1;
+//     if (dir.forward) plane.position.add(new THREE.Vector3(-Math.sin(plane.rotation.y) * speed, 0, -Math.cos(plane.rotation.y) * speed));
+//     if (dir.back) plane.position.add(new THREE.Vector3(Math.sin(plane.rotation.y) * speed, 0, Math.cos(plane.rotation.y) * speed));
+//     if (dir.left) plane.rotation.y += 0.03;
+//     if (dir.right) plane.rotation.y -= 0.03;
+//     if (dir.up) plane.position.y += 0.5;
+//     if (dir.down) plane.position.y -= 0.5;
+
+//     const offset = new THREE.Vector3(-Math.sin(plane.rotation.y) * -15, 15, -Math.cos(plane.rotation.y) * -15);
+//     camera.position.lerp(plane.position.clone().add(offset), 0.05);
+//     camera.lookAt(plane.position.clone().add(new THREE.Vector3(0, 1, 0)));
+//   });
+
+//   return <group ref={planeRef}>{model && <primitive object={model} />}</group>;
+// }
+
+// export default function FlightScene() {
+//   return (
+//     <>
+//       <Navbar />
+//       <div className="w-full h-screen">
+//         <Canvas camera={{ position: [0, 10, -15] }}>
+//           <ambientLight intensity={1.5} />
+//           <directionalLight position={[10, 20, 10]} intensity={3} />
+//           <pointLight position={[0, 10, 0]} />
+//           <OrbitControls enableZoom enablePan />
+//           <OceanShader />
+//           {/* <Island /> */}
+//           <Airplane position={[0, 10, 0]} />
+//         </Canvas>
+//       </div>
+//     </>
+//   );
+// }
+
+//code shaders 1

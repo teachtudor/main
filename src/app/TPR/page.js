@@ -412,8 +412,13 @@ function GLBModel({ path, offset = [0, 0, 0] }) {
         const maxDim = Math.max(size.x, size.y, size.z);
         const scale = 2 / maxDim;
         scene.scale.setScalar(scale);
+
+        // ✅ SUPER SIMPLE: Rotate ONLY the kitchen model
+        if (path.includes('TKB')) {
+          scene.rotation.y = Math.PI*23/18;
+        }
       }
-    }, [scene, offset]);
+    }, [scene, offset, path]);
   
     return scene ? <group ref={group}><primitive object={scene} /></group> : null;
   }
@@ -431,12 +436,15 @@ const scenes = [
   },
   {
     name: 'Kitchen',
-    path: '/KitchenBlend.glb',
+    // path: '/KitchenBlend.glb',
+    path: '/TKB.glb',
+
     camera: {
-      position: [2, 4, 6],
-      fov: 40
+      position: [1, 4, 6],
+      fov: 57
     },
-    offset: [2.5, 1.5, 0] // This will now actually apply
+    offset: [2.5, 1.5, 0], // This will now actually apply
+    rotation: [0, Math.PI/2, 0]
   },
   {
     name: 'Living Room',

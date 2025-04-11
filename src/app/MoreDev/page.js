@@ -4626,6 +4626,344 @@
 
 
 //code 6
+// 'use client';
+// import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
+// import { useEffect, useRef, useState } from 'react';
+// import * as THREE from 'three';
+// import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
+// import { OrbitControls, useGLTF } from '@react-three/drei';
+// import { Physics, usePlane } from '@react-three/cannon';
+
+// function FollowCamera({ targetRef }) {
+//   const { camera } = useThree();
+
+//   useFrame(() => {
+//     if (!targetRef.current) return;
+
+//     const target = targetRef.current;
+//     const offset = new THREE.Vector3(0, 5, -10);
+//     offset.applyQuaternion(target.quaternion);
+//     const newCameraPos = target.position.clone().add(offset);
+//     camera.position.lerp(newCameraPos, 0.1);
+//     camera.lookAt(target.position);
+//   });
+
+//   return null;
+// }
+
+// function ResizeListener() {
+//   const { setSize } = useThree();
+//   useEffect(() => {
+//     const handleResize = () => setSize(window.innerWidth, window.innerHeight);
+//     window.addEventListener('resize', handleResize);
+//     return () => window.removeEventListener('resize', handleResize);
+//   }, [setSize]);
+//   return null;
+// }
+
+// function GroundPlane() {
+//   const texture = useLoader(THREE.TextureLoader, '/wf.jpg');
+//   const [ref] = usePlane(() => ({
+//     rotation: [-Math.PI / 2, 0, 0],
+//     position: [0, -0.1, 0],
+//     material: { restitution: 0.8 }
+//   }));
+//   return (
+//     <mesh ref={ref} receiveShadow>
+//       <planeGeometry args={[100, 100]} />
+//       <meshStandardMaterial map={texture} side={THREE.DoubleSide} />
+//     </mesh>
+//   );
+// }
+
+// function GLBModel({ url, position = [0, 0, 0], scale = 1, rotation = [0, 0, 0] }) {
+//   const { scene } = useGLTF(url);
+//   return (
+//     <primitive
+//       object={scene}
+//       position={position}
+//       scale={Array.isArray(scale) ? scale : [scale, scale, scale]}
+//       rotation={rotation}
+//       castShadow
+//       receiveShadow
+//     />
+//   );
+// }
+
+// function Character({ keys }) {
+//   const characterRef = useRef();
+//   const mixerRef = useRef();
+//   const [animations, setAnimations] = useState({
+//     walk: null,
+//     run: null,
+//     idle: null,
+//     turnLeft: null,
+//     turnRight: null,
+//   });
+//   const [loadedCharacter, setLoadedCharacter] = useState(null);
+//   const currentAction = useRef(null);
+//   const animationStarted = useRef(false);
+
+//   useEffect(() => {
+//     const loader = new FBXLoader();
+//     let mixer;
+
+//     loader.load('/WalkingANARK.fbx', (object) => {
+//       object.scale.set(0.025, 0.025, 0.025);
+//       object.position.set(30,0.1, 30);
+//       characterRef.current = object;
+//       mixer = new THREE.AnimationMixer(object);
+//       const walk = mixer.clipAction(object.animations[0]);
+
+//       loader.load('/RunningANARK.fbx', (runObject) => {
+//         const run = mixer.clipAction(runObject.animations[0]);
+
+//         loader.load('/idleFakeAnimation.fbx', (idleObject) => {
+//           const idle = mixer.clipAction(idleObject.animations[3]);
+
+//           loader.load('/LeftTurnANARK.fbx', (leftTurnObj) => {
+//             const turnLeft = mixer.clipAction(leftTurnObj.animations[0]);
+
+//             loader.load('/RightTurnANARK1.fbx', (rightTurnObj) => {
+//               const turnRight = mixer.clipAction(rightTurnObj.animations[0]);
+
+//               idle.reset();
+//               idle.enabled = true;
+//               idle.setLoop(THREE.LoopRepeat, Infinity);
+//               idle.play();
+//               currentAction.current = idle;
+//               animationStarted.current = true;
+
+//               setAnimations({ walk, run, idle, turnLeft, turnRight });
+//               setLoadedCharacter(object); // Trigger re-render with the loaded character
+//             });
+//           });
+//         });
+//       });
+
+//       mixerRef.current = mixer;
+//     });
+
+//     return () => {
+//       mixer?.stopAllAction();
+//     };
+//   }, []);
+
+//   useFrame((_, delta) => {
+//     if (mixerRef.current) mixerRef.current.update(delta);
+//     if (characterRef.current) {
+//       handleMovement(characterRef.current, keys);
+//       updateAnimation(keys);
+//     }
+//   });
+
+//   function handleMovement(character, keys) {
+//     const isRunning = keys['r'] || keys['b'];
+//     const isWalking = keys['ArrowUp'] || keys['ArrowDown'] || keys['ArrowLeft'] || keys['ArrowRight'];
+//     if (!isRunning && !isWalking) return;
+
+//     const walkSpeed = 0.05;
+//     const runSpeed = 0.08;
+
+//     if (keys['ArrowUp']) {
+//       const direction = new THREE.Vector3(0, 0, 0.8);
+//       direction.applyQuaternion(character.quaternion);
+//       character.position.add(direction.multiplyScalar(walkSpeed));
+//     }
+
+//     if (keys['r']) {
+//       const direction = new THREE.Vector3(0, 0, 0.9);
+//       direction.applyQuaternion(character.quaternion);
+//       character.position.add(direction.multiplyScalar(runSpeed));
+//     }
+
+//     if (keys['ArrowDown']) {
+//       const direction = new THREE.Vector3(0, 0, -0.8);
+//       direction.applyQuaternion(character.quaternion);
+//       character.position.add(direction.multiplyScalar(walkSpeed));
+//     }
+
+//     if (keys['b']) {
+//       const direction = new THREE.Vector3(0, 0, -0.9);
+//       direction.applyQuaternion(character.quaternion);
+//       character.position.add(direction.multiplyScalar(runSpeed));
+//     }
+
+//     if (keys['ArrowLeft']) {
+//       const angle = 0.03;
+//       const q = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), angle);
+//       character.quaternion.multiply(q);
+//     }
+
+//     if (keys['ArrowRight']) {
+//       const angle = 0.03;
+//       const q = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, -1, 0), angle);
+//       character.quaternion.multiply(q);
+//     }
+//   }
+
+//   function updateAnimation(keys) {
+//     const { walk, run, idle, turnLeft, turnRight } = animations;
+//     if (!mixerRef.current || !walk || !run || !idle || !turnLeft || !turnRight) return;
+
+//     const isRunning = keys['r'] || keys['b'];
+//     const isWalking = keys['ArrowUp'] || keys['ArrowDown'];
+//     const isTurning = keys['ArrowLeft'] || keys['ArrowRight'];
+//     const noInput = !isRunning && !isWalking && !isTurning;
+
+//     if (isTurning && !isRunning && !isWalking) {
+//       const turn = keys['ArrowLeft'] ? turnLeft : turnRight;
+//       if (currentAction.current !== turn) {
+//         currentAction.current?.fadeOut(0.2);
+//         turn.reset().fadeIn(0.2).play();
+//         currentAction.current = turn;
+//       }
+//       return;
+//     }
+
+//     if (noInput) {
+//       if (currentAction.current !== idle) {
+//         currentAction.current?.fadeOut(0.3);
+//         idle.enabled = true;
+//         idle.setLoop(THREE.LoopRepeat, Infinity);
+//         idle.fadeIn(0.3).play();
+//         currentAction.current = idle;
+//       }
+//       return;
+//     }
+
+//     const newAction = isRunning ? run : walk;
+//     const direction = keys['ArrowDown'] || keys['b'] ? -1 : 1;
+
+//     if (currentAction.current !== newAction) {
+//       currentAction.current?.fadeOut(0.3);
+//       newAction.enabled = true;
+//       newAction.setLoop(THREE.LoopRepeat, Infinity);
+//       newAction.fadeIn(0.3).play();
+//       currentAction.current = newAction;
+//     }
+
+//     if (currentAction.current && currentAction.current.timeScale !== direction) {
+//       currentAction.current.timeScale = direction;
+//     }
+
+//     animationStarted.current = true;
+//   }
+
+//   return (
+//     <>
+//       {loadedCharacter && <primitive object={loadedCharacter} castShadow />}
+//       <FollowCamera targetRef={characterRef} />
+//     </>
+//   );
+// }
+
+// function SceneWrapper({ keys }) {
+//   return <Character keys={keys} />;
+// }
+
+// export default function ThreeScene() {
+//   const [keys, setKeys] = useState({});
+
+//   useEffect(() => {
+//     const handleKeyDown = (e) => setKeys((prev) => ({ ...prev, [e.key]: true }));
+//     const handleKeyUp = (e) => setKeys((prev) => ({ ...prev, [e.key]: false }));
+
+//     document.addEventListener('keydown', handleKeyDown);
+//     document.addEventListener('keyup', handleKeyUp);
+
+//     return () => {
+//       document.removeEventListener('keydown', handleKeyDown);
+//       document.removeEventListener('keyup', handleKeyUp);
+//     };
+//   }, []);
+
+// //   return (
+// //     <Canvas
+// //       shadows
+// //       camera={{ position: [0, 5, 15], fov: 75 }}
+// //       style={{ width: '100vw', height: '100vh' }}
+// //     >
+// //       <ambientLight intensity={0.4} />
+// //       <directionalLight position={[1, 1, 1]} intensity={3} castShadow />
+// //       <OrbitControls enablePan enableZoom enableRotate enableDamping dampingFactor={0.1} rotateSpeed={0.3} enableKeys={false} />
+
+// //       <Physics>
+// //         <SceneWrapper keys={keys} />
+// //         <GroundPlane />
+// //         <GLBModel url="/testbath.glb" position={[-15, 0, -15]} scale={2.6} rotation={[0, Math.PI / 4, 0]} />
+// //         <GLBModel url="/TKB.glb" position={[15, 0, 15]} scale={2.3} rotation={[0, 0, 0]} />
+// //         <GLBModel url="/livingRoom.glb" position={[0, 0, 3]} scale={1.3} rotation={[0, -Math.PI / 6, 0]} />
+// //       </Physics>
+
+// //       <ResizeListener />
+// //     </Canvas>
+    
+// //   );
+// // }
+// return (
+//   <>
+//     <Canvas
+//       shadows
+//       camera={{ position: [0, 5, 15], fov: 75 }}
+//       style={{ width: '100vw', height: '100vh' }}
+//     >
+//       <ambientLight intensity={0.4} />
+//       <directionalLight position={[1, 1, 1]} intensity={3} castShadow />
+//       <OrbitControls enablePan enableZoom enableRotate enableDamping dampingFactor={0.1} rotateSpeed={0.3} enableKeys={false} />
+
+//       <Physics>
+//         <SceneWrapper keys={keys} />
+//         <GroundPlane />
+//         <GLBModel url="/testbath.glb" position={[-15, 0, -15]} scale={2.6} rotation={[0, Math.PI / 4, 0]} />
+//         <GLBModel url="/TKB.glb" position={[15, 0, 15]} scale={2.3} rotation={[0, 0, 0]} />
+//         <GLBModel url="/livingRoom.glb" position={[0, 0, 3]} scale={1.3} rotation={[0, -Math.PI / 6, 0]} />
+//       </Physics>
+
+//       <ResizeListener />
+//     </Canvas>
+
+//     {/* ✅ Touch Controls for mobile/tablet */}
+//     <div className="fixed bottom-4 left-4 flex flex-col items-center gap-2 z-50 select-none">
+//       <button
+//         onTouchStart={() => setKeys((k) => ({ ...k, ArrowUp: true }))}
+//         onTouchEnd={() => setKeys((k) => ({ ...k, ArrowUp: false }))}
+//         className="w-16 h-16 rounded-full bg-gray-800 text-white text-2xl shadow"
+//       >↑</button>
+
+//       <div className="flex gap-2">
+//         <button
+//           onTouchStart={() => setKeys((k) => ({ ...k, ArrowLeft: true }))}
+//           onTouchEnd={() => setKeys((k) => ({ ...k, ArrowLeft: false }))}
+//           className="w-16 h-16 rounded-full bg-gray-800 text-white text-2xl shadow"
+//         >←</button>
+//         <button
+//           onTouchStart={() => setKeys((k) => ({ ...k, ArrowRight: true }))}
+//           onTouchEnd={() => setKeys((k) => ({ ...k, ArrowRight: false }))}
+//           className="w-16 h-16 rounded-full bg-gray-800 text-white text-2xl shadow"
+//         >→</button>
+//       </div>
+
+//       <button
+//         onTouchStart={() => setKeys((k) => ({ ...k, ArrowDown: true }))}
+//         onTouchEnd={() => setKeys((k) => ({ ...k, ArrowDown: false }))}
+//         className="w-16 h-16 rounded-full bg-gray-800 text-white text-2xl shadow"
+//       >↓</button>
+//     </div>
+
+//     <div className="fixed bottom-4 right-4 z-50 select-none">
+//       <button
+//         onTouchStart={() => setKeys((k) => ({ ...k, r: true }))}
+//         onTouchEnd={() => setKeys((k) => ({ ...k, r: false }))}
+//         className="w-20 h-20 rounded-full bg-red-600 text-white text-2xl font-bold shadow"
+//       >R</button>
+//     </div>
+//   </>
+// );
+// }
+
+
+//code 7 toggle camera
 'use client';
 import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
@@ -4690,7 +5028,7 @@ function GLBModel({ url, position = [0, 0, 0], scale = 1, rotation = [0, 0, 0] }
   );
 }
 
-function Character({ keys }) {
+function Character({ keys, followEnabled }) {
   const characterRef = useRef();
   const mixerRef = useRef();
   const [animations, setAnimations] = useState({
@@ -4853,17 +5191,18 @@ function Character({ keys }) {
   return (
     <>
       {loadedCharacter && <primitive object={loadedCharacter} castShadow />}
-      <FollowCamera targetRef={characterRef} />
+      {followEnabled && <FollowCamera targetRef={characterRef} />}
     </>
   );
 }
 
-function SceneWrapper({ keys }) {
-  return <Character keys={keys} />;
+function SceneWrapper({ keys, followEnabled }) {
+  return <Character keys={keys} followEnabled={followEnabled} />;
 }
 
 export default function ThreeScene() {
   const [keys, setKeys] = useState({});
+  const [followEnabled, setFollowEnabled] = useState(true);
 
   useEffect(() => {
     const handleKeyDown = (e) => setKeys((prev) => ({ ...prev, [e.key]: true }));
@@ -4913,7 +5252,7 @@ return (
       <OrbitControls enablePan enableZoom enableRotate enableDamping dampingFactor={0.1} rotateSpeed={0.3} enableKeys={false} />
 
       <Physics>
-        <SceneWrapper keys={keys} />
+        <SceneWrapper keys={keys} followEnabled={followEnabled} />
         <GroundPlane />
         <GLBModel url="/testbath.glb" position={[-15, 0, -15]} scale={2.6} rotation={[0, Math.PI / 4, 0]} />
         <GLBModel url="/TKB.glb" position={[15, 0, 15]} scale={2.3} rotation={[0, 0, 0]} />
@@ -4958,9 +5297,19 @@ return (
         className="w-20 h-20 rounded-full bg-red-600 text-white text-2xl font-bold shadow"
       >R</button>
     </div>
+    <div className="fixed top-4 right-4 z-50">
+      <button
+        onClick={() => setFollowEnabled((prev) => !prev)}
+        className="px-4 py-2 rounded bg-blue-600 text-white font-bold shadow"
+      >
+        {followEnabled ? 'Free Orbit' : 'Follow Cam'}
+      </button>
+    </div>
   </>
 );
 }
+
+
 
 
 

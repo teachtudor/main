@@ -194,11 +194,11 @@ const Navbar = () => {
             More Dev
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link href="/Ocean" onClick={(e) => handleNavClick(e, "/Ocean")}>
             Ocean Motion (Caution)
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link href="/TPR" onClick={(e) => handleNavClick(e, "/TPR")}>
             TPR

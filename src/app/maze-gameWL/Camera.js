@@ -15,7 +15,7 @@ export default function Camera({ targetRef }) {
   // Toggle follow/orbit mode with on-screen button
   useEffect(() => {
     const btn = document.createElement('button');
-    btn.innerText = '🎥 Toggle Camera Mode';
+    btn.innerText = '🎥 Camera';
     btn.style.position = 'absolute';
     btn.style.top = '20px';
     btn.style.left = '20px';

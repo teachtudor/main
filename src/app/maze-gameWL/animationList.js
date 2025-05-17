@@ -6,8 +6,8 @@ const animationList = [
     { name: 'LeftTurnPaul', file: '../LeftTurnPaul.glb' },
     { name: 'RightTurnPaul', file: '../RightTurnPaul.glb' },
     { name: 'JumpingPaul', file: '../JumpingPaul.glb' },
-    { name: 'RunningPaul', file: '../RunningPaul.glb' }
-
+    { name: 'RunningPaul', file: '../RunningPaul.glb' },
+    { name: 'CastSpell', file: '/maze-assets/models/spell.glb' }
   ];
   
   export default animationList;

@@ -110,8 +110,8 @@
 //   );
 // }
 
-//code 4
-// 'use client';
+//code 4 works great InstancedMazeWalls.js
+'use client';
 
 import { useMemo, useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
@@ -183,3 +183,5 @@ export default function MazeWalls({ grid }) {
     </instancedMesh>
   );
 }
+
+

@@ -586,7 +586,7 @@
 
 // extend({ FlubberInstancedMaterial });
 
-//code 5
+//code 5  works great
 import * as THREE from 'three';
 import { extend } from '@react-three/fiber';
 

@@ -655,7 +655,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Navbar from '../Navbar';
 
-const products = [
+export const products = [
   {
     id: 1,
     name: 'INTERNATIONAL TEFL ACADEMY',
@@ -665,13 +665,15 @@ const products = [
   {
     id: 2,
     name: 'PREPLY.COM',
-    imageUrl: 'https://preply.com/wp-content/uploads/2023/09/Preply_new_slogan_en-820x470.png',
+    // imageUrl: 'https://preply.com/wp-content/uploads/2023/09/Preply_new_slogan_en-820x470.png',
+    imageUrl: '/preply.png',
     productUrl: 'https://www.preply.com'
   },
   {
     id: 3,
     name: 'AMAZON BEST SELLER',
-    imageUrl: 'https://logos-world.net/wp-content/uploads/2020/06/Amazon-Logo.png',
+    // imageUrl: 'https://logos-world.net/wp-content/uploads/2020/06/Amazon-Logo.png',
+    imageUrl: '/amazon.png',
     productUrl: 'https://www.amazon.com/Best-Sellers-Books-English-as-a-Second-Language-Instruction/zgbs/books/11823?utm_source=chatgpt.com&linkCode=ll2&tag=teachtudor-20&linkId=d052a145087524e53a33126694f9bea1&language=en_US&ref_=as_li_ss_tl'
   },
   {
@@ -785,7 +787,8 @@ const products = [
   {
     id: 67,
     name: 'Amazon Best Seller Self Care',
-    imageUrl: 'https://logos-world.net/wp-content/uploads/2020/06/Amazon-Logo.png',
+    // imageUrl: 'https://logos-world.net/wp-content/uploads/2020/06/Amazon-Logo.png',
+    imageUrl: '/amazon.png',
     productUrl: 'https://www.amazon.com/gp/bestsellers/books?&linkCode=ll2&tag=teachtudor-20&linkId=c5c597f0c82a101c9974a3d9f5592bd0&language=en_US&ref_=as_li_ss_tl'
   },
   {
@@ -887,7 +890,8 @@ const products = [
   {
     id: 66,
     name: 'Amazon Best Seller Self Care',
-    imageUrl: 'https://logos-world.net/wp-content/uploads/2020/06/Amazon-Logo.png',
+    // imageUrl: 'https://logos-world.net/wp-content/uploads/2020/06/Amazon-Logo.png',
+    imageUrl: '/amazon.png',
     productUrl: 'https://www.amazon.com/gp/bestsellers/beauty?&linkCode=ll2&tag=teachtudor-20&linkId=72ff6375808f2938bdb551440faab0c0&language=en_US&ref_=as_li_ss_tl'
   },
   {

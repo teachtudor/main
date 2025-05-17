@@ -202,13 +202,28 @@ float noise(vec2 p) {
 float fbm(vec2 p) {
   float total = 0.0;
   float amplitude = 0.5;
-  for (int i = 0; i < 5; i++) {
-    total += noise(p) * amplitude;
-    p *= 2.0;
-    amplitude *= 0.5;
-  }
+
+  total += noise(p) * amplitude;
+  p *= 2.0;
+  amplitude *= 0.5;
+
+  total += noise(p) * amplitude;
+  p *= 2.0;
+  amplitude *= 0.5;
+
+  total += noise(p) * amplitude;
+  p *= 2.0;
+  amplitude *= 0.5;
+
+  total += noise(p) * amplitude;
+  p *= 2.0;
+  amplitude *= 0.5;
+
+  total += noise(p) * amplitude;
+
   return total;
 }
+
 
 void main() {
   float height = normalize(vWorldPos).y;

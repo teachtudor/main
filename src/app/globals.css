@@ -1,0 +1,302 @@
+/* globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&family=Exo:wght@400;700&family=Antonio:wght@200;400;700&family=Rajdhani:wght@300;400;700&family=Share+Tech+Mono&family=Audiowide&family=Big+Shoulders+Stencil+Text:wght@300;400;700&family=Russo+One&display=swap');
+
+:host {
+    -webkit-text-size-adjust: 100%; /* For older browsers */
+    text-size-adjust: 100%; /* Standard version for modern browsers */
+}
+
+/* For supporting Safari */
+[data-nextjs-dialog-backdrop] {
+    backdrop-filter: blur(10px);        /* Standard property */
+    -webkit-backdrop-filter: blur(10px); /* Safari fallback */
+}
+
+/* For supporting older Edge versions */
+[data-nextjs-container-errors-pseudo-html-collapse='true'] .nextjs__container_errors__component-stack code {
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 10%);       /* Standard property */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 10%); /* Fallback for Edge 79+ */
+}
+
+/* For Safari support */
+.dev-tools-indicator-item {
+    user-select: none;               /* Standard property */
+    -webkit-user-select: none;       /* Fallback for Safari */
+}
+
+
+:root {
+    --orbitron: 'Orbitron', sans-serif;
+    --press-start: 'Press Start 2P', cursive;
+    --exo: 'Exo', sans-serif;
+    --antonio: 'Antonio', sans-serif;
+    --rajdhani: 'Rajdhani', sans-serif;
+    --share-tech: 'Share Tech Mono', monospace;
+    --audiowide: 'Audiowide', sans-serif;
+    --big-shoulders: 'Big Shoulders Stencil Text', sans-serif;
+    --russo-one: 'Russo One', sans-serif;
+  }
+
+/* Base reset styles */
+body {
+    font-family: var(--orbitron);
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Optional: light background for better contrast */
+    color: #333; /* Global text color */
+}
+
+* {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    color: #333; /* Unified heading color */
+}
+
+p {
+    margin: 0;
+    color: #555; /* Subtle difference for body text */
+}
+
+a {
+    text-decoration: none;
+    color: #0070f3;
+    transition: color 0.3s ease;
+    font-size: 18px;
+}
+
+a:hover {
+    color: #0056b3; /* Slightly darker blue on hover */
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #333;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    font-size: 45px;
+    font-weight: 500;
+}
+
+
+/* Hover area (top of screen) triggers navbar to appear */
+body:hover .navbar {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+.navbar {
+    font-family: 'Russo One', sans-serif !important;
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Responsive Styling */
+
+/* For tablets and phones (<= 1024px) */
+@media (max-width: 1024px) {
+    nav ul {
+        gap: 15px; /* Smaller gap on tablets */
+    }
+
+    nav a {
+        font-size: 35px; /* Smaller font size on tablets */
+    }
+}
+
+/* For phones (<= 768px) */
+@media (max-width: 768px) {
+    nav {
+        padding: 8px 15px; /* Reduce padding */
+    }
+
+    nav ul {
+        gap: 10px; /* Reduced gap between items */
+    }
+
+    nav a {
+        font-size: 28px; /* Smaller font on mobile */
+    }
+}
+
+/* For very small screens (<= 480px) */
+@media (max-width: 480px) {
+    nav {
+        padding: 8px 10px; /* Even smaller padding for very small screens */
+    }
+
+    nav ul {
+        gap: 8px; /* Very small gap between items */
+        width: 100%; /* Ensure full width */
+        text-align: center; /* Center align the text */
+    }
+
+    nav a {
+        font-size: 22px; /* Font size further reduced for 480px screens */
+        padding: 8px 0; /* Add padding for better clickability */
+    }
+}
+/* Add this to your global CSS or a module CSS file */
+.panel {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button {
+    display: block;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #45a049;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    gap: 5px; /* Minimal space between buttons */
+    margin-top: 20px; /* Optional space from the top */
+  }
+  
+  .action-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .action-button:hover {
+    background-color: #45a049;
+  }
+
+  /* Extra custom 3D utilities */
+.perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-style-preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
+  /* this is the new section */
+
+  /* ---------------------------------------- */
+    /* ✅ General Responsiveness Improvements  */
+    /* ---------------------------------------- */
+
+    /* 1. Make all images flexible */
+    img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* 2. Make canvas always fit screen */
+    canvas {
+        width: 100% !important;
+        height: 100% !important;
+        display: block;
+    }
+
+    /* 3. Stop horizontal scrolling on mobile */
+    html, body {
+        overflow-x: hidden;
+    }
+
+    /* 4. Global wrapper for big fixed-width elements */
+    .responsive-container {
+        width: 100%;
+        max-width: 1200px; /* same size you were using */
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        .responsive-container {
+            max-width: 90%;
+            padding: 0.5rem;
+        }
+    }
+
+    /* 5. Text scaling improvements */
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 1.5rem;
+        }
+        h2 {
+            font-size: 1.25rem;
+        }
+        p {
+            font-size: 0.9rem;
+        }
+    }

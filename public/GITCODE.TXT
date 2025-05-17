@@ -1,0 +1,14 @@
+cd /path/to/your/project
+git status
+git add .
+git add path/to/your/file
+git commit -m "Your commit message here"
+git push origin main
+git push origin your-branch-name
+git pull origin main
+
+cd /path/to/your/project
+git status
+git add .
+git commit -m "Fixed CSV file path and cleaned up code"
+git push origin main

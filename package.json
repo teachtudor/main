@@ -1,0 +1,44 @@
+{
+  "name": "my-nextjs-site",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev && npx open http://localhost:3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.0",
+    "@react-three/cannon": "^6.6.0",
+    "@react-three/drei": "^10.0.5",
+    "@react-three/fiber": "^9.0.4",
+    "@react-three/rapier": "^2.1.0",
+    "@vercel/analytics": "^1.4.1",
+    "@vercel/blob": "^0.27.2",
+    "@vercel/speed-insights": "^1.1.0",
+    "axios": "^1.7.9",
+    "cannon-es": "^0.20.0",
+    "drei": "^2.2.21",
+    "firebase": "^11.4.0",
+    "firebase-admin": "^13.1.0",
+    "framer-motion": "^12.3.1",
+    "json2csv": "^6.0.0-alpha.2",
+    "jspdf": "^2.5.2",
+    "next": "^15.1.6",
+    "next-auth": "^4.24.11",
+    "nodemailer": "^6.10.0",
+    "papaparse": "^5.5.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "three": "^0.174.0",
+    "three-stdlib": "^2.36.0",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "open": "^10.1.0",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17"
+  }
+}

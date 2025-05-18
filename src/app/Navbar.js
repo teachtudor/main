@@ -433,7 +433,9 @@ const Navbar = () => {
           ["ET", "/ET"],
           // ["Maze Game", "/maze-game"],
           // ["BIG Maze", "/BIGMaze"],
-          ["Maze", "/maze-gameWL"]
+          ["Amazon Maze", "/maze-gameWL"],
+          ["ESL Maze", "/maze-gameESL"]
+
         ].map(([label, path]) => (
           <li key={path}>
             <Link href={path} onClick={(e) => handleNavClick(e, path)}>

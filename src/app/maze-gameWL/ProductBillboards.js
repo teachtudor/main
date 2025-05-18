@@ -582,7 +582,9 @@ export default function ProductBillboardCubes({ mazePath = [], products = [] }) 
 
       (async () => {
         const valid = await preloadValidImages(products);
-        const selected = valid.filter((_, i) => i % 2 === 0).slice(0, mazePath.length);
+        // const selected = valid.filter((_, i) => i % 2 === 0).slice(0, mazePath.length);
+        const selected = valid.slice(0, mazePath.length);
+
         const textures = await Promise.all(
           selected.map((p) => new Promise((resolve) => {
             const loader = new TextureLoader();

@@ -670,6 +670,79 @@ export const products = [
     productUrl: 'https://www.preply.com'
   },
   {
+    id: 69,
+    name: 'INSTANT PRINT CAMERA',
+    imageUrl: 'https://m.media-amazon.com/images/I/71IteDU4KEL._AC_SY355_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DS7PQWH5?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.17JBJNZQ22Q3N&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.17JBJNZQ22Q3N_1747561878604'
+  },
+  {
+    id: 70,
+    name: 'PROFESSIONAL POWER BANK',
+    imageUrl: 'https://m.media-amazon.com/images/I/61huLF3Pf2L._AC_SX342_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0D75TSQR4?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.VDC328Z3JI2V&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.VDC328Z3JI2V_1747562040798'
+  },
+  {
+    id: 71,
+    name: 'FLIP TIMER',
+    imageUrl: 'https://m.media-amazon.com/images/I/61xUKAcc6PL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DWMQSM12?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2RK1BHZPO1P7E&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.2RK1BHZPO1P7E_1747562175889'
+  },
+  {
+    id: 72,
+    name: 'MINI BAG SEALER',
+    imageUrl: 'https://m.media-amazon.com/images/I/61aElHNCNfL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DCNTQZ1F?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.19OO377X0E4EK&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.19OO377X0E4EK_1747562306720'
+  },
+  {
+    id: 73,
+    name: 'PORTABLE BOTTLE WARMER',
+    imageUrl: 'https://m.media-amazon.com/images/I/41lNTmInItL._SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0BQM75XWL?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.27WHM4A3L3R9T&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.27WHM4A3L3R9T_1747562457480'
+  },
+  {
+    id: 74,
+    name: 'HAIR DYE SHAMPOO',
+    imageUrl: 'https://m.media-amazon.com/images/I/51GknGCLYNL._SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DPFN4L2W?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1ZCVB1JBYOUFY&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1ZCVB1JBYOUFY_1747562528434'
+  },
+  {
+    id: 75,
+    name: 'LOUSGUTA MINI SKIRT',
+    imageUrl: 'https://m.media-amazon.com/images/I/71ceJz-YAaL._AC_SX522_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0F2YWMVLV?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1KGPFX3INZXQU&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1KGPFX3INZXQU_1747562665627'
+  },
+  {
+    id: 76,
+    name: 'FLORAL DRESS',
+    imageUrl: 'https://m.media-amazon.com/images/I/81O-5ZfRONL._AC_SY445_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0F18HP81P?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.3D7MFMDGUY07H&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.3D7MFMDGUY07H_1747569086432'
+  },
+  {
+    id: 77,
+    name: 'BODYCON DRESS',
+    imageUrl: 'https://m.media-amazon.com/images/I/71msmNg8qhL._AC_SX522_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B095JZWDJZ?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2A1WLYVPAGF6Z&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.2A1WLYVPAGF6Z_1747569158101'
+  },
+  {
+    id: 78,
+    name: 'WOMENS SWEATER',
+    imageUrl: 'https://m.media-amazon.com/images/I/81fuMssGS7L._AC_SX522_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B096XPLML4?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1IGQAPUI8Y2VS&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1IGQAPUI8Y2VS_1747569298840'
+  },
+  {
+    id: 79,
+    name: 'MINI DRESS',
+    imageUrl: 'https://m.media-amazon.com/images/I/61eGyAahT4L._AC_SX522_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0BJPTSMKF?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.NYQMYLG4D345&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.NYQMYLG4D345_1747569435910'
+  },
+  {
+    id: 80,
+    name: 'JUMPER TOPS',
+    imageUrl: 'https://m.media-amazon.com/images/I/81esRnfcgqL._AC_SX522_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0CHRC77FM?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.9QW715NTPCVL&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.9QW715NTPCVL_1747569530113'
+  },
+  
+  {
     id: 3,
     name: 'AMAZON BEST SELLER',
     // imageUrl: 'https://logos-world.net/wp-content/uploads/2020/06/Amazon-Logo.png',
@@ -1062,6 +1135,12 @@ export const products = [
     imageUrl: 'https://m.media-amazon.com/images/I/61N-El7zZQL._SY385_.jpg',
     productUrl: 'https://www.amazon.com/Focus-Grammar-4-MyEnglishLab-5th/dp/0134119991?psc=1&linkCode=ll1&tag=teachtudor-20&linkId=838f8553453d33155e6e950d00757692&language=en_US&ref_=as_li_ss_tl'
   },
+  {
+    id: 68,
+    name: 'BASEBALL HELMET',
+    imageUrl: 'https://m.media-amazon.com/images/I/71YteQMLtbL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0CPS7R2LY?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.38UF0XV11SPO9&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.38UF0XV11SPO9_1747561505653'
+  }
 ];
 
 export default function ProductFloatingWithNavbar() {

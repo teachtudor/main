@@ -900,6 +900,7 @@ export default function MazePage() {
         {/* {modelRef && mazePath.length > 0 && (
           <CoinManager characterRef={modelRef} mazePath={mazePath}/>
         )} */}
+
       </Canvas>
     </div>
   );

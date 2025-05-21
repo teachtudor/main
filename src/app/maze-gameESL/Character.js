@@ -1279,7 +1279,7 @@ const loadSound = (src, loop = false, volume = 1.0) => {
 };
 
 const jumpAudio = loadSound('maze-assets/sounds/jump.mp3', false, 0.5);
-const musicAudio = loadSound('maze-assets/sounds/bgmusic.mp3', true, 0.2);
+const musicAudio = loadSound('maze-assets/sounds/Arpent.mp3', true, 0.2);
 const swishAudio = loadSound('maze-assets/sounds/swish.mp3', false, 0.4);
 
 export default function Character({ onModelRef, wallBoxes, keys, lightOn, musicMuted }) {

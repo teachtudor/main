@@ -434,7 +434,7 @@ const Navbar = () => {
           // ["Maze Game", "/maze-game"],
           // ["BIG Maze", "/BIGMaze"],
           ["Amazon Maze", "/maze-gameWL"],
-          ["ESL Maze", "/maze-gameESL"]
+          ["ESL Maze(in Progress)", "/maze-gameESL"]
 
         ].map(([label, path]) => (
           <li key={path}>

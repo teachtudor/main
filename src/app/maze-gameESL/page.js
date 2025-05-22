@@ -1,4 +1,4 @@
-//code 5 interim
+//code 5 interim works great
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
@@ -115,6 +115,32 @@ export default function MazePage() {
         }}
       >
         Toggle Glow
+      </button>
+
+      {/* ✅ Toggle Music (It's stupid remove it*/}
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          setMusicMuted((prev) => !prev);
+        }}
+        onTouchStart={(e) => e.preventDefault()}
+        onContextMenu={(e) => e.preventDefault()}
+        style={{
+          position: 'absolute',
+          top: 120,
+          right: 20,
+          zIndex: 1000,
+          padding: '10px 20px',
+          fontSize: '16px',
+          background: '#fff',
+          border: '1px solid #ccc',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          userSelect: 'none',
+          touchAction: 'none',
+        }}
+      >
+        {musicMuted ? 'Unmute Music' : 'Mute Music'}
       </button>
 
       <Canvas shadows camera={{ position: [0, 25000, 0], fov: 60, near: 0.1, far: 30000 }}>

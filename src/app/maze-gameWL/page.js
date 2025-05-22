@@ -834,7 +834,7 @@ export default function MazePage() {
       </button>
 
       {/* ✅ Toggle Music (It's stupid remove it*/}
-      {/* <button
+      <button
         onClick={(e) => {
           e.preventDefault();
           setMusicMuted((prev) => !prev);
@@ -857,7 +857,7 @@ export default function MazePage() {
         }}
       >
         {musicMuted ? 'Unmute Music' : 'Mute Music'}
-      </button> */}
+      </button>
 
       <Canvas shadows camera={{ position: [0, 25000, 0], fov: 60, near: 0.1, far: 30000 }}>
         <ambientLight intensity={0.8} />

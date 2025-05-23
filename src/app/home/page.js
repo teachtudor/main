@@ -665,9 +665,164 @@ export const products = [
   {
     id: 2,
     name: 'PREPLY.COM',
-    // imageUrl: 'https://preply.com/wp-content/uploads/2023/09/Preply_new_slogan_en-820x470.png',
     imageUrl: '/preply.png',
     productUrl: 'https://www.preply.com'
+  },
+  {
+    id: 81,
+    name: 'VANITY MIRROR',
+    imageUrl: 'https://m.media-amazon.com/images/I/41UIO9z2sjL._SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0BX86Q6MV?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1QZEN4F9QD4IE&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1QZEN4F9QD4IE_1747992847505'
+  },
+  {
+    id: 82,
+    name: 'SPACED-THEMED MARBLE RUN TOY',
+    imageUrl: 'https://m.media-amazon.com/images/I/71Juo6qAWzL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0D8VZ8VY3?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2EM9RSDIPT0DB&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.2EM9RSDIPT0DB_1747993093692'
+  },
+  {
+    id: 83,
+    name: 'KIDS ELASTIC BELT',
+    imageUrl: 'https://m.media-amazon.com/images/I/81h-dKMHkKL._AC_SX679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0CHP2NRYL?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2WTZJAF7NI0GU&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.2WTZJAF7NI0GU_1747993147634'
+  },
+  {
+    id: 83,
+    name: '2 PACK CORTISOL MANAGER REDUCER',
+    imageUrl: 'https://m.media-amazon.com/images/I/81RvOM563xL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0F29H78CK?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2KA0V2UR3889T&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.2KA0V2UR3889T_1747993283177'
+  },
+  {
+    id: 84,
+    name: 'BONDS WOMENS UNDERWEAR',
+    imageUrl: 'https://m.media-amazon.com/images/I/61UkH2SdStL._AC_SY550_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DX8KXQF5?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1T1DLZ3LM39W8&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1T1DLZ3LM39W8_1747993422693'
+  },
+  {
+    id: 85,
+    name: 'BONDS G STRING',
+    imageUrl: 'https://m.media-amazon.com/images/I/71SswINqbeL._AC_SY679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DX8CG2W5?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1T1DLZ3LM39W8&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1T1DLZ3LM39W8_1747993525215'
+  },
+  {
+    id: 86,
+    name: 'BONDS COTTON FOR MEN UNDERWEAR',
+    imageUrl: 'https://m.media-amazon.com/images/I/81iZ5h-t5xL._AC_SY679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DX8BNL16?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1T1DLZ3LM39W8&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1T1DLZ3LM39W8_1747993650322'
+  },
+  {
+    id: 87,
+    name: 'WOMENS UNDERWEAR THONG',
+    imageUrl: 'https://m.media-amazon.com/images/I/61vAkp-CJeL._AC_SY679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DN8CJG34?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1T1DLZ3LM39W8&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1T1DLZ3LM39W8_1747993701287'
+  },
+  {
+    id: 88,
+    name: 'HOMEMADE JEWELRY',
+    imageUrl: 'https://m.media-amazon.com/images/I/71KOJJBeVXL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0C4651CW5?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.266WZ2HAO3HCX&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.266WZ2HAO3HCX_1747993860785'
+  },
+  {
+    id: 89,
+    name: 'HAIR DYE SHAMPOO',
+    imageUrl: 'https://m.media-amazon.com/images/I/51GknGCLYNL._SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DPFN4L2W?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.35BACNQYCKU4K&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.35BACNQYCKU4K_1747993945852'
+  },
+  {
+    id: 90,
+    name: 'HAIR DYE SHAMPOO',
+    imageUrl: 'https://m.media-amazon.com/images/I/51GknGCLYNL._SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DPFN4L2W?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.17YV0OSJXVTYP&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.17YV0OSJXVTYP_1747994021221'
+  },
+  {
+    id: 91,
+    name: 'LED DESK LAMP WITH CLAMP',
+    imageUrl: 'https://m.media-amazon.com/images/I/71UU9eaEdxL.__AC_SY445_SX342_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DRHYT6GF?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1Z9K6JLOWU4T8&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1Z9K6JLOWU4T8_1747994121975'
+  },
+  {
+    id: 92,
+    name: '12 PIECES PLATES',
+    imageUrl: 'https://m.media-amazon.com/images/I/61JMFzLpYiL.__AC_SY300_SX300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DZ5XRNRH?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2FLYO2NM2VU5B&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.2FLYO2NM2VU5B_1747994245446'
+  },
+  {
+    id: 93,
+    name: '12 PIECES PLATES WATCH',
+    imageUrl: 'https://m.media-amazon.com/images/I/71zjGMEsVqL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0F131QPSL?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1L7HLBEXPXTO1&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1L7HLBEXPXTO1_1747994325616'
+  },
+  {
+    id: 94,
+    name: 'CONCRETE ASHTRAY',
+    imageUrl: 'https://m.media-amazon.com/images/I/51wwGUW0ofL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B08LNG99G5?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.K6DXSO3NVF19&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.K6DXSO3NVF19_1747994403546'
+  },
+  {
+    id: 95,
+    name: 'WOMENS SUMMER SHRUGS',
+    imageUrl: 'https://m.media-amazon.com/images/I/71QNB0x-QrL._AC_SY679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0BZR8F5CG?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1M9KPL3BPJMW0&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1M9KPL3BPJMW0_1747994499862'
+  },
+  {
+    id: 96,
+    name: 'WOMENS SUMMER SHRUGS',
+    imageUrl: 'https://m.media-amazon.com/images/I/71QNB0x-QrL._AC_SY679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0BZR8F5CG?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.1M9KPL3BPJMW0&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.1M9KPL3BPJMW0_1747994499862'
+  },
+  {
+    id: 97,
+    name: 'WOMENS SHORT SLEEVE',
+    imageUrl: 'https://m.media-amazon.com/images/I/71DtL-vcWyL._AC_SY679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DHNQ93H6?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.3OC0ZBSLGEPVA&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.3OC0ZBSLGEPVA_1747994627108'
+  },
+  {
+    id: 98,
+    name: 'WOMENS SHORT SLEEVE',
+    imageUrl: 'https://m.media-amazon.com/images/I/61lt+G6YTgL._AC_SY679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DNHLMHSD?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.32HUOXKGV8RZM&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.32HUOXKGV8RZM_1747994711735'
+  },
+  {
+    id: 99,
+    name: 'WOMENS SHORT SLEEVE',
+    imageUrl: 'https://m.media-amazon.com/images/I/61lt+G6YTgL._AC_SY679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DNHLMHSD?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.32HUOXKGV8RZM&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.32HUOXKGV8RZM_1747994711735'
+  },
+  {
+    id: 100,
+    name: 'WOMENS LOUNGE PANTS',
+    imageUrl: 'https://m.media-amazon.com/images/I/71kqwgg9-NL._AC_SY679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DFWDT75W?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.Z363VSSAYV60&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.Z363VSSAYV60_1747994796157'
+  },
+  {
+    id: 101,
+    name: 'WOMENS CARDIGNAS',
+    imageUrl: 'https://m.media-amazon.com/images/I/71Qenr3G0iL._AC_SY679_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DP1XQH1Y?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.3OC0ZBSLGEPVA&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.3OC0ZBSLGEPVA_1747994970187'
+  },
+  {
+    id: 102,
+    name: 'STUDDED FLAT SANDALS',
+    imageUrl: 'https://m.media-amazon.com/images/I/618xHCHSf0L._AC_SY395_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0F246TGCC?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2OMUQTYRM3X8O&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.2OMUQTYRM3X8O_1747995047390'
+  },
+  {
+    id: 103,
+    name: 'WOMENS SWIMSUIT',
+    imageUrl: 'https://m.media-amazon.com/images/I/71utjKmpQEL._AC_SX522_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B0DW9852PX?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.C9C3BM5IJQYT&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.C9C3BM5IJQYT_1747995131005'
+  },
+  {
+    id: 104,
+    name: 'XBOX ONE CONSOLE 500GB',
+    imageUrl: 'https://m.media-amazon.com/images/I/51NzfmMfprL._SX522_.jpg',
+    productUrl: 'https://www.amazon.com/dp/B00U1WN17G?psc=1&sp_csd=d2lkZ2V0TmFtZT1zcF9ocXBfc2hhcmVk&linkCode=ll1&tag=teachtudor-20&linkId=bbdde0cb211de2dd99e116d5bbd21c52&language=en_US&ref_=as_li_ss_tl'
+  },
+  {
+    id: 105,
+    name: 'PLAYSTATION 5',
+    imageUrl: 'https://m.media-amazon.com/images/I/61EVwZtrPeL._SX466_.jpg',
+    productUrl: 'https://www.amazon.com/PlayStation%C2%AE5-Console-Warfare%C2%AE-Renewed-PlayStation-5/dp/B0CVS6T4HQ?crid=11KOVFHZ63BNY&dib=eyJ2IjoiMSJ9.nRLN6tL2VMjei1uWpjwzTzBg2C58lZGYgzhECcD2EtzyFj9ndCQ87MvTtare-Dnx2FnHSgI_vqYzgVrda5w3PDHLTOnOpJACUS_DYH6wdjKvn1zNHS0Qldm_YsPm3TamnZeT2x7wS4zMw1tQquSqd5UJB4MVBjq2KvOhLhZDzu9nZlhmKTpjlDAzd1DY72cFqP6ZfBdLvde5w-jSjFQ-5K9q5B3ha41yOcGL1VwW0Q4.uu6BRvhhSjHaiCPe_LuB7DXbamiiRviq75eh77KKEEg&dib_tag=se&keywords=PLAYSTATION+5&qid=1747995395&s=videogames&sprefix=playstation+%2Cvideogames%2C288&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1&linkCode=ll1&tag=teachtudor-20&linkId=11e1d78d536d44f5d55845d6ca96e772&language=en_US&ref_=as_li_ss_tl'
   },
   {
     id: 69,

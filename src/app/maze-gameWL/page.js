@@ -731,6 +731,7 @@ import { useStore } from './store';
 import CoinManager from './CoinManager';
 import { products } from '../home/page';
 import ProductBillboards from './ProductBillboards';
+import StarSphere from './StarSphere';
 
 function CoinHUD() {
   const coins = useStore((state) => state.coins);
@@ -859,10 +860,11 @@ export default function MazePage() {
         {musicMuted ? 'Unmute Music' : 'Mute Music'}
       </button>
 
-      <Canvas shadows camera={{ position: [0, 25000, 0], fov: 60, near: 0.1, far: 30000 }}>
+      <Canvas shadows camera={{ position: [0, 25000, 0], fov: 60, near: 0.1, far: 180000 }}>
         <ambientLight intensity={0.8} />
         <pointLight position={[0, 20, 10]} intensity={0.5} />
         <hemisphereLight skyColor={'#ffffff'} groundColor={'#444444'} intensity={0.6} />
+        {/* <StarSphere/> */}
         <SkyDome />
         <directionalLight
           position={[10, 30, -10]}

@@ -1,16 +1,16 @@
 export const metadata = {
-  title: "MAZE GAME",
+  title: "TPR with Gravity",
   description: "Check out this interactive TPR game with gravity physics!",
   openGraph: {
-    title: "MAZE GAME",
-    description: "Check out this 77Km Maze Game",
-    url: "https://www.teachtudor.com/maze-gameWL",
+    title: "TPR with Gravity",
+    description: "Check out this interactive TPR game with gravity physics!",
+    url: "https://www.teachtudor.com/maze-gameESL",
     images: [
       {
-        url: "https://www.teachtudor.com/maze-assets/MAZESHOT.jpg",
+        url: "https://www.teachtudor.com/maze-assets/GRAVITYGAME.jpg",
         width: 1200,
         height: 630,
-        alt: "MAZE GAME"
+        alt: "TPR with Gravity"
       }
     ],
     type: "website"

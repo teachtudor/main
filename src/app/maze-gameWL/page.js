@@ -732,7 +732,6 @@ import CoinManager from './CoinManager';
 import { products } from '../home/page';
 import ProductBillboards from './ProductBillboards';
 import StarSphere from './StarSphere';
-import Head from 'next/head';
 
 
 function CoinHUD() {
@@ -761,7 +760,6 @@ export default function MazePage() {
   const [musicMuted, setMusicMuted] = useState(false);
   const [mazePath, setMazePath] = useState([]);
 
-
   useEffect(() => {
     fetch('/maze-assets/maze_grid.json')
       .then((res) => res.json())
@@ -781,17 +779,6 @@ export default function MazePage() {
 
   return (
     <>
-
-      {/* ✅ Add Open Graph meta tags for link previews */}
-      <Head>
-        <title>TPR with Gravity</title>
-        <meta property="og:title" content="TPR with Gravity" />
-        <meta property="og:description" content="Check out this interactive TPR game with gravity physics!" />
-        <meta property="og:image" content="https://www.teachtudor.com/maze-assets/MAZESHOT.jpg" />
-        <meta property="og:url" content="https://www.teachtudor.com/TPRGravitytest2" />
-        <meta property="og:type" content="website" />
-      </Head>
-
       <div style={{ width: '100vw', height: '100vh' }}>
         <OnScreenControls setControl={setControl} />
         <CoinHUD/>

@@ -732,6 +732,8 @@ import CoinManager from './CoinManager';
 import { products } from '../home/page';
 import ProductBillboards from './ProductBillboards';
 import StarSphere from './StarSphere';
+import Head from 'next/head';
+
 
 function CoinHUD() {
   const coins = useStore((state) => state.coins);

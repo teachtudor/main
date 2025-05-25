@@ -778,133 +778,145 @@ export default function MazePage() {
   const wallBoxes = useMemo(() => (grid.length > 0 ? generateWallBoxes(grid) : []), [grid]);
 
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
-      <OnScreenControls setControl={setControl} />
-      <CoinHUD/>
+    <>
 
-      {/* ✅ Show/Hide Path Button */}
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          setShowPath((prev) => !prev);
-        }}
-        onTouchStart={(e) => e.preventDefault()}
-        onContextMenu={(e) => e.preventDefault()}
-        style={{
-          position: 'absolute',
-          top: 20,
-          right: 20,
-          zIndex: 1000,
-          padding: '10px 20px',
-          fontSize: '16px',
-          background: '#fff',
-          border: '1px solid #ccc',
-          borderRadius: '8px',
-          cursor: 'pointer',
-          userSelect: 'none',
-          touchAction: 'none',
-        }}
-      >
-        {showPath ? 'Hide Path' : 'Show Path'}
-      </button>
+      {/* ✅ Add Open Graph meta tags for link previews */}
+      <Head>
+        <title>TPR with Gravity</title>
+        <meta property="og:title" content="TPR with Gravity" />
+        <meta property="og:description" content="Check out this interactive TPR game with gravity physics!" />
+        <meta property="og:image" content="https://www.teachtudor.com/maze-assets/MAZESHOT.jpg" />
+        <meta property="og:url" content="https://www.teachtudor.com/TPRGravitytest2" />
+        <meta property="og:type" content="website" />
+      </Head>
 
-      {/* ✅ Toggle Glow */}
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          setLightOn((prev) => !prev);
-        }}
-        onTouchStart={(e) => e.preventDefault()}
-        onContextMenu={(e) => e.preventDefault()}
-        style={{
-          position: 'absolute',
-          top: 70,
-          right: 20,
-          zIndex: 1000,
-          padding: '10px 20px',
-          fontSize: '16px',
-          background: '#fff',
-          border: '1px solid #ccc',
-          borderRadius: '8px',
-          cursor: 'pointer',
-          userSelect: 'none',
-          touchAction: 'none',
-        }}
-      >
-        Toggle Glow
-      </button>
+      <div style={{ width: '100vw', height: '100vh' }}>
+        <OnScreenControls setControl={setControl} />
+        <CoinHUD/>
 
-      {/* ✅ Toggle Music (It's stupid remove it*/}
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          setMusicMuted((prev) => !prev);
-        }}
-        onTouchStart={(e) => e.preventDefault()}
-        onContextMenu={(e) => e.preventDefault()}
-        style={{
-          position: 'absolute',
-          top: 120,
-          right: 20,
-          zIndex: 1000,
-          padding: '10px 20px',
-          fontSize: '16px',
-          background: '#fff',
-          border: '1px solid #ccc',
-          borderRadius: '8px',
-          cursor: 'pointer',
-          userSelect: 'none',
-          touchAction: 'none',
-        }}
-      >
-        {musicMuted ? 'Unmute Music' : 'Mute Music'}
-      </button>
+        {/* ✅ Show/Hide Path Button */}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setShowPath((prev) => !prev);
+          }}
+          onTouchStart={(e) => e.preventDefault()}
+          onContextMenu={(e) => e.preventDefault()}
+          style={{
+            position: 'absolute',
+            top: 20,
+            right: 20,
+            zIndex: 1000,
+            padding: '10px 20px',
+            fontSize: '16px',
+            background: '#fff',
+            border: '1px solid #ccc',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            userSelect: 'none',
+            touchAction: 'none',
+          }}
+        >
+          {showPath ? 'Hide Path' : 'Show Path'}
+        </button>
 
-      <Canvas shadows camera={{ position: [0, 25000, 0], fov: 60, near: 0.1, far: 180000 }}>
-        <ambientLight intensity={0.8} />
-        <pointLight position={[0, 20, 10]} intensity={0.5} />
-        <hemisphereLight skyColor={'#ffffff'} groundColor={'#444444'} intensity={0.6} />
-        {/* <StarSphere/> */}
-        <SkyDome />
-        <directionalLight
-          position={[10, 30, -10]}
-          intensity={10}
-          castShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-          shadow-camera-near={0.5}
-          shadow-camera-far={100}
-          shadow-camera-left={-50}
-          shadow-camera-right={50}
-          shadow-camera-top={50}
-          shadow-camera-bottom={-50}
-        />
-        <SurroundGrassPlane />
-        <GroundPlane />
+        {/* ✅ Toggle Glow */}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setLightOn((prev) => !prev);
+          }}
+          onTouchStart={(e) => e.preventDefault()}
+          onContextMenu={(e) => e.preventDefault()}
+          style={{
+            position: 'absolute',
+            top: 70,
+            right: 20,
+            zIndex: 1000,
+            padding: '10px 20px',
+            fontSize: '16px',
+            background: '#fff',
+            border: '1px solid #ccc',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            userSelect: 'none',
+            touchAction: 'none',
+          }}
+        >
+          Toggle Glow
+        </button>
 
-        {grid.length > 0 && <InstancedMazeWalls grid={grid} />}
-        {grid.length > 0 && (
-          <Character 
-            onModelRef={setModelRef} 
-            wallBoxes={wallBoxes} 
-            keys={keys} 
-            lightOn={lightOn}
-            musicMuted={musicMuted}
+        {/* ✅ Toggle Music (It's stupid remove it*/}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setMusicMuted((prev) => !prev);
+          }}
+          onTouchStart={(e) => e.preventDefault()}
+          onContextMenu={(e) => e.preventDefault()}
+          style={{
+            position: 'absolute',
+            top: 120,
+            right: 20,
+            zIndex: 1000,
+            padding: '10px 20px',
+            fontSize: '16px',
+            background: '#fff',
+            border: '1px solid #ccc',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            userSelect: 'none',
+            touchAction: 'none',
+          }}
+        >
+          {musicMuted ? 'Unmute Music' : 'Mute Music'}
+        </button>
+
+        <Canvas shadows camera={{ position: [0, 25000, 0], fov: 60, near: 0.1, far: 180000 }}>
+          <ambientLight intensity={0.8} />
+          <pointLight position={[0, 20, 10]} intensity={0.5} />
+          <hemisphereLight skyColor={'#ffffff'} groundColor={'#444444'} intensity={0.6} />
+          {/* <StarSphere/> */}
+          <SkyDome />
+          <directionalLight
+            position={[10, 30, -10]}
+            intensity={10}
+            castShadow
+            shadow-mapSize-width={1024}
+            shadow-mapSize-height={1024}
+            shadow-camera-near={0.5}
+            shadow-camera-far={100}
+            shadow-camera-left={-50}
+            shadow-camera-right={50}
+            shadow-camera-top={50}
+            shadow-camera-bottom={-50}
           />
-        )}
+          <SurroundGrassPlane />
+          <GroundPlane />
 
-        {/* ✅ Path line toggle */}
-        <PathLine visible={showPath} />
-        {mazePath.length > 0 && <ProductBillboards 
-          mazePath={mazePath} products={products} />}
+          {grid.length > 0 && <InstancedMazeWalls grid={grid} />}
+          {grid.length > 0 && (
+            <Character 
+              onModelRef={setModelRef} 
+              wallBoxes={wallBoxes} 
+              keys={keys} 
+              lightOn={lightOn}
+              musicMuted={musicMuted}
+            />
+          )}
 
-        <Camera targetRef={modelRef} />
-        {/* {modelRef && mazePath.length > 0 && (
-          <CoinManager characterRef={modelRef} mazePath={mazePath}/>
-        )} */}
+          {/* ✅ Path line toggle */}
+          <PathLine visible={showPath} />
+          {mazePath.length > 0 && <ProductBillboards 
+            mazePath={mazePath} products={products} />}
 
-      </Canvas>
-    </div>
+          <Camera targetRef={modelRef} />
+          {/* {modelRef && mazePath.length > 0 && (
+            <CoinManager characterRef={modelRef} mazePath={mazePath}/>
+          )} */}
+        </Canvas>
+      </div>
+    </>
   );
 }
 

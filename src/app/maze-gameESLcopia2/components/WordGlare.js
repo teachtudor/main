@@ -137,24 +137,48 @@
 // export default WordGlare;
 
 //code 5
-import { Html, Sparkles } from '@react-three/drei';
+import { Html, Sparkles, Text } from '@react-three/drei';
 import { useThree, useFrame } from '@react-three/fiber';
 import React, { useRef } from 'react';
+import * as THREE from 'three';
 
+function isInViewFrustum(camera, position) {
+  const frustum = new THREE.Frustum();
+  const matrix = new THREE.Matrix4();
+
+  camera.updateMatrix(); 
+  camera.updateMatrixWorld(); 
+  camera.updateProjectionMatrix(); 
+
+  matrix.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
+  frustum.setFromProjectionMatrix(matrix);
+
+  const posVector = new THREE.Vector3(...position);
+  return frustum.containsPoint(posVector);
+}
+
+// const WordGlare = ({ word, position }) => {
+//   const groupRef = useRef();
+//   const { camera } = useThree();
+
+//   useFrame(() => {
+//     if (groupRef.current) {
+//       groupRef.current.lookAt(camera.position);
+//     }
+//   });
 const WordGlare = ({ word, position }) => {
   const groupRef = useRef();
   const { camera } = useThree();
 
-  useFrame(() => {
-    if (groupRef.current) {
-      groupRef.current.lookAt(camera.position);
-    }
-  });
+  if (!isInViewFrustum(camera, position)) {
+    return null;  // Don't render if out of frustum
+  }
 
   return (
     <group ref={groupRef} position={position}>
       <Sparkles count={500} scale={[5, 5, 5]} size={10} color="cyan" />
-      <Html center transform>
+
+      {/* <Html center transform>
         <div style={{
           fontSize: '40px',
           color: '#fff',
@@ -165,7 +189,18 @@ const WordGlare = ({ word, position }) => {
         }}>
           {word}
         </div>
-      </Html>
+      </Html> */}
+      <Text
+        position={[0, 0, 0]}
+        fontSize={1.5}
+        color="#ffffff"
+        outlineWidth={0.05}
+        outlineColor="#000"
+        anchorX="center"
+        anchorY="middle"
+      >
+        {word}
+      </Text>
     </group>
   );
 };

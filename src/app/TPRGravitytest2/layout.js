@@ -4,7 +4,7 @@ export const metadata = {
   openGraph: {
     title: "TPR with Gravity",
     description: "Check out this interactive TPR game with gravity physics!",
-    url: "https://www.teachtudor.com/maze-gameESL",
+    url: "https://www.teachtudor.com/TPRGravitytest2",
     images: [
       {
         url: "https://www.teachtudor.com/maze-assets/GRAVITYGAME.jpg",
@@ -20,3 +20,4 @@ export const metadata = {
 export default function MazeGameLayout({ children }) {
   return <>{children}</>;
 }
+

@@ -687,7 +687,7 @@ export const products = [
     productUrl: 'https://www.amazon.com/dp/B0CHP2NRYL?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2WTZJAF7NI0GU&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.2WTZJAF7NI0GU_1747993147634'
   },
   {
-    id: 83,
+    id: 84,
     name: '2 PACK CORTISOL MANAGER REDUCER',
     imageUrl: 'https://m.media-amazon.com/images/I/81RvOM563xL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
     productUrl: 'https://www.amazon.com/dp/B0F29H78CK?ref=t_ac_view_request_product_image&campaignId=amzn1.campaign.2KA0V2UR3889T&linkCode=tr1&tag=teachtudor-20&linkId=amzn1.campaign.2KA0V2UR3889T_1747993283177'

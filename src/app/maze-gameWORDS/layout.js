@@ -22,35 +22,35 @@
 // }
 
 export const metadata = {
-  title: "MAZE GAME",
+  title: "HORROR MAZE GAME",
   description: "Check out this interactive TPR game with gravity physics!",
-  keywords: ["Maze Game", "77km Maze", "TPR Game", "Interactive Game", "Three.js"],
+  keywords: ["Maze Game", "77km Maze", "TPR Game", "Interactive Game", "Three.js", "Horror Maze Game"],
   robots: {
     index: true,
     follow: true
   },
   alternates: {
-    canonical: "https://www.teachtudor.com/maze-gameWL"
+    canonical: "https://www.teachtudor.com/maze-gameWORDS"
   },
   openGraph: {
-    title: "MAZE GAME",
+    title: "MOZART MIRROR HORROR MAZE GAME",
     description: "Check out this 77Km Maze Game",
-    url: "https://www.teachtudor.com/maze-gameWL",
+    url: "https://www.teachtudor.com/maze-gameWORDS",
     images: [
       {
-        url: "https://www.teachtudor.com/maze-assets/MAZESHOT.jpg",
+        url: "https://www.teachtudor.com/maze-assets/HORRORMAZE.jpg",
         width: 1200,
         height: 630,
-        alt: "MAZE GAME"
+        alt: "HORROR MAZE GAME"
       }
     ],
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "MAZE GAME",
+    title: "HORROR MAZE GAME",
     description: "Check out this 77Km Maze Game",
-    images: ["https://www.teachtudor.com/maze-assets/MAZESHOT.jpg"]
+    images: ["https://www.teachtudor.com/maze-assets/HORRORMAZE.jpg"]
   }
 };
 

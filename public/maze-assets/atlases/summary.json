@@ -1,0 +1,123 @@
+{
+  "A1": {
+    "batches": 2,
+    "total_words": 1066,
+    "atlases": [
+      {
+        "atlas_file": "A1_atlas_0.png",
+        "mapping_file": "A1_mapping_0.json",
+        "word_count": 969
+      },
+      {
+        "atlas_file": "A1_atlas_1.png",
+        "mapping_file": "A1_mapping_1.json",
+        "word_count": 97
+      }
+    ]
+  },
+  "B1": {
+    "batches": 4,
+    "total_words": 2354,
+    "atlases": [
+      {
+        "atlas_file": "B1_atlas_0.png",
+        "mapping_file": "B1_mapping_0.json",
+        "word_count": 717
+      },
+      {
+        "atlas_file": "B1_atlas_1.png",
+        "mapping_file": "B1_mapping_1.json",
+        "word_count": 710
+      },
+      {
+        "atlas_file": "B1_atlas_2.png",
+        "mapping_file": "B1_mapping_2.json",
+        "word_count": 711
+      },
+      {
+        "atlas_file": "B1_atlas_3.png",
+        "mapping_file": "B1_mapping_3.json",
+        "word_count": 216
+      }
+    ]
+  },
+  "B2": {
+    "batches": 5,
+    "total_words": 2691,
+    "atlases": [
+      {
+        "atlas_file": "B2_atlas_0.png",
+        "mapping_file": "B2_mapping_0.json",
+        "word_count": 687
+      },
+      {
+        "atlas_file": "B2_atlas_1.png",
+        "mapping_file": "B2_mapping_1.json",
+        "word_count": 661
+      },
+      {
+        "atlas_file": "B2_atlas_2.png",
+        "mapping_file": "B2_mapping_2.json",
+        "word_count": 658
+      },
+      {
+        "atlas_file": "B2_atlas_3.png",
+        "mapping_file": "B2_mapping_3.json",
+        "word_count": 672
+      },
+      {
+        "atlas_file": "B2_atlas_4.png",
+        "mapping_file": "B2_mapping_4.json",
+        "word_count": 13
+      }
+    ]
+  },
+  "A2": {
+    "batches": 2,
+    "total_words": 1352,
+    "atlases": [
+      {
+        "atlas_file": "A2_atlas_0.png",
+        "mapping_file": "A2_mapping_0.json",
+        "word_count": 781
+      },
+      {
+        "atlas_file": "A2_atlas_1.png",
+        "mapping_file": "A2_mapping_1.json",
+        "word_count": 571
+      }
+    ]
+  },
+  "C1": {
+    "batches": 2,
+    "total_words": 1009,
+    "atlases": [
+      {
+        "atlas_file": "C1_atlas_0.png",
+        "mapping_file": "C1_mapping_0.json",
+        "word_count": 622
+      },
+      {
+        "atlas_file": "C1_atlas_1.png",
+        "mapping_file": "C1_mapping_1.json",
+        "word_count": 387
+      }
+    ]
+  },
+  "C2": {
+    "batches": 2,
+    "total_words": 972,
+    "atlases": [
+      {
+        "atlas_file": "C2_atlas_0.png",
+        "mapping_file": "C2_mapping_0.json",
+        "word_count": 575
+      },
+      {
+        "atlas_file": "C2_atlas_1.png",
+        "mapping_file": "C2_mapping_1.json",
+        "word_count": 397
+      }
+    ]
+  }
+}

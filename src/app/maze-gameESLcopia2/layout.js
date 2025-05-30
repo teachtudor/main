@@ -20,4 +20,3 @@ export const metadata = {
 export default function MazeGameLayout({ children }) {
   return <>{children}</>;
 }
-

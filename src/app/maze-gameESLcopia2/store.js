@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
 export const useStore = create((set) => ({
-  currentWord: null,
-  setCurrentWord: (word) => set(() => ({ currentWord: word }))
+  coins: 100,
+  addCoins: (amount) => set((state) => ({ coins: state.coins + amount })),
 }));

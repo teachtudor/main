@@ -85,13 +85,18 @@ export default function SkyDome() {
   return (
     <>
       {/* OUTER Earth-like geography */}
-      <mesh position={[500, 0, 500]} scale={[5000, 5000, 5000]}>
+      <mesh 
+        position={[500, 0, 500]} 
+        scale={[5000, 5000, 5000]}
+        renderOrder={10}
+        >
         <sphereGeometry args={[1, 64, 64]} />
         <outerShaderMaterial
           ref={outerMatRef}
           side={THREE.FrontSide}
-          transparent={true}
-          depthWrite={false}
+          transparent={false}
+          depthWrite={true}
+          depthTest={true}
         />
       </mesh>
 

@@ -361,6 +361,112 @@
 
 
 //code 6
+// import { shaderMaterial } from '@react-three/drei';
+// import * as THREE from 'three';
+// import { extend } from '@react-three/fiber';
+
+// const SkyShaderMaterial = shaderMaterial(
+//   {
+//     uTime: 0,
+//     uCameraY: 0,
+//   },
+//   // Vertex Shader
+//   `
+//   varying vec3 vWorldPos;
+
+//   void main() {
+//     vWorldPos = (modelMatrix * vec4(position, 1.0)).xyz;
+//     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+//   }
+//   `,
+//   // Fragment Shader
+//   `
+// uniform float uTime;
+// uniform float uCameraY;
+// varying vec3 vWorldPos;
+
+// // 2D hash
+// float hash(vec2 p) {
+//   return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+// }
+
+// // 2D noise
+// float noise(vec2 p) {
+//   vec2 i = floor(p);
+//   vec2 f = fract(p);
+//   vec2 u = f*f*(3.0 - 2.0*f);
+//   return mix(
+//     mix(hash(i + vec2(0.0, 0.0)), hash(i + vec2(1.0, 0.0)), u.x),
+//     mix(hash(i + vec2(0.0, 1.0)), hash(i + vec2(1.0, 1.0)), u.x),
+//     u.y
+//   );
+// }
+
+// // Fractal Brownian Motion
+// float fbm(vec2 p) {
+//   float total = 0.0;
+//   float amplitude = 0.5;
+
+//   total += noise(p) * amplitude;
+//   p *= 2.0;
+//   amplitude *= 0.5;
+
+//   total += noise(p) * amplitude;
+//   p *= 2.0;
+//   amplitude *= 0.5;
+
+//   total += noise(p) * amplitude;
+//   p *= 2.0;
+//   amplitude *= 0.5;
+
+//   total += noise(p) * amplitude;
+//   p *= 2.0;
+//   amplitude *= 0.5;
+
+//   total += noise(p) * amplitude;
+
+//   return total;
+// }
+
+// void main() {
+//   float height = normalize(vWorldPos).y;
+
+//   vec3 skyColor = mix(
+//     vec3(0.6, 0.85, 1.0),
+//     vec3(0.25, 0.6, 1.0),
+//     height * 0.5 + 0.5
+//   );
+
+//   // Rotating and moving UVs for clouds
+//   float angle = uTime * 0.02;
+//   mat2 rot = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
+  
+//   vec2 uv = rot * (vWorldPos.xz * 0.005) + vec2(uTime * 0.1, uTime * 0.05);
+
+//   float clouds = fbm(uv);
+
+//   clouds = smoothstep(0.55, 0.8, clouds);
+
+//   clouds *= smoothstep(0.0, 0.3, height);
+//   clouds *= smoothstep(0.1, 1.0, height);
+
+//   vec3 color = mix(skyColor, vec3(1.0), clouds);
+
+//   float fade = 1.0 - smoothstep(10.0, 25.0, uCameraY);
+//   color *= fade;
+
+//   gl_FragColor = vec4(color, 1.0);
+// }
+
+
+
+//   `
+// );
+
+// extend({ SkyShaderMaterial });
+
+
+//code 7
 import { shaderMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 import { extend } from '@react-three/fiber';

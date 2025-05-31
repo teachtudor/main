@@ -87,12 +87,19 @@ export default function SkyDome() {
       {/* OUTER Earth-like geography */}
       <mesh position={[500, 0, 500]} scale={[5000, 5000, 5000]}>
         <sphereGeometry args={[1, 64, 64]} />
-        <outerShaderMaterial
+        {/* <outerShaderMaterial
           ref={outerMatRef}
           side={THREE.FrontSide}
           transparent={true}
           depthWrite={false}
-        />
+        /> */}
+        <outerShaderMaterial
+                  ref={outerMatRef}
+                  side={THREE.FrontSide}
+                  transparent={false}
+                  depthWrite={true}
+                  depthTest={true}
+                />
       </mesh>
 
       {/* INNER moving sky */}

@@ -122,41 +122,40 @@ const OuterShaderMaterial = shaderMaterial(
     return total;
   }
 
-  void main() {
-    vec3 dir = normalize(vWorldPos);
-    
-    // Spherical to UV
-    float lat = asin(dir.y);
-    float lon = atan(dir.z, dir.x);
-    vec2 uv = vec2(lon / 3.1416, lat / 1.5708);
-    uv += vec2(uTime * 0.01, uTime * 0.005);
+ void main() {
+  vec3 dir = normalize(vWorldPos);
 
-    float geography = fbm(uv * 4.0);
-    float land = step(0.5, geography);
+  // Spherical mapping to UV
+  float lat = asin(dir.y);
+  float lon = atan(dir.z, dir.x);
+  vec2 uv = vec2(lon / 3.1416, lat / 1.5708);
+  uv += vec2(uTime * 0.01, uTime * 0.005);
 
-    vec3 landColor = vec3(0.2, 0.6, 0.2);
-    vec3 oceanColor = vec3(0.0, 0.2, 0.5);
-    vec3 baseColor = mix(oceanColor, landColor, land);
+  float geography = fbm(uv * 4.0);
+  float land = step(0.5, geography);
 
-    // ----------------------------
-    // Lighting: sun direction
-    vec3 lightDir = normalize(vec3(0.5, 1.0, 0.3));
-    float diffuse = max(dot(vNormal, lightDir), 0.0);
+  // Set land and ocean colors
+  vec3 landColor = vec3(0.2, 0.6, 0.2);
+  vec3 oceanColor = vec3(0.3, 0.6, 1.0); // brighter light blue ocean
+  vec3 baseColor = mix(oceanColor, landColor, land);
 
-    // Height-based color modulation
-    baseColor += 0.1 * land * diffuse;
+  // Lighting
+  vec3 lightDir = normalize(vec3(0.5, 1.0, 0.3));
+  float diffuse = max(dot(vNormal, lightDir), 0.0);
+  baseColor *= diffuse;
 
-    // Rim light: glows at edges
-    float rim = 1.0 - max(dot(vNormal, normalize(-vWorldPos)), 0.0);
-    rim = pow(rim, 2.0);
+  // Optional rim light
+  float rim = 1.0 - max(dot(vNormal, normalize(-vWorldPos)), 0.0);
+  rim = pow(rim, 2.0);
+  baseColor += vec3(0.1, 0.2, 0.3) * rim * 0.5;
 
-    baseColor += vec3(0.1, 0.2, 0.3) * rim;
+  // Make everything fully opaque
+  gl_FragColor = vec4(baseColor, 1.0);
+}
 
-    // Transparency: ocean more transparent
-    float alpha = mix(0.2, 0.8, land);
 
-    gl_FragColor = vec4(baseColor * diffuse + rim * 0.2, alpha);
-  }
+
+
   `
 );
 

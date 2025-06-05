@@ -219,7 +219,7 @@ const OuterShaderMaterial = shaderMaterial(
   float lat = asin(dir.y);
   float lon = atan(dir.z, dir.x);
   vec2 uv = vec2(lon / 3.1416, lat / 1.5708);
-  uv += vec2(uTime * 0.01, uTime * 0.005);
+  // uv += vec2(uTime * 0.01, uTime * 0.005); comment out moving
 
   float geography = fbm(uv * 4.0);
   float land = step(0.5, geography);

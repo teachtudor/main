@@ -886,7 +886,10 @@ export default function MazePage() {
           {musicMuted ? 'Unmute Music' : 'Mute Music'}
         </button>
 
-        <Canvas shadows camera={{ position: [0, 25000, 0], fov: 60, near: 0.01, far: 180000 }}>
+        <Canvas 
+          shadows 
+          camera={{ position: [0, 25000, 0], fov: 60, near: 0.00001, far: 180000 }}
+          >
           <ambientLight intensity={0.8} />
           <pointLight position={[0, 20, 10]} intensity={0.5} />
           <hemisphereLight skyColor={'#ffffff'} groundColor={'#444444'} intensity={0.6} />

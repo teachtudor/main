@@ -419,137 +419,513 @@
 //   );
 // }
 
-//code 4
+//code 4 works great
+
+// "use client";
+
+// import { Canvas, useFrame, useThree } from '@react-three/fiber';
+// import { OrbitControls, RoundedBox } from '@react-three/drei';
+// import { useRef, useState, useMemo } from 'react';
+// import * as THREE from 'three';
+// import { useRouter } from 'next/navigation';
+
+
+// const pages = [
+//   { title: 'Home', path: '/home', color: '#7e22ce' },
+//   { title: 'Tools', path: '/Tools', color: '#db2777' },
+//   { title: 'Places', path: '/PLACES', color: '#2563eb' },
+//   { title: 'TPR', path: '/TPRGravitytest2', color: '#22c55e' },
+//   { title: 'ET', path: '/ET', color: '#f59e0b' },
+//   { title: 'Amazon Maze', path: '/maze-gameWL', color: '#ec4899' },
+//   { title: 'Mirror Maze', path: '/maze-gameWORDS', color: '#3b82f6' },
+//   { title: 'Test Site', path: '/testSite', color: '#10b981' }
+// ];
+
+// export default function CarouselScene() {
+//   return (
+//     <div className="w-screen h-screen bg-black">
+//       <Canvas 
+//         shadows 
+//         camera={{ position: [0, 5, 10], fov: 60 }}
+//         >
+//         <ambientLight intensity={7} />
+//         <directionalLight
+//           castShadow
+//           shadow-mapSize-width={1024}
+//           shadow-mapSize-height={1024}
+//           position={[0, 10, 5]}
+//           intensity={2}
+//         />
+//         <OrbitControls enableZoom enablePan enableRotate />
+//         <CarouselCards />
+//       </Canvas>
+//     </div>
+//   );
+// }
+
+// function CarouselCards() {
+//   const radius = 5;
+//   const ref = useRef();
+//   const router = useRouter();
+
+//   // Track hovered card index (-1 = none)
+//   const [hoveredIndex, setHoveredIndex] = useState(-1);
+
+
+//   const positions = useMemo(() => {
+//   const offset = (2 / pages.length) * Math.PI * 2;
+//   return pages.map((_, i) => {
+//     const angle = (i / pages.length) * Math.PI * 2 + offset;
+//     return [Math.cos(angle) * radius, 0, Math.sin(angle) * radius];
+//   });
+// }, []);
+
+//   useFrame(() => {
+//     if (ref.current) {
+//       pages.forEach((_, i) => {
+//         const card = ref.current.children[i];
+//         if (card) {
+//           card.lookAt(0, 5, 10); // keep facing camera
+
+//           // Animate lift on Y axis
+//           const targetY = (hoveredIndex === i) ? 1 : 0; // lift by 1 unit
+//           card.position.y += (targetY - card.position.y) * 0.1; // smooth lerp
+//         }
+//       });
+//     }
+//   });
+
+//   return (
+//     <group ref={ref}>
+//       {pages.map((page, i) => (
+//         <group
+//           key={page.path}
+//           position={positions[i]} // base X, Z
+//           // initial Y is 0 but useFrame animates it
+//           ref={el => el && el.lookAt(0, 2, 10)}
+//           castShadow
+//           receiveShadow
+//           onPointerEnter={() => {
+//             setHoveredIndex(i);
+//             document.body.style.cursor = 'pointer';
+//           }}
+//           onPointerLeave={() => {
+//             setHoveredIndex(-1);
+//             document.body.style.cursor = 'default';
+//           }}
+//           onClick={() => router.push(page.path)}
+//         >
+//           <RoundedBox
+//             args={[2.5, 1.5, 0.1]}
+//             radius={0.1}
+//             smoothness={4}
+//             castShadow
+//             receiveShadow
+//           >
+//             <meshPhysicalMaterial
+//               color={page.color}
+//               metalness={0.9}
+//               roughness={0.1}
+//               clearcoat={1}
+//               clearcoatRoughness={0.1}
+//               reflectivity={1}
+//               side={THREE.FrontSide}
+//             />
+//           </RoundedBox>
+//           <TextLabel text={page.title} />
+//         </group>
+//       ))}
+//     </group>
+//   );
+// }
+
+
+// function TextLabel({ text }) {
+//   const { gl } = useThree();
+//   const canvas = useMemo(() => {
+//     const c = document.createElement('canvas');
+//     c.width = 256;
+//     c.height = 64;
+//     const ctx = c.getContext('2d');
+//     ctx.fillStyle = '#ffffff';
+//     ctx.font = 'bold 28px sans-serif';
+//     ctx.textAlign = 'center';
+//     ctx.textBaseline = 'middle';
+//     ctx.clearRect(0, 0, c.width, c.height);
+//     ctx.fillText(text, c.width / 2, c.height / 2);
+//     return c;
+//   }, [text]);
+
+//   const texture = useMemo(() => {
+//     const tex = new THREE.CanvasTexture(canvas);
+//     tex.needsUpdate = true;
+//     // tex.anisotropy = 16;
+//     tex.anisotropy = gl.capabilities.getMaxAnisotropy();    
+//     return tex;
+//   }, [canvas]);
+
+//   return (
+//     <mesh position={[0, 0, 0.11]} renderOrder={1}>
+//       <planeGeometry args={[1.5, 0.375]} />
+//       <meshBasicMaterial
+//         transparent
+//         map={texture}
+//         depthWrite={true}
+//         depthTest={true}
+//         side={THREE.FrontSide}
+//       />
+//     </mesh>
+//   );
+// }
+
+
+//code 5
+// "use client";
+
+// import { Canvas, useFrame, useThree } from "@react-three/fiber";
+// import { OrbitControls, Html } from "@react-three/drei";
+// import { useRef, useState, useMemo } from "react";
+// import * as THREE from "three";
+// import { useRouter } from "next/navigation";
+
+// const pages = [
+//   { title: "Home", path: "/home", color: "#7e22ce", img: "/images/home.png" },
+//   { title: "Tools", path: "/Tools", color: "#db2777", img: "/images/tools.png" },
+//   { title: "Places", path: "/PLACES", color: "#2563eb", img: "/images/places.png" },
+//   { title: "TPR", path: "/TPRGravitytest2", color: "#22c55e", img: "/images/tpr.png" },
+//   { title: "ET", path: "/ET", color: "#f59e0b", img: "/images/et.png" },
+//   { title: "Amazon Maze", path: "/maze-gameWL", color: "#ec4899", img: "/images/amazon.png" },
+//   { title: "Mirror Maze", path: "/maze-gameWORDS", color: "#3b82f6", img: "/images/mirror.png" },
+//   { title: "Test Site", path: "/testSite", color: "#10b981", img: "/images/test.png" },
+// ];
+
+// export default function FolderStackScene() {
+//   return (
+//     <div className="w-screen h-screen bg-black">
+//       <Canvas shadows camera={{ position: [0, 4, 10], fov: 50 }}>
+//         <ambientLight intensity={1.2} />
+//         <directionalLight position={[5, 10, 10]} intensity={2} castShadow />
+//         <OrbitControls enableZoom enablePan />
+//         <FolderStack />
+//       </Canvas>
+//     </div>
+//   );
+// }
+
+// function FolderStack() {
+//   const [activeIndex, setActiveIndex] = useState(0);
+//   const folderOffsetZ = -0.03;
+//   const router = useRouter();
+
+//   const tabsPerRow = 4;
+//   const tabSpacingX = 2.2;
+//   const tabSpacingY = 0.7;
+
+//   return (
+//     <>
+//       {/* Tabs group — fixed position above folders */}
+//       <group position={[-4.4, 6.4, 1]}>
+//         {pages.map((page, i) => {
+//           const row = Math.floor(i / tabsPerRow);
+//           const col = i % tabsPerRow;
+//           return (
+//             <Tab
+//               key={page.path}
+//               index={i}
+//               page={page}
+//               position={[col * tabSpacingX, -row * tabSpacingY, 0]}
+//               isActive={i === activeIndex}
+//               onClick={() => {
+//                 setActiveIndex(i);
+//                 router.push(page.path);
+//               }}
+//             />
+//           );
+//         })}
+//       </group>
+
+//       {/* Folder stack group */}
+//       <group position={[-4.4, 3.5, 0]}>
+//         {pages.map((page, i) => (
+//           <FolderBox
+//             key={page.path}
+//             page={page}
+//             isActive={i === activeIndex}
+//             index={i}
+//             zIndex={i * folderOffsetZ}
+//             showIframe={i === activeIndex}
+//           />
+//         ))}
+//       </group>
+//     </>
+//   );
+// }
+
+
+
+// function Tab({ page, position, isActive, onClick }) {
+//   return (
+//     <group position={position}>
+//       <mesh onClick={onClick} cursor="pointer">
+//         <boxGeometry args={[2, 0.5, 0.1]} />
+//         <meshStandardMaterial color={isActive ? "#ffffff" : page.color} />
+//         <TextLabel text={page.title} zOffset={0.06} />
+//       </mesh>
+//     </group>
+//   );
+// }
+
+// function FolderBox({ page, isActive, index, zIndex, showIframe }) {
+//   const ref = useRef();
+//   const baseY = 0;
+//   const baseX = 2.5;
+//   const activeX = 4;
+//   const activeZ = 0.3;
+
+//   useFrame(() => {
+//     if (!ref.current) return;
+//     const targetX = isActive ? activeX : baseX;
+//     const targetZ = isActive ? activeZ : zIndex;
+//     ref.current.position.x += (targetX - ref.current.position.x) * 0.1;
+//     ref.current.position.y = baseY;
+//     ref.current.position.z += (targetZ - ref.current.position.z) * 0.1;
+//   });
+
+//   return (
+//     <group ref={ref} position={[baseX, baseY, zIndex]}>
+//       <mesh castShadow receiveShadow>
+//         <boxGeometry args={[6, 4, 0.2]} />
+//         <meshStandardMaterial color="#444" />
+//       </mesh>
+
+//       {showIframe && (
+//         <Html
+//           position={[0, 0, 0.11]}
+//           transform
+//           occlude
+//           distanceFactor={5}
+//           style={{
+//             width: 600,
+//             height: 400,
+//             borderRadius: "8px",
+//             overflow: "hidden",
+//             boxShadow: "0 0 10px rgba(0,0,0,0.5)",
+//             backgroundColor: "#fff",
+//           }}
+//         >
+//           <iframe
+//             src={page.path}
+//             width="600"
+//             height="400"
+//             style={{ border: "none" }}
+//             sandbox="allow-scripts allow-same-origin allow-forms"
+//             title={page.title}
+//           />
+//         </Html>
+//       )}
+//     </group>
+//   );
+// }
+
+// function TextLabel({ text, zOffset = 0.03 }) {
+//   const { gl } = useThree();
+
+//   const canvas = useMemo(() => {
+//     const c = document.createElement("canvas");
+//     c.width = 256;
+//     c.height = 64;
+//     const ctx = c.getContext("2d");
+//     ctx.fillStyle = "#000000";
+//     ctx.font = "bold 24px sans-serif";
+//     ctx.textAlign = "center";
+//     ctx.textBaseline = "middle";
+//     ctx.clearRect(0, 0, c.width, c.height);
+//     ctx.fillText(text, c.width / 2, c.height / 2);
+//     return c;
+//   }, [text]);
+
+//   const texture = useMemo(() => {
+//     const tex = new THREE.CanvasTexture(canvas);
+//     tex.anisotropy = gl.capabilities.getMaxAnisotropy();
+//     return tex;
+//   }, [canvas]);
+
+//   return (
+//     <mesh position={[0, 0, zOffset]} renderOrder={10}>
+//       <planeGeometry args={[1.6, 0.3]} />
+//       <meshBasicMaterial
+//         transparent
+//         map={texture}
+//         depthWrite
+//         depthTest
+//         side={THREE.FrontSide}
+//       />
+//     </mesh>
+//   );
+// }
+
+//code 6
 "use client";
 
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls, RoundedBox } from '@react-three/drei';
-import { useRef, useState, useMemo } from 'react';
-import * as THREE from 'three';
-import { useRouter } from 'next/navigation';
-
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { OrbitControls, Html } from "@react-three/drei";
+import { useRef, useState, useMemo } from "react";
+import * as THREE from "three";
+import { useRouter } from "next/navigation";
 
 const pages = [
-  { title: 'Home', path: '/home', color: '#7e22ce' },
-  { title: 'Tools', path: '/Tools', color: '#db2777' },
-  { title: 'Places', path: '/PLACES', color: '#2563eb' },
-  { title: 'TPR', path: '/TPRGravitytest2', color: '#22c55e' },
-  { title: 'ET', path: '/ET', color: '#f59e0b' },
-  { title: 'Amazon Maze', path: '/maze-gameWL', color: '#ec4899' },
-  { title: 'Mirror Maze', path: '/maze-gameWORDS', color: '#3b82f6' },
-  { title: 'Test Site', path: '/testSite', color: '#10b981' }
+  { title: "Home", path: "/home", color: "#7e22ce", img: "/images/home.png" },
+  { title: "Tools", path: "/Tools", color: "#db2777", img: "/images/tools.png" },
+  { title: "Places", path: "/PLACES", color: "#2563eb", img: "/images/places.png" },
+  { title: "TPR", path: "/TPRGravitytest2", color: "#22c55e", img: "/images/tpr.png" },
+  { title: "ET", path: "/ET", color: "#f59e0b", img: "/images/et.png" },
+  { title: "Amazon Maze", path: "/maze-gameWL", color: "#ec4899", img: "/images/amazon.png" },
+  { title: "Mirror Maze", path: "/maze-gameWORDS", color: "#3b82f6", img: "/images/mirror.png" },
+  { title: "Test Site", path: "/testSite", color: "#10b981", img: "/images/test.png" },
 ];
 
-export default function CarouselScene() {
+export default function FolderStackScene() {
   return (
     <div className="w-screen h-screen bg-black">
-      <Canvas 
-        shadows 
-        camera={{ position: [0, 5, 10], fov: 60 }}
-        >
-        <ambientLight intensity={7} />
-        <directionalLight
-          castShadow
-          shadow-mapSize-width={1024}
-          shadow-mapSize-height={1024}
-          position={[0, 10, 5]}
-          intensity={2}
-        />
-        <OrbitControls enableZoom enablePan enableRotate />
-        <CarouselCards />
+      <Canvas shadows camera={{ position: [0, 0, 10], fov: 50 }}>
+        <ambientLight intensity={1.2} />
+        <directionalLight position={[5, 10, 10]} intensity={2} castShadow />
+        <OrbitControls enableZoom enablePan />
+        <FolderStack />
       </Canvas>
     </div>
   );
 }
 
-function CarouselCards() {
-  const radius = 5;
-  const ref = useRef();
+function FolderStack() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const folderOffsetZ = -0.03;
   const router = useRouter();
 
-  // Track hovered card index (-1 = none)
-  const [hoveredIndex, setHoveredIndex] = useState(-1);
+  const tabsPerRow = 4;
+  const tabSpacingX = 2.2;
+  const tabSpacingY = 0.7;
 
+  return (
+    <>
+      {/* Tabs Group (Fixed Top) */}
+      <group position={[-3.5, 3.9, 0]}>
+        {pages.map((page, i) => {
+          const row = Math.floor(i / tabsPerRow);
+          const col = i % tabsPerRow;
+          return (
+            <Tab
+              key={page.path}
+              index={i}
+              page={page}
+              position={[col * tabSpacingX, -row * tabSpacingY, 0]}
+              isActive={i === activeIndex}
+              onClick={() => {
+                setActiveIndex(i);
+                // router.push(page.path);
+              }}
+            />
+          );
+        })}
+      </group>
 
-  const positions = useMemo(() => {
-  const offset = (2 / pages.length) * Math.PI * 2;
-  return pages.map((_, i) => {
-    const angle = (i / pages.length) * Math.PI * 2 + offset;
-    return [Math.cos(angle) * radius, 0, Math.sin(angle) * radius];
-  });
-}, []);
+      {/* Folder Stack */}
+      <group position={[-0.15,-3.5 , 0]}>
+        {pages.map((page, i) => (
+          <FolderBox
+            key={page.path}
+            page={page}
+            isActive={i === activeIndex}
+            index={i}
+            zIndex={i * folderOffsetZ}
+            showIframe={i === activeIndex}
+            onClick={() => router.push(page.path)}
+          />
+        ))}
+      </group>
+    </>
+  );
+}
+
+function Tab({ page, position, isActive, onClick }) {
+  return (
+    <group position={position}>
+      <mesh onClick={onClick} cursor="pointer">
+        <boxGeometry args={[2, 0.5, 0.1]} />
+        <meshStandardMaterial color={isActive ? "#ffffff" : page.color} />
+        <TextLabel text={page.title} zOffset={0.06} />
+      </mesh>
+    </group>
+  );
+}
+
+function FolderBox({ page, isActive, zIndex, showIframe, onClick }) {
+  const ref = useRef();
+  const centerX = 0;
+  const sideX = 4;
 
   useFrame(() => {
-    if (ref.current) {
-      pages.forEach((_, i) => {
-        const card = ref.current.children[i];
-        if (card) {
-          card.lookAt(0, 5, 10); // keep facing camera
-
-          // Animate lift on Y axis
-          const targetY = (hoveredIndex === i) ? 1 : 0; // lift by 1 unit
-          card.position.y += (targetY - card.position.y) * 0.1; // smooth lerp
-        }
-      });
-    }
+    if (!ref.current) return;
+    const targetX = isActive ? centerX : sideX;
+    const targetZ = isActive ? 0.3 : zIndex;
+    ref.current.position.x += (targetX - ref.current.position.x) * 0.1;
+    ref.current.position.y = 3.5; // consistent y
+    ref.current.position.z += (targetZ - ref.current.position.z) * 0.1;
   });
 
   return (
-    <group ref={ref}>
-      {pages.map((page, i) => (
-        <group
-          key={page.path}
-          position={positions[i]} // base X, Z
-          // initial Y is 0 but useFrame animates it
-          ref={el => el && el.lookAt(0, 2, 10)}
-          castShadow
-          receiveShadow
-          onPointerEnter={() => {
-            setHoveredIndex(i);
-            document.body.style.cursor = 'pointer';
-          }}
-          onPointerLeave={() => {
-            setHoveredIndex(-1);
-            document.body.style.cursor = 'default';
-          }}
-          onClick={() => router.push(page.path)}
-        >
-          <RoundedBox
-            args={[2.5, 1.5, 0.1]}
-            radius={0.1}
-            smoothness={4}
-            castShadow
-            receiveShadow
+    <group ref={ref} position={[0, 3.5, zIndex]}>
+      {showIframe && (
+        <>
+          {/* SINGLE folder box exactly matching iframe */}
+          <mesh castShadow receiveShadow onClick={onClick} cursor="pointer">
+            <boxGeometry args={[7.15, 4.95, 0.2]} />
+            <meshStandardMaterial color="#ffffff" />
+          </mesh>
+
+          {/* Iframe sits just above box face */}
+          <Html
+            position={[0, 0, 0.11]}
+            transform
+            occlude
+            distanceFactor={5}
+            style={{
+              width: 600,
+              height: 400,
+              borderRadius: "8px",
+              overflow: "hidden",
+              boxShadow: "0 0 10px rgba(0,0,0,0.5)",
+              backgroundColor: "#fff",
+            }}
           >
-            <meshPhysicalMaterial
-              color={page.color}
-              metalness={0.9}
-              roughness={0.1}
-              clearcoat={1}
-              clearcoatRoughness={0.1}
-              reflectivity={1}
-              side={THREE.FrontSide}
+            <iframe
+              src={page.path}
+              width="600"
+              height="400"
+              style={{ border: "none" }}
+              sandbox="allow-scripts allow-same-origin allow-forms"
+              title={page.title}
             />
-          </RoundedBox>
-          <TextLabel text={page.title} />
-        </group>
-      ))}
+          </Html>
+        </>
+      )}
     </group>
   );
 }
 
 
-function TextLabel({ text }) {
+function TextLabel({ text, zOffset = 0.03 }) {
   const { gl } = useThree();
+
   const canvas = useMemo(() => {
-    const c = document.createElement('canvas');
+    const c = document.createElement("canvas");
     c.width = 256;
     c.height = 64;
-    const ctx = c.getContext('2d');
-    ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 28px sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
+    const ctx = c.getContext("2d");
+    ctx.fillStyle = "#000000";
+    ctx.font = "bold 24px sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
     ctx.clearRect(0, 0, c.width, c.height);
     ctx.fillText(text, c.width / 2, c.height / 2);
     return c;
@@ -557,20 +933,18 @@ function TextLabel({ text }) {
 
   const texture = useMemo(() => {
     const tex = new THREE.CanvasTexture(canvas);
-    tex.needsUpdate = true;
-    // tex.anisotropy = 16;
-    tex.anisotropy = gl.capabilities.getMaxAnisotropy();    
+    tex.anisotropy = gl.capabilities.getMaxAnisotropy();
     return tex;
   }, [canvas]);
 
   return (
-    <mesh position={[0, 0, 0.11]} renderOrder={1}>
-      <planeGeometry args={[1.5, 0.375]} />
+    <mesh position={[0, 0, zOffset]} renderOrder={10}>
+      <planeGeometry args={[1.6, 0.3]} />
       <meshBasicMaterial
         transparent
         map={texture}
-        depthWrite={true}
-        depthTest={true}
+        depthWrite
+        depthTest
         side={THREE.FrontSide}
       />
     </mesh>

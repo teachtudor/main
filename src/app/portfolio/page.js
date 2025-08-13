@@ -2,10 +2,12 @@
 'use client';
 import Head from 'next/head';
 import Link from 'next/link';
+import Navbar from '../Navbar';
 
 export default function Portfolio() {
   return (
     <>
+    <Navbar/>
       <Head>
         <title>Edward Pablo de Sa Sauerbrunn – Portfolio</title>
         <meta name="description" content="Portfolio of Edward Pablo de Sa Sauerbrunn – Civil Engineer, ESL Educator, Data Analyst" />

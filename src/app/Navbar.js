@@ -51,7 +51,8 @@ const Navbar = () => {
           // ["ESL Maze(in Progress)", "/maze-gameESL"],
           // ["ESL Maze(NEW in Progress)", "/maze-gameESLcopia2"],
           ["Mirror Maze", "/maze-gameWORDS"],
-          ["Test Navbar", "/testSite"]
+          // ["Test Navbar", "/testSite"]
+          ["Happy Night Board", "/HBG"]
         ].map(([label, path]) => (
           <li key={path}>
             <Link href={path} onClick={(e) => handleNavClick(e, path)}>

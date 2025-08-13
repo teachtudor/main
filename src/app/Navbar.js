@@ -48,6 +48,7 @@ const Navbar = () => {
           // ["Maze Game", "/maze-game"],
           // ["BIG Maze", "/BIGMaze"],
           ["Amazon Maze", "/maze-gameWL"],
+          ["Portfolio", "/portfolio"]
           // ["ESL Maze(in Progress)", "/maze-gameESL"],
           // ["ESL Maze(NEW in Progress)", "/maze-gameESLcopia2"],
           // ["Mirror Maze", "/maze-gameWORDS"],

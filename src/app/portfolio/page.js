@@ -104,6 +104,42 @@ export default function Portfolio() {
                 Thank you! 
             </p>
         </section>
+        {/* Sample Student Data Analysis PDF Section */}
+      <section style={{ padding: '4rem 2rem', maxWidth: '800px', margin: '0 auto' }}>
+        <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem', textAlign: 'center' }}>
+          SAMPLE STUDENT DATA ANALYSIS
+        </h1>
+        <h2 style={{ fontSize: '1.5rem', color: '#555', textAlign: 'center' }}>
+          Using Jupyter & Python
+        </h2>
+
+        {/* PDF Link */}
+        <p style={{ textAlign: 'center', fontSize: '1.2rem' }}>
+          <a
+            href="/Final_analysis.pdf" // Put your PDF in the /public folder
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: '#0070f3',
+              textDecoration: 'none',
+              fontWeight: 'bold'
+            }}
+          >
+            View / Download PDF
+          </a>
+        </p>
+
+        {/* Optional: Embed PDF Preview */}
+        <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+          <iframe
+            src="/Final_analysis.pdf"
+            width="100%"
+            height="600px"
+            style={{ border: '1px solid #ddd', borderRadius: '8px' }}
+          ></iframe>
+        </div>
+      </section>
+
       </main>
     </>
   );

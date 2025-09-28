@@ -159,7 +159,7 @@ const buttons = [
 
 
 
-  const directories = ['PLACES', 'maze-gameWL', 'portfolio', 'ET', 'TPRGravitytest2', 'blog/11', 'blog/19', 'blog/5', 'blog/1','blog/2', 'blog/7']; 
+  const directories = ['PLACES', 'maze-gameWL', 'portfolio', 'ET', 'TPRGravitytest2', 'blog/11', 'blog/19', 'blog/5', 'blog/1','blog/2','blog/6' ,'blog/7']; 
 
   return (
     <>

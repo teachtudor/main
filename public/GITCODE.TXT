@@ -1,3 +1,4 @@
+
 cd /path/to/your/project
 git status
 git add .

@@ -59,7 +59,7 @@ export default function RootLayout({ children }) {
       <body>
       <Analytics />
       <SpeedInsights />
-        {/* <Navbar /> ✅ Navbar is now properly imported */}
+        {/* <Navbar />  */}
         <main>{children}</main>
       </body>
     </html>

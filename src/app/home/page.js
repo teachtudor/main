@@ -654,7 +654,7 @@ export const products = [
 export default function ProductFloatingWithNavbar() {
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <CircleNavbar />
       <h1 style={{ fontSize: '40px', textAlign: 'center', margin: '0', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         

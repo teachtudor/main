@@ -77,8 +77,6 @@ function Button({ label, color = "#FFD700", position, onClick, target }) {
   );
 }
 
-
-
 // -----------------------------
 // Table component
 // -----------------------------
@@ -126,21 +124,6 @@ function Table({ buttons, directories, onLoad }) {
 export default function TableScene() {
 
   const [loaded, setLoaded] = useState(false);
-
-//   const buttons = [
-//     { label: "Places", color: "#FFA500", onClick: () => console.log("Places") },
-//     { label: "AmazonMaze", color: "#4dff5fff", onClick: () => console.log("AmazonMaze") },
-//     { label: "Portfolio", color: "#FFD633", onClick: () => console.log("Portfolio") },
-//     { label: "ET", color: "#FFC700", onClick: () => console.log("ET") },
-//     { label: "TPR", color: "#FFCC00", onClick: () => console.log("TPR") },
-//     { label: "TPR Toggle", color: "#FFDA33", onClick: () => console.log("TPR Toggle") },
-//     { label: "Statistics Study", color: "#FFE066", onClick: () => console.log("Statistics Study") },
-//     { label: "Word Test", color: "#FFE699", onClick: () => console.log("Word Test") },
-//     { label: "Slide Presentation", color: "#FFFF99", onClick: () => console.log("Slide Presentation") },
-//     { label: "Slide Presentation 2", color: "#FFEB99", onClick: () => console.log("Slide Presentation ML") },
-//     { label: "Magic Ball Game", color: "#FFF0B3", onClick: () => console.log("Magic Ball Game") },
-//     { label: "JLPT Game", color: "#FFD700", onClick: () => console.log("JLPT Game") },
-//   ];
 
 const buttons = [
   { label: "Places", color: "#FF4500", onClick: () => console.log("Places") },         // OrangeRed

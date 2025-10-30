@@ -44,7 +44,7 @@ const Navbar = () => {
           // ["TPR Gravity", "/TPRGravity"],
           // ["TPR Gravity Test", "/TPRGravitytest"],
           ["TPR", "/TPRGravitytest2"],
-          ["ET", "/ET"],
+          // ["ET", "/ET"],
           // ["Maze Game", "/maze-game"],
           // ["BIG Maze", "/BIGMaze"],
           ["Amazon Maze", "/maze-gameWL"],
